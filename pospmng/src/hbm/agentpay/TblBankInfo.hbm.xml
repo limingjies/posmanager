@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.agentpay">
+	<class
+		name="TblBankInfo"
+		table="TBL_BANK_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<meta attribute="sync-VO">true</meta>
+		<id
+			name="bankNo"
+			column="BANK_NO"
+			type="string"
+			length="14"
+			>
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="bankName"
+			column="BANK_NAME"
+			type="string"
+			not-null="false"
+			length="120"
+			/>
+	</class>	
+</hibernate-mapping>

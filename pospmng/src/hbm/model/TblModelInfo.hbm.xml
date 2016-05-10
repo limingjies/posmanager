@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblModelInfo"
+		table="TBL_MODEL_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id name="modelId"
+			type="integer"
+			column="MODEL_ID"
+		>
+			<generator class="assigned"/>
+		</id>
+
+		<property
+			name="modelName"
+			column="MODEL_NAME"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="version"
+			column="VERSION"
+			type="integer"
+			not-null="false"
+			length="6"
+		/>
+		<property
+			name="createTime"
+			column="CREATE_TIME"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="updateTime"
+			column="UPDATE_TIME"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="operateId"
+			column="OPERATE_ID"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="printNumber"
+			column="PRINT_NUMBER"
+			type="integer"
+			not-null="false"
+			length="1"
+		/>
+		
+	</class>	
+</hibernate-mapping>

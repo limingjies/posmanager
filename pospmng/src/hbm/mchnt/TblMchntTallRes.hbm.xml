@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="as.allinfinance.po.management.mer">
+	<class
+		name="TblMchntTallRes"
+		table="TBL_MCHNT_TALL_RES"
+	>
+		<composite-id name="Id" class="TblMchntTallResPK">
+			<key-property name="mchntId" column="mchnt_id" type="string" />
+			<key-property name="feedbackTime" column="FEEDBACK_TIME" type="string" />
+		</composite-id>
+		
+		<property
+			name="feedbackWay"
+			column="FEEDBACK_WAY"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackContent"
+			column="FEEDBACK_CONTENT"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackResult"
+			column="FEEDBACK_RESULT"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="situation"
+			column="SITUATION"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="desr"
+			column="DESR"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="lastUpdTime"
+			column="last_upd_time"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="lastUpdUser"
+			column="last_upd_user"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="reserve1"
+			column="reserve1"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="reserve2"
+			column="reserve2"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="marketing_id"
+			column="marketing_id"
+			type="string"
+			not-null="false"
+		/>
+	</class>	
+</hibernate-mapping>

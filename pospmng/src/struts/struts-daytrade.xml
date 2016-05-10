@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="daytrade" extends="system">
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+                <param name="charSet">UTF-8</param>
+                <param name="location">/page/system/emptyLocation.jsp</param>
+            </result>
+		</global-results>
+		
+		<!-- T+0商户提现计费维护 -->
+		<action name="T70101Action" class="com.allinfinance.struts.daytrade.action.T70101Action" />
+		<!-- T+0商户参数信息维护 -->
+		<action name="T70102Action" class="com.allinfinance.struts.daytrade.action.T70102Action" />
+		<!-- T+0提现审核 -->
+		<action name="T70202Action" class="com.allinfinance.struts.daytrade.action.T70202Action" />
+		
+		<!-- 消费调账-冲账 -->
+		<action name="T73001Action" class="com.allinfinance.struts.daytrade.action.T73001Action" />
+		<!-- 提现调账-冲账\补账 -->
+		<action name="T74005Action" class="com.allinfinance.struts.daytrade.action.T74005Action" />
+		<action name="T74005ReportAction" class="com.allinfinance.struts.daytrade.action.T74005ReportAction" />
+		<!--调账差错导出-->
+		<action name="T73001ExportAction" class="com.allinfinance.struts.daytrade.action.T73001ExportAction" />
+	</package>
+</struts>

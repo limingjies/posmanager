@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRouteRule"
+		table="TBL_ROUTE_RULE"
+	>
+        <composite-id name="tblRouteRulePK" class="TblRouteRulePK">
+			<key-property name="brhId" column="BRH_ID" type="string" />
+			<key-property name="accpId" column="ACCP_ID" type="string" />
+			<key-property name="ruleId" column="RULE_ID" type="string" />
+		</composite-id>
+		<property
+			name="priority"
+			column="PRIORITY"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="txnNum"
+			column="TXN_NUM"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+		<property
+			name="cardTp"
+			column="CARD_TP"
+			type="string"
+			not-null="true"
+			length="2"
+		/>
+		<property
+			name="ruleCode"
+			column="RULE_CODE"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="cardBin"
+			column="CARD_BIN"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="mchtGroup"
+			column="MCHT_GROUP"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+		<property
+			name="mcc"
+			column="MCC"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="insIdCd"
+			column="INS_ID_CD"
+			type="string"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="mchtArea"
+			column="MCHT_AREA"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="dateCtl"
+			column="DATE_CTL"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="dateBeg"
+			column="DATE_BEG"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		<property
+			name="dateEnd"
+			column="DATE_END"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		<property
+			name="timeCtl"
+			column="TIME_CTL"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="timeBeg"
+			column="TIME_BEG"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		
+		<property
+			name="timeEnd"
+			column="TIME_END"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		
+		
+		<property
+			name="amtCtl"
+			column="AMT_CTL"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="amtBeg"
+			column="AMT_BEG"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		<property
+			name="amtEnd"
+			column="AMT_END"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		<property
+			name="msc1"
+			column="MSC1"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="msc2"
+			column="MSC2"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="msc3"
+			column="MSC3"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="onFlag"
+			column="ON_FLAG"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="query" extends="system">
+		
+		<!-- 系统拦截器 -->
+		<interceptors>
+			<interceptor name="logInter" class="com.allinfinance.interceptor.LogInter"></interceptor>
+			<interceptor-stack name="SystemInterceptor">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="logInter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+				<param name="charSet">UTF-8</param>
+				<param name="location">/page/system/emptyLocation.jsp</param>
+			</result>
+		</global-results>
+		
+		<action name="T5*_*" 
+			class="com.allinfinance.struts.query.action.T5{1}" method="{2}">
+			<interceptor-ref name="SystemInterceptor"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+			<result name="error" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+		</action>
+		
+		<!-- 当日交易统计表-->
+		<action name="T50106Action" 
+			class="com.allinfinance.struts.query.action.T50106Action" />
+		<!-- 历史交易统计表-->
+		<action name="T50107Action" 
+			class="com.allinfinance.struts.query.action.T50107Action" />
+		<!-- 结算单-->		
+		<action name="T50109Action" 
+			class="com.allinfinance.struts.query.action.T50109Action" />
+		<!-- 结算单明细-->		
+		<action name="T5010901Action" 
+			class="com.allinfinance.struts.query.action.T5010901Action" />
+		<!-- 结算单明细下载-->		
+		<action name="T5010902Action" 
+			class="com.allinfinance.struts.query.action.T5010902Action" />
+		<action name="T5010903Action" 
+			class="com.allinfinance.struts.query.action.T5010903Action" />
+		<!-- 新结算单-->	
+		<action name="T50110Action" 
+			class="com.allinfinance.struts.query.action.T50110Action" />
+				<!-- 新结算单明细-->	
+		<action name="T50111Action" 
+			class="com.allinfinance.struts.query.action.T50111Action" />
+		<!-- 商户信息报表-->		
+		<action name="T50301Action" 
+			class="com.allinfinance.struts.query.action.T50301Action" />
+		<!-- 新报表统计-->	
+	
+		<action name="T50403Action" 
+			class="com.allinfinance.struts.query.action.T50403Action" />
+		<action name="T50404Action" 
+			class="com.allinfinance.struts.query.action.T50404Action" />
+	
+		<action name="T50406Action" 
+			class="com.allinfinance.struts.query.action.T50406Action" />
+		<action name="T50407Action" 
+			class="com.allinfinance.struts.query.action.T50407Action" />
+		<action name="T50408Action" 
+			class="com.allinfinance.struts.query.action.T50408Action" />
+		<action name="T50409Action" 
+			class="com.allinfinance.struts.query.action.T50409Action" />
+	</package>
+</struts>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblMchtLimitDate"
+		table="TBL_MCHT_LIMIT_DATE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="mchtno" 
+			type="string" 
+			column="MCHT_NO"
+			length="15"
+		>
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="limitdate"
+			column="LIMIT_DATE"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="status"
+			column="STATUS"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="reserved"
+			column="RESERVED"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		
+		<property
+			name="crtopr"
+			column="CRT_OPR"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		
+		<property
+			name="crttime"
+			column="CRT_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="updopr"
+			column="UPD_OPR"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="updtime"
+			column="UPD_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="misc"
+			column="MISC"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		
+		<property
+			name="misc1"
+			column="MISC1"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		
+
+		
+	</class>	
+</hibernate-mapping>

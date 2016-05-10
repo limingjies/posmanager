@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="TblTermRefuseDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.term.TblTermRefuseDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>tblTermRefuseDAOTarget</value>
+        </property>
+    </bean>
+    <bean id="tblTermRefuseDAOTarget" class="com.allinfinance.dao.impl.term.TblTermRefuseDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+	<bean id="TblTermTpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermTpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>termTpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="termTpDAOTarget" class="com.allinfinance.dao.impl.term.TblTermTpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblTermInfTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermInfTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>termInfTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="termInfTmpDAOTarget" class="com.allinfinance.dao.impl.term.TblTermInfTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+    <bean id="TblTermTmkLogDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.term.TblTermTmkLogDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>tblTermTmkLogDAOTarget</value>
+        </property>
+    </bean>
+    <bean id="tblTermTmkLogDAOTarget" class="com.allinfinance.dao.impl.term.TblTermTmkLogDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+	<bean id="TblTermInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblTermInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblTermInfDAOTarget" class="com.allinfinance.dao.impl.term.TblTermInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 直联终端TMP -->
+	<bean id="T30401BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.term.T30401BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T30401BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T30401BOTarget" class="com.allinfinance.bo.impl.term.T30401BOTarget">
+		<property name="tblTermCupInfoTmpDAO">
+			<ref bean="TblTermCupInfoTmpDAO" />
+		</property>
+	</bean>
+	<bean id="TblTermCupInfoTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermCupInfoTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblTermCupInfoTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblTermCupInfoTmpDAOTarget" class="com.allinfinance.dao.impl.term.TblTermCupInfoTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 直联终端T -->
+	<bean id="T30402BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.term.T30402BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T30402BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T30402BOTarget" class="com.allinfinance.bo.impl.term.T30402BOTarget">
+		<property name="tblTermCupInfoDAO">
+			<ref bean="TblTermCupInfoDAO" />
+		</property>
+	</bean>
+	<bean id="TblTermCupInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermCupInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblTermCupInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblTermCupInfoDAOTarget" class="com.allinfinance.dao.impl.term.TblTermCupInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 终端密钥 -->
+	<bean id="TblTermKeyDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermKeyDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblTermKeyDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblTermKeyDAOTarget" class="com.allinfinance.dao.impl.term.TblTermKeyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	 <bean id="TblTermKeyBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.term.TblTermKeyBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblTermKeyBOTarget</value>
+        </property>
+    </bean>
+    <bean id="TblTermKeyBOTarget" class="com.allinfinance.bo.impl.term.TblTermKeyBOTarget">
+        <property name="tblTermKeyDAO">
+            <ref bean="TblTermKeyDAO" />
+        </property>
+    </bean>
+    <!-- 终端TMK-->
+    <bean id="TblTermZmkInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.term.TblTermZmkInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblTermZmkInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblTermZmkInfDAOTarget" class="com.allinfinance.dao.impl.term.TblTermZmkInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	 <bean id="TblTermZmkInfBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.term.TblTermZmkInfBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblTermZmkInfBOTarget</value>
+        </property>
+    </bean>
+    <bean id="TblTermZmkInfBOTarget" class="com.allinfinance.bo.impl.term.TblTermZmkInfBOTarget">
+        <property name="tblTermZmkInfDAO">
+            <ref bean="TblTermZmkInfDAO" />
+        </property>
+    </bean>
+    <!-- start 终端维护 -->
+    <bean id="t3010BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.term.T3010BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>t3010BOTarget</value>
+        </property>
+    </bean>
+    <bean id="t3010BOTarget" class="com.allinfinance.bo.impl.term.T3010BOTarget">
+        <property name="tblTermInfTmpDAO">
+            <ref bean="TblTermInfTmpDAO" />
+        </property>
+        <property name="tblTermKeyDAO">
+            <ref bean="TblTermKeyDAO" />
+        </property>
+        <property name="tblTermZmkInfDAO">
+            <ref bean="TblTermZmkInfDAO" />
+        </property>
+        <property name="commQueryDAO">
+            <ref bean="CommQueryDAO"/>
+        </property>  
+        <property name="tblTermRefuseDAO">
+            <ref bean="TblTermRefuseDAO"/>
+        </property> 
+        <property name="tblTermInfDAO">
+            <ref bean="TblTermInfDAO"/>
+        </property>
+        <property name="tblTermTmkLogDAO">
+            <ref bean="TblTermTmkLogDAO"/>
+        </property> 
+        <property name="tblRiskParamMngDAO">
+			<ref bean="tblRiskParamMngDAO" />
+		</property>
+    </bean>              
+    
+   <!--  机具申请  -->
+	 <bean id="tblTermManagementCheckDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.term.TblTermManagementCheckDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblTermManagementCheckDAOTarget</value>
+        </property>
+    </bean>
+
+    <bean id="TblTermManagementCheckDAOTarget" class="com.allinfinance.dao.impl.term.TblTermManagementCheckDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+     <bean id="tblTermManagementAppMainDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.term.TblTermManagementAppMainDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblTermManagementAppMainDAOTarget</value>
+        </property>
+    </bean>
+
+    <bean id="TblTermManagementAppMainDAOTarget" class="com.allinfinance.dao.impl.term.TblTermManagementAppMainDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+	 <bean id="t30302BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.term.T30302BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>T30302BOTarget</value>
+        </property>
+    </bean>
+	
+	<bean id="T30302BOTarget" class="com.allinfinance.bo.impl.term.T30302BOTarget">
+        <property name="tblTermManagementCheckDAO">
+            <ref bean="tblTermManagementCheckDAO" />
+        </property>
+        <property name="tblTermManagementAppMainDAO">
+            <ref bean="tblTermManagementAppMainDAO" />
+        </property>
+    </bean>
+    
+	
+
+<!--start 终端库存审核-->
+    <bean id="T3030101BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.term.T3030101BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>T3030101BOTarget</value>
+        </property>
+    </bean>
+    <bean id="T3030101BOTarget" class="com.allinfinance.bo.impl.term.T3030101BOTarget">
+        <property name="tblTermManagementCheckDAO">
+            <ref bean="tblTermManagementCheckDAO" />
+        </property>
+    </bean>  
+    
+    
+    
+	<!-- dao层接口实现 -->
+	<bean id="modelInfoDao" class="com.allinfinance.dao.impl.TblModelInfoDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	 <!-- 业务层接口实现，把DAO注入到Service里面--> 
+    <bean id="modelInfoService" class="com.allinfinance.bo.impl.model.TblModelInfoService">
+        <property name="modelInfoDao">
+            <ref bean="modelInfoDao" />
+        </property>
+        <property name="commQueryDAO">
+            <ref bean="CommQueryDAO"/>
+        </property>  
+    </bean>        
+    
+  
+	<!-- dao层接口实现 -->
+	<bean id="modelParameterDao" class="com.allinfinance.dao.impl.TblModelParameterDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	 <!-- 业务层接口实现，把DAO注入到Service里面--> 
+    <bean id="modelParameterService" class="com.allinfinance.bo.impl.model.TblModelParameterService">
+        <property name="modelParameterDao">
+            <ref bean="modelParameterDao" />
+        </property>
+    </bean>        
+    
+    <!-- 配置struts访问，把service层注入到action里面--> 
+    <bean id="modelParameterAction" class="com.allinfinance.struts.model.action.ModelParameterAction" singleton="false">
+        <property name="modelParameterService">
+            <ref bean="modelParameterService"/>
+        </property>
+         <property name="modelInfoService">
+            <ref bean="modelInfoService"/>
+        </property>
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+             
+    <bean id="t30101Action" class="com.allinfinance.struts.pos.action.T30101Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t3010102Action" class="com.allinfinance.struts.pos.action.T3010102Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t3010103Action" class="com.allinfinance.struts.pos.action.T3010103Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t30102Action" class="com.allinfinance.struts.pos.action.T30102Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t30103Action" class="com.allinfinance.struts.pos.action.T30103Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+        <property name="tblMchntService">
+            <ref bean="tblMchntService"/>
+        </property>
+    </bean>
+    <!-- end 终端维护-->
+   
+    
+    
+    <!-- start 终端审核 -->
+    <bean id="t30201Action" class="com.allinfinance.struts.pos.action.T30201Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t30202Action" class="com.allinfinance.struts.pos.action.T30202Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t3020303Action" class="com.allinfinance.struts.pos.action.T3020303Action" singleton="false">
+        <property name="commQueryDAO">
+            <ref bean="CommQueryDAO"/>
+        </property>
+    </bean>
+    <bean id="t30203Action" class="com.allinfinance.struts.pos.action.T30203Action" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <!-- end 终端审核-->
+    <!--start 终端库存-->
+    <bean id="tblTermManagementDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.term.TblTermManagementDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>tblTermManagementDAOTarget</value>
+        </property>
+    </bean>
+    <bean id="tblTermManagementDAOTarget" class="com.allinfinance.dao.impl.term.TblTermManagementDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="t3030BO" class="com.allinfinance.bo.impl.term.TermManagementBOImpl">
+        <property name="tblTermManagementDAO">
+            <ref bean="tblTermManagementDAO"/>
+        </property>
+         <property name="tblTermInfDAO">
+            <ref bean="TblTermInfDAO"/>
+        </property> 
+        <property name="tblTermInfTmpDAO">
+            <ref bean="TblTermInfTmpDAO" />
+        </property>
+        <property name="commQueryDAO">
+            <ref bean="CommQueryDAO"/>
+        </property>       
+    </bean>
+
+    <bean id="t30301Action" class="com.allinfinance.struts.pos.action.T30301Action" singleton="false">
+        <property name="t3030BO">
+            <ref bean="t3030BO"/>
+        </property>
+        <property name="methods">
+            <map>
+                <!-- 入库 -->
+                <entry key="add" value="storeTerminal"/>
+                <!-- 批量入库 -->
+                <entry key="adds" value="storeTerminals"/>
+                <!-- 作废-->
+                <entry key="invalid" value="invalidTerminal"/>
+                <!-- 上缴-->
+                <entry key="up" value="upTerminal"/>
+                <!-- 下发-->
+                <entry key="down" value="downTerminal"/>
+                <!-- 接收-->
+                <entry key="rev" value="revTerminal"/>
+            </map>
+          </property>
+    </bean>
+    <!--
+    <bean id="t3030101Action" class="com.allinfinance.struts.pos.action.T3030101Action" singleton="false">
+        <property name="t3030101BO">
+            <ref bean="t3030101BO"/>
+        </property>
+    </bean>
+    -->
+    <bean id="t30302Action" class="com.allinfinance.struts.pos.action.T30302Action" singleton="false">
+        <property name="t30302BO">
+            <ref bean="t30302BO"/>
+        </property>
+         <property name="methods">
+            <map>
+                <!-- 入库 -->
+                <entry key="add" value="storeTerminal"/>
+                <!-- 批量入库 -->
+                <entry key="adds" value="storeTerminals"/>
+                <!-- 作废-->
+                <entry key="invalid" value="invalidTerminal"/>
+                <!-- 上缴-->
+                <entry key="up" value="upTerminal"/>
+                <!-- 下发-->
+                <entry key="down" value="downTerminal"/>
+                <!-- 接收-->
+                <entry key="rev" value="revTerminal"/>
+            </map>
+          </property>
+    </bean>
+    <bean id="t30303Action" class="com.allinfinance.struts.pos.action.T30303Action" singleton="false">
+        <property name="t3030BO">
+            <ref bean="t3030BO"/>
+        </property>
+    </bean>
+    <bean id="t30304Action" class="com.allinfinance.struts.pos.action.T30304Action" singleton="false">
+        <property name="t3030BO">
+            <ref bean="t3030BO"/>
+        </property>
+    </bean>
+    <bean id="t30305Action" class="com.allinfinance.struts.pos.action.T30305Action" singleton="false">
+        <property name="t3030BO">
+            <ref bean="t3030BO"/>
+        </property>
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+     <bean id="t30307Action" class="com.allinfinance.struts.pos.action.T30307Action" singleton="false">
+        <property name="t3030BO">
+            <ref bean="t3030BO"/>
+        </property>
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    <bean id="t30306Action" class="com.allinfinance.struts.pos.action.T30306Action" singleton="false">
+        <property name="t3030BO">
+            <ref bean="t3030BO"/>
+        </property>
+        <property name="methods">
+            <map>
+                <!-- 通过 -->
+                <entry key="0" value="signTerminal"/>
+                <!-- 批次通过-->
+                <entry key="1" value="signTerminals"/>
+           </map>
+        </property>
+    </bean>
+    <!-- end 终端库存-->
+    <bean id="mchtTmpInfoAction" class="com.allinfinance.struts.mchnt.action.MchtTmpInfoAction" singleton="false">
+        <property name="t3010BO">
+            <ref bean="t3010BO"/>
+        </property>
+    </bean>
+    
+</beans>

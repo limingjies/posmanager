@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="TblPayChannelInfo"
+		table="TBL_PAY_CHANNEL_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="channelId"
+			column="CHANNEL_ID"
+			type="string"
+			length="4"
+		/>
+		<property name="channelName" column="CHANNEL_NAME" type="string" not-null="false" length="256" />
+		<property name="channelFlag" column="CHANNEL_FLAG" type="string" not-null="false" length="1" />
+		<property name="channelSta" column="CHANNEL_STA" type="string" not-null="false" length="1" />
+		<property name="acctNo" column="ACCT_NO" type="string" not-null="false" length="40" />
+		<property name="acctNm" column="ACCT_NM" type="string" not-null="false" length="80" />
+		<property name="mchtNo" column="MCHT_NO" type="string" not-null="false" length="15" />
+		<property name="mchtNm" column="MCHT_NM" type="string" not-null="false" length="80" />
+		<property name="misc" column="MISC" type="string" not-null="false" length="100" />
+		<property name="misc1" column="MISC1" type="string" not-null="false" length="200" />
+
+	</class>	
+</hibernate-mapping>

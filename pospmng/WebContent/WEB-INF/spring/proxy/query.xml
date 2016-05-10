@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="tblAccInConfirmHisDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.query.TblAccInConfirmHisDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblAccInConfirmHisDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblAccInConfirmHisDAOTarget" class="com.allinfinance.dao.impl.query.TblAccInConfirmHisDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		
+	<!--存量商户开户-->
+	<bean id="T50109BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.query.T50109BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T50109BOTarget</value>
+		</property>
+	</bean>
+	
+	<bean id="T50109BOTarget" class="com.allinfinance.bo.impl.query.T50109BOTarget">	
+		
+		<property name="tblAccInConfirmHisDAO">
+			<ref bean="tblAccInConfirmHisDAO" />
+		</property>
+		
+		<property name="commQueryDAO">
+			<ref bean="commQueryDAO" />
+		</property>
+	</bean>
+	
+</beans>

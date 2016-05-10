@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblRiskParamMcc"
+		table="TBL_RISK_PARAM_MCC"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		
+		<id name="mcc"
+			type="string"
+			column="MCC"
+		>
+		<generator class="assigned"/>
+		</id>
+
+		
+		<property
+			name="mchtCoAmt"
+			column="MCHT_CO_AMT"
+			type="string"
+			not-null="false"
+			length="22"
+		/>
+		
+		<property
+			name="mchtSeAmt"
+			column="MCHT_SE_AMT"
+			type="string"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="mchtNlAmt"
+			column="MCHT_NL_AMT"
+			type="string"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="remark"
+			column="REMARK"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="regTime"
+			column="REG_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="regOpr"
+			column="REG_OPR"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="updTime"
+			column="UPD_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="updOpr"
+			column="UPD_OPR"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="resved"
+			column="RESVED"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="resved1"
+			column="RESVED1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		
+		
+	</class>	
+</hibernate-mapping>

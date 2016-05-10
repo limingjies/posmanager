@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblAmtbackApplyres"
+		table="TBL_AMT_BACK_APPLY_RES"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="tblAmtbackApplyPKres" class="TblAmtbackApplyPKres">
+	
+			<key-property
+				name="dateSettlmt8"
+				column="DATE_SETTLMT_8"
+				type="string"
+			/>
+			<key-property
+				name="keyCup"
+				column="KEY_CUP"
+				type="string"
+			/>
+			
+			<key-property
+				name="applyOpr"
+				column="APPLY_OPR"
+				type="string"
+			/>
+			<key-property
+				name="applyDate"
+				column="APPLY_DATE"
+				type="string"
+			/>
+			<key-property
+				name="applyTime"
+				column="APPLY_TIME"
+				type="string"
+			/>
+		</composite-id>
+		
+		
+		<property
+			name="applyState"
+			column="APPLY_STATE"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		
+		<property
+			name="instDate"
+			column="INST_DATE"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+		
+		<property
+			name="instTime"
+			column="INST_TIME"
+			type="string"
+			not-null="true"
+			length="6"
+		/>
+		
+		<property
+			name="pan"
+			column="PAN"
+			type="string"
+			not-null="false"
+			length="19"
+		/>
+		
+		
+		<property
+			name="cardAccpTermId"
+			column="CARD_ACCP_TERM_ID"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		<property
+			name="cardAccpId"
+			column="CARD_ACCP_ID"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		
+		
+		
+		<property
+			name="brhId"
+			column="BRH_ID"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		<property
+			name="txnNum"
+			column="TXN_NUM"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+		
+		
+		
+		
+		<property
+			name="txnName"
+			column="TXN_NAME"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		
+		<property
+			name="amtTrans"
+			column="AMT_TRANS"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		
+		<property
+			name="termSsn"
+			column="TERM_SSN"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		<property
+			name="sysSeqNum"
+			column="SYS_SEQ_NUM"
+			type="string"
+			not-null="true"
+			length="6"
+		/>
+		
+		
+		<property
+			name="revsalSsn"
+			column="REVSAL_SSN"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		
+		<property
+			name="retrivlRef"
+			column="RETRIVL_REF"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		<property
+			name="resState"
+			column="RES_STATE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		
+		
+		<property
+			name="checkOpr"
+			column="CHECK_OPR"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		
+		<property
+			name="checkDate"
+			column="CHECK_DATE"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		
+		
+		<property
+			name="misc1"
+			column="MISC_1"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		
+		<property
+			name="misc2"
+			column="MISC_2"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		
+		<property
+			name="misc3"
+			column="MISC_3"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		
+		<property
+			name="misc4"
+			column="MISC_4"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		
+	</class>	
+</hibernate-mapping>

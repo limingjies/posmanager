@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="TblZthDtl"
+		table="TBL_ZTH_DTL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="tblZthDtlPK" class="TblZthDtlPK">
+			<key-property
+				name="instDate"
+				column="INST_DATE"
+				type="string"
+			/>
+			<key-property
+				name="sysSeqNum"
+				column="SYS_SEQ_NUM"
+				type="string"
+			/>
+			<key-property
+				name="settlmtDate"
+				column="SETTLMT_DATE"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="mchtNo"
+			column="MCHT_NO"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="amt"
+			column="AMT"
+			type="big_decimal"
+			not-null="false"
+			length="15"
+		/>
+		
+		
+		<property
+			name="misc"
+			column="MISC"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="misc1"
+			column="MISC1"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+
+	</class>	
+</hibernate-mapping>

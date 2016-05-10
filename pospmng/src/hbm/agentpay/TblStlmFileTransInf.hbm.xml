@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.agentpay">
+	<class
+		name="TblStlmFileTransInf"
+		table="TBL_STLM_FILE_TRANS_INF"
+		>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="TblStlmFileTransInfPK">
+			<key-property
+				name="stlmDate"
+				column="STLM_DATE"
+				type="string"
+				/>
+			<key-property
+				name="mchtNo"
+				column="MCHT_NO"
+				type="string"
+				/>
+		</composite-id>
+		<property 
+			name="fileName" 
+			column="FILE_NAME" 
+			type="string" 
+			not-null="false" 
+			length="40" 
+			/>
+		<property 
+			name="fileStat" 
+			column="FILE_STAT" 
+			type="string" 
+			not-null="false" 
+			length="1" 
+			/>
+		<property 
+			name="failDesc" 
+			column="FAIL_DESC" 
+			type="string" 
+			not-null="false" 
+			length="40"
+			/>
+		<property 
+			name="lstUpdTlr" 
+			column="LST_UPD_TLR" 
+			type="string" 
+			not-null="false" 
+			length="11" 
+			/>
+		<property 
+			name="lstUpdTime" 
+			column="LST_UPD_TIME" 
+			type="string" 
+			not-null="false" 
+			length="14" 
+			/>
+		<property 
+			name="createTime" 
+			column="CREATE_TIME" 
+			type="string" 
+			not-null="false" 
+			length="14" 
+			/>
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRiskWhite"
+		table="TBL_RISK_WHITE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblRiskWhitePK">
+	
+			<key-property
+				name="riskId"
+				column="risk_id"
+				type="string"
+			/>
+			<key-property
+				name="cardAccpId"
+				column="card_accp_id"
+				type="string"
+			/>
+		</composite-id>
+		
+		
+		<property
+			name="resved"
+			column="resved"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="resved1"
+			column="resved1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		
+	</class>	
+</hibernate-mapping>

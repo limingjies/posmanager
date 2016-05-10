@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblTermManagementCheck"
+		table="TBL_TERM_MANAGEMENT_CHECK"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		
+		<composite-id name="Id" class="TblTermManagementCheckPK">
+			
+			<key-property
+				name="appId"
+				column="app_id"
+				type="string"
+			/>
+			<key-property
+				name="sonAppId"
+				column="son_app_id"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="manufaturer"
+			column="manufaturer"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="terminalType"
+			column="terminal_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="termType"
+			column="term_type"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="amount"
+			column="amount"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="accAmount"
+			column="acc_amount"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="stat"
+			column="stat"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="mic"
+			column="mic"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="misc2"
+			column="misc2"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		
+		
+	</class>	
+</hibernate-mapping>

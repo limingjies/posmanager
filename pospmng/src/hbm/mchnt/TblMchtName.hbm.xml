@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblMchtName"
+		table="TBL_MCHT_NAME"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblMchtNamePK">
+			<key-property
+				name="accpId"
+				column="accp_id"
+				type="string"
+			/>
+			<key-property
+				name="cardTp"
+				column="card_tp"
+				type="string"
+			/>
+			<key-property
+				name="txnNum"
+				column="txn_num"
+				type="string"
+			/>
+			
+		</composite-id>
+		
+		
+		<property
+			name="mchtNm"
+			column="MCHT_NM"
+			type="string"
+			not-null="false"
+			length="60"
+		/>
+		
+		<property
+			name="onFlag"
+			column="ON_FLAG"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="msc1"
+			column="MSC1"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="msc2"
+			column="MSC2"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="msc3"
+			column="MSC3"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+	</class>	
+</hibernate-mapping>

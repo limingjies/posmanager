@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblBrhApproveProcess"
+		table="tbl_brh_approve_process"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="TblBrhApproveProcessPK">
+			<key-property
+				name="BrhId"
+				column="brh_id"
+				type="string"
+			/>
+			<key-property
+				name="TxnTime"
+				column="txn_time"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="OprInfo"
+			column="opr_info"
+			type="string"
+			not-null="true"
+			length="240"
+		/>
+		<property
+			name="OprId"
+			column="opr_id"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="OprType"
+			column="opr_type"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

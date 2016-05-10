@@ -1,0 +1,764 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 设置风险模型 -->
+	<bean id="T40101BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40101BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40101BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40101BOTarget" class="com.allinfinance.bo.impl.risk.T40101BOTarget">
+		<property name="tblRiskInfDAO">
+			<ref bean="TblRiskInfDAO" />
+		</property>
+		<property name="tblRiskParamInfDAO">
+			<ref bean="TblRiskParamInfDAO" />
+		</property>
+		<property name="tblRiskInfUpdLogDAO">
+			<ref bean="TblRiskInfUpdLogDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblRiskInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>riskInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="riskInfDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="TblRiskParamInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskParamInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblRiskParamInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblRiskParamInfDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskParamInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="TblRiskInfUpdLogDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskInfUpdLogDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>riskInfUpdLogDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="riskInfUpdLogDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskInfUpdLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 定义风险模型参数 -->
+	<bean id="T40200BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40200BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40200BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40200BOTarget" class="com.allinfinance.bo.impl.risk.T40200BOTarget">
+		<property name="tblRiskParamDefDAO">
+			<ref bean="TblRiskParamDefDAO" />
+		</property>
+		<property name="tblRiskInfUpdLogDAO">
+			<ref bean="TblRiskInfUpdLogDAO" />
+		</property>
+	</bean>
+	<bean id="TblRiskParamDefDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskParamDefDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblRiskParamDefDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblRiskParamDefDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskParamDefDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 卡黑名单管理 -->
+	<bean id="T40201BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40201BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40201BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40201BOTarget" class="com.allinfinance.bo.impl.risk.T40201BOTarget">
+		<property name="tblCtlCardInfDAO">
+			<ref bean="TblCtlCardInfDAO" />
+		</property>
+	</bean>
+	<bean id="TblCtlCardInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblCtlCardInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblCtlCardInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblCtlCardInfDAOTarget" class="com.allinfinance.dao.impl.risk.TblCtlCardInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户黑名单管理 -->
+	<bean id="T40202BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40202BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40202BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40202BOTarget" class="com.allinfinance.bo.impl.risk.T40202BOTarget">
+		<property name="tblCtlMchtInfDAO">
+			<ref bean="TblCtlMchtInfDAO" />
+		</property>
+	</bean>
+	<bean id="TblCtlMchtInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblCtlMchtInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblCtlMchtInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblCtlMchtInfDAOTarget" class="com.allinfinance.dao.impl.risk.TblCtlMchtInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户清算黑名单管理 -->
+	<bean id="T40205BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40205BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40205BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40205BOTarget" class="com.allinfinance.bo.impl.risk.T40205BOTarget">
+		<property name="tblCtlMchtSettleInfDAO">
+			<ref bean="TblCtlMchtSettleInfDAO" />
+		</property>
+	</bean>
+	<bean id="TblCtlMchtSettleInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblCtlMchtSettleInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblCtlMchtSettleInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblCtlMchtSettleInfDAOTarget" class="com.allinfinance.dao.impl.risk.TblCtlMchtSettleInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- MCC风控参数管理 -->
+	<bean id="T40209BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40209BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40209BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40209BOTarget" class="com.allinfinance.bo.impl.risk.T40209BOTarget">
+		<property name="tblRiskParamMccDAO">
+			<ref bean="TblRiskParamMccDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblRiskParamMccDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskParamMccDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblRiskParamMccDAO</value>
+		</property>
+	</bean>
+	<bean id="tblRiskParamMccDAO" class="com.allinfinance.dao.impl.risk.TblRiskParamMccDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 风控级别 -->
+	<bean id="T40206BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40206BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40206BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40206BOTarget" class="com.allinfinance.bo.impl.risk.T40206BOTarget">
+		
+		<property name="tblRiskLvlDAO">
+			<ref bean="TblRiskLvlDAO" />
+		</property>
+		<property name="tblRiskParamInfDAO">
+			<ref bean="TblRiskParamInfDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblRiskLvlDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskLvlDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>riskLvlDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="riskLvlDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskLvlDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 商户白名单管理 -->
+	<bean id="T40207BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40207BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40207BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40207BOTarget" class="com.allinfinance.bo.impl.risk.T40207BOTarget">
+		
+		<property name="tblRiskWhiteDAO">
+			<ref bean="TblRiskWhiteDAO" />
+		</property>
+		
+	</bean>
+	<bean id="TblRiskWhiteDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskWhiteDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>riskWhiteDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="riskWhiteDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskWhiteDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 事中风控 -->
+	<bean id="T40102BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40102BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40102BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40102BOTarget" class="com.allinfinance.bo.impl.risk.T40102BOTarget">
+		
+		<property name="tblRunRiskDAO">
+			<ref bean="TblRunRiskDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblRunRiskDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRunRiskDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>runRiskDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="runRiskDAOTarget" class="com.allinfinance.dao.impl.risk.TblRunRiskDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 商户风控黑名单管理 -->
+	<bean id="T402021BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T402021BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T402021BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T402021BOTarget" class="com.allinfinance.bo.impl.risk.T402021BOTarget">
+		<property name="tblRiskBlackMchtDAO">
+			<ref bean="TblRiskBlackMchtDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+	</bean>
+	<bean id="TblRiskBlackMchtDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskBlackMchtDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblRiskBlackMchtDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblRiskBlackMchtDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskBlackMchtDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	
+	<!-- 银行卡黑名单管理 -->
+	<bean id="T40212BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40212BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40212BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40212BOTarget" class="com.allinfinance.bo.impl.risk.T40212BOTarget">
+		<property name="tblBankCardBlackDAO">
+			<ref bean="TblBankCardBlackDAO" />
+		</property>
+		<property name="tblBankCardBlackOptLogDAO">
+			<ref bean="TblBankCardBlackOptLogDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblBankCardBlackDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblBankCardBlackDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblBankCardBlackDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblBankCardBlackDAOTarget" class="com.allinfinance.dao.impl.risk.TblBankCardBlackDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblBankCardBlackOptLogDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblBankCardBlackOptLogDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblBankCardBlackOptLogDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblBankCardBlackOptLogDAOTarget" class="com.allinfinance.dao.impl.risk.TblBankCardBlackOptLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+
+	<!-- 事后风险警报处理 -->
+	<bean id="T40211BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40211BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40211BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40211BOTarget" class="com.allinfinance.bo.impl.risk.T40211BOTarget">
+		
+		<property name="tblRiskAlarmDAO">
+			<ref bean="TblRiskAlarmDAO" />
+		</property>
+		<property name="tblAlarmCardDAO">
+			<ref bean="TblAlarmCardDAO" />
+		</property>
+		<property name="tblAlarmMchtDAO">
+			<ref bean="TblAlarmMchtDAO" />
+		</property>
+		<property name="tblAlarmTxnDAO">
+			<ref bean="TblAlarmTxnDAO" />
+		</property>
+		<property name="tblRemindRiskMchtDAO">
+			<ref bean="TblRemindRiskMchtDAO" />
+		</property>
+		<property name="tblRemindRiskTxnDAO">
+			<ref bean="TblRemindRiskTxnDAO" />
+		</property>
+		<property name="tblBillReceiptDAO">
+			<ref bean="TblBillReceiptDAO" />
+		</property>
+		<property name="tblBankCardBlackDAO">
+			<ref bean="TblBankCardBlackDAO" />
+		</property>
+		<property name="tblChkFreezeDAO">
+			<ref bean="TblChkFreezeDAO" />
+		</property>
+		
+		<property name="webFrontTxnLogDAO">
+			<ref bean="WebFrontTxnLogDAO" />
+		</property>
+		<!--<property name="tblFreezeTxnDAO">
+				<ref bean="TblFreezeTxnDAO" />
+			</property>-->
+		
+		
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<!--风险警报DAO-->
+	<bean id="TblRiskAlarmDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskAlarmDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>RiskAlarmDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="RiskAlarmDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskAlarmDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblAlarmCardDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblAlarmCardDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>AlarmCardDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="AlarmCardDAOTarget" class="com.allinfinance.dao.impl.risk.TblAlarmCardDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblAlarmMchtDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblAlarmMchtDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>AlarmMchtDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="AlarmMchtDAOTarget" class="com.allinfinance.dao.impl.risk.TblAlarmMchtDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblAlarmTxnDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblAlarmTxnDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>AlarmTxnDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="AlarmTxnDAOTarget" class="com.allinfinance.dao.impl.risk.TblAlarmTxnDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!--商服风险提醒、调单回执DAO-->
+	<bean id="TblRemindRiskMchtDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRemindRiskMchtDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>RemindRiskMchtDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="RemindRiskMchtDAOTarget" class="com.allinfinance.dao.impl.risk.TblRemindRiskMchtDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblRemindRiskTxnDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRemindRiskTxnDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>RemindRiskTxnDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="RemindRiskTxnDAOTarget" class="com.allinfinance.dao.impl.risk.TblRemindRiskTxnDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblBillReceiptDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblBillReceiptDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>BillReceiptDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="BillReceiptDAOTarget" class="com.allinfinance.dao.impl.risk.TblBillReceiptDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 商户灰名单管理 -->
+	<bean id="T40400BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40400BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40400BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40400BOTarget" class="com.allinfinance.bo.impl.risk.T40400BOTarget">
+		
+		<property name="tblGreyMchtSortDAO">
+			<ref bean="TblGreyMchtSortDAO" />
+		</property>
+		<property name="tblRiskGreyMchtDAO">
+			<ref bean="TblRiskGreyMchtDAO"/>
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblGreyMchtSortDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblGreyMchtSortDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblGreyMchtSortDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblGreyMchtSortDAOTarget" class="com.allinfinance.dao.impl.risk.TblGreyMchtSortDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblRiskGreyMchtDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskGreyMchtDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblRiskGreyMchtDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblRiskGreyMchtDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskGreyMchtDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!--冻结交易-->
+	<bean id="TblFreezeTxnDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblFreezeTxnDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>FreezeTxnDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="FreezeTxnDAOTarget" class="com.allinfinance.dao.impl.risk.TblFreezeTxnDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--冻结交易 T+0-->
+	<bean id="TblChkFreezeDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblChkFreezeDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>ChkFreezeDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="ChkFreezeDAOTarget" class="com.allinfinance.dao.impl.risk.TblChkFreezeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户资金冻结DAO-->
+	<bean id="TblMchtFreezeDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblMchtFreezeDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtFreezeDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtFreezeDAOTarget" class="com.allinfinance.dao.impl.risk.TblMchtFreezeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户资金冻结-->
+	<bean id="T40215BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40215BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40215BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40215BOTarget" class="com.allinfinance.bo.impl.risk.T40215BOTarget">			
+		<property name="tblMchtFreezeDAO">
+			<ref bean="TblMchtFreezeDAO" />
+		</property>		
+	</bean>
+	<!-- 商户事后风控管理管理 -->
+	<bean id="T40213BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40213BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40213BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40213BOTarget" class="com.allinfinance.bo.impl.risk.T40213BOTarget">
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+		
+		<property name="tblRemindRiskMchtDAO">
+			<ref bean="TblRemindRiskMchtDAO" />
+		</property>
+		
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpDAO">
+			<ref bean="tblMchtSettleInfTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfDAO">
+			<ref bean="tblMchtSettleInfDAO" />
+		</property>
+	</bean>
+	
+
+	
+	
+	<!-- 白名单商户审核 -->
+	<bean id="T40401BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.T40401BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T40401BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T40401BOTarget" class="com.allinfinance.bo.impl.risk.T40401BOTarget">
+		
+		<property name="tblWhiteMchtApplyDAO">
+			<ref bean="TblWhiteMchtApplyDAO" />
+		</property>
+		<property name="tblWhiteMchtCheckDAO">
+			<ref bean="TblWhiteMchtCheckDAO"/>
+		</property>
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+	</bean>
+	<bean id="TblWhiteMchtApplyDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblWhiteMchtApplyDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblWhiteMchtApplyDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblWhiteMchtApplyDAOTarget" class="com.allinfinance.dao.impl.risk.TblWhiteMchtApplyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblWhiteMchtCheckDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblWhiteMchtCheckDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblWhiteMchtCheckDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblWhiteMchtCheckDAOTarget" class="com.allinfinance.dao.impl.risk.TblWhiteMchtCheckDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 风控参数管理DAO -->
+	<bean id="tblRiskParamMngDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.risk.TblRiskParamMngDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblRiskParamMngDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblRiskParamMngDAOTarget" class="com.allinfinance.dao.impl.risk.TblRiskParamMngDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 风控参数管理Service -->
+	<bean id="tblRiskParamMngBo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.risk.TblRiskParamMngBo</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblRiskParamMngBoTarget</value>
+		</property>
+	</bean>
+	<bean id="tblRiskParamMngBoTarget" class="com.allinfinance.bo.impl.risk.TblRiskParamMngBoTarget">
+		<property name="tblRiskParamMngDAO">
+			<ref bean="tblRiskParamMngDAO" />
+		</property>
+		<property name="tblTermInfDAO">
+            <ref bean="TblTermInfDAO"/>
+        </property>
+		<property name="tblTermInfTmpDAO">
+            <ref bean="TblTermInfTmpDAO"/>
+        </property>
+	</bean>
+</beans>

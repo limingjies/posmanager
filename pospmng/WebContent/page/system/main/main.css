@@ -1,0 +1,67 @@
+/*
+ * main.css
+ */
+
+.main_top
+{
+	background-image: url(main_top.gif);
+	background-repeat: repeat-x;
+	height: 70px;
+}
+.main_topright
+{
+	background-image: url(logoright.jpg);
+	background-repeat: repeat-x;
+	height: 70px;
+}
+.main_lefttop
+{
+	width: 220px;
+}
+
+.main_logo
+{
+	margin-left: 10px;
+}
+.main_logo1
+{
+    margin-right: 10px
+}
+.top
+{
+	background-image: url(top.jpg);
+	background-repeat: repeat-x;
+	height: 70px;
+
+}
+.main_righttop
+{
+	background-image: url(logoright.jpg);
+	background-repeat: repeat-x;
+	height: 70px;
+	width:452px:
+	padding-right: 16px;
+}
+
+.main_menubar {
+	height: 26px;
+	overflow: hidden;
+}
+
+.main-pane {
+	position: relative;
+	width: 100%;
+	overflow: auto;
+	padding: 5px 0px 0px 8px;
+	background-image: url(back04.jpg);
+}
+
+.ReadOnly .Action
+{
+	display: none;
+}
+
+.dialog-window .tabs {
+	width: 600px;
+	padding: 8px;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="agentpay" extends="system">
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+                <param name="charSet">UTF-8</param>
+                <param name="location">/page/system/emptyLocation.jsp</param>
+            </result>
+		</global-results>
+		<action name="T90101Action" class="com.allinfinance.struts.agentpay.action.T90101Action" />
+		<action name="T9010101Action" class="com.allinfinance.struts.agentpay.action.T9010101Action" />
+		<action name="T90201Action" class="com.allinfinance.struts.agentpay.action.T90201Action" />
+		<action name="T90202Action" class="com.allinfinance.struts.agentpay.action.T90202Action" />
+		<action name="T90203Action" class="com.allinfinance.struts.agentpay.action.T90203Action" />
+		<action name="T90204Action" class="com.allinfinance.struts.agentpay.action.T90204Action" />
+		<action name="T90301Action" class="com.allinfinance.struts.agentpay.action.T90301Action" />
+		<action name="T90401Action" class="com.allinfinance.struts.agentpay.action.T90401Action" />
+		<action name="T90501Action" class="com.allinfinance.struts.agentpay.action.T90501Action" />
+		<action name="T90502Action" class="com.allinfinance.struts.agentpay.action.T90502Action" />
+		<action name="T90601Action" class="com.allinfinance.struts.agentpay.action.T90601Action" />
+	</package>
+</struts>

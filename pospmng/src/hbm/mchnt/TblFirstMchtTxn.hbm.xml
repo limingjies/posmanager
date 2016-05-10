@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblFirstMchtTxn"
+		table="TBL_FIRST_MCHT_TXN"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="firstMchtCd"
+			type="string"
+			column="FIRST_MCHT_CD"
+		>
+			<generator class="assigned"/>
+		</id>
+		
+		<property name="txnDate" column="TXN_DATE" type="string" not-null="true" length="8" />
+		<property name="txnNum" column="TXN_NUM" type="big_decimal" not-null="true" length="22" />
+		<property name="txnAmt" column="TXN_AMT" type="big_decimal" not-null="true" length="22" />
+		<property name="amtLimit" column="AMT_LIMIT" type="big_decimal" not-null="true" length="22" />
+		<property name="reserved" column="RESERVED" type="string" not-null="false" length="128" />
+		
+	</class>	
+</hibernate-mapping>

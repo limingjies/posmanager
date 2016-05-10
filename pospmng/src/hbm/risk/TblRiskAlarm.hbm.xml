@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblRiskAlarm"
+		table="tbl_risk_alarm"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="tblRiskAlarmPk" class="TblRiskAlarmPK">
+			<key-property
+				name="alarmId"
+				column="alarm_id"
+				type="string"
+			/>
+	
+			<key-property
+				name="alarmSeq"
+				column="alarm_seq"
+				type="integer"
+			/>
+			
+		</composite-id>
+		<property
+			name="riskDate"
+			column="risk_date"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="riskId"
+			column="risk_id"
+			type="string"
+			not-null="true"
+			length="3"
+		/>
+		<property
+			name="riskLvl"
+			column="risk_lvl"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="alarmLvl"
+			column="alarm_lvl"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="alarmSta"
+			column="alarm_sta"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		
+		<property
+			name="cheatTp"
+			column="cheat_tp"
+			type="string"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="cheatFlag"
+			column="cheat_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="misc"
+			column="misc"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="misc1"
+			column="misc1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+	</class>	
+</hibernate-mapping>

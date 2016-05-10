@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRuleMchtRel"
+		table="TBL_RULE_MCHT_REL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="tblRuleMchtRelPK" class="TblRuleMchtRelPK">
+			<key-property name="ruleCode" column="RULE_CODE" type="string" />
+			<key-property name="firstMchtCd" column="FIRST_MCHT_CD" type="string" />
+		</composite-id>
+		
+		<property
+			name="srvId"
+			column="SRV_ID"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+		<property
+			name="relDesc"
+			column="REL_DESC"
+			type="string"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="msc1"
+			column="MSC1"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="msc2"
+			column="MSC2"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="msc3"
+			column="MSC3"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+	</class>	
+</hibernate-mapping>

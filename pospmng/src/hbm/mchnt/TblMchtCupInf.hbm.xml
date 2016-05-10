@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblMchtCupInf"
+		table="tbl_mcht_cup_inf"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="MCHT_NO" 
+			type="string" 
+			column="mcht_no"
+			length="15"
+		>
+			<generator class="assigned" />
+		</id>
+		
+		<!--<property
+			name="MCHT_NO"
+			column="mcht_no"
+			type="string"
+			not-null="true"
+			length="15"
+		/>  -->
+		
+		<property
+			name="ACQ_INST_ID"
+			column="acq_inst_id"
+			type="string"
+			not-null="false"
+			length="11"
+		/><!--  -->
+		
+		<property
+			name="ACQ_INST_CD"
+			column="acq_inst_cd"
+			type="string"
+			not-null="false"
+			length="11"
+		/><!--  -->
+		
+		<property
+			name="MCHT_NM"
+			column="mcht_nm"
+			type="string"
+			not-null="false"
+			length="60"
+		/><!--  -->
+		
+		
+		<property
+			name="MCHT_SHORT_CN"
+			column="mcht_short_cn"
+			type="string"
+			not-null="false"
+			length="40"
+		/><!--  -->
+		
+		<property
+			name="STLM_INS_ID"
+			column="stlm_ins_id"
+			type="string"
+			not-null="false"
+			length="11"
+		/><!--  -->
+		<property
+			name="MCHT_TYPE"
+			column="mcht_type"
+			type="string"
+			not-null="false"
+			length="4"
+		/><!--  -->
+		<property
+			name="STAT"
+			column="stat"
+			type="string"
+			not-null="false"
+			length="1"
+		/><!--  -->
+		<property
+			name="ACQ_AREA_CD"
+			column="acq_area_cd"
+			type="string"
+			not-null="false"
+			length="4"
+		/><!--  -->
+		
+		<property
+			name="MCHNT_TP_GRP"
+			column="mcht_tp_grp"
+			type="string"
+			not-null="false"
+			length="2"
+		/><!--  -->
+		
+		<property
+			name="MCC"
+			column="mcc"
+			type="string"
+			not-null="false"
+			length="4"
+		/><!--  -->
+		
+		<property
+			name="SETTLE_AREA_CD"
+			column="settle_area_cd"
+			type="string"
+			not-null="false"
+			length="4"
+		/><!--  -->
+		<property
+			name="LICENCE_NO"
+			column="licence_no"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!--  -->
+		<property
+			name="CONTACT_ADDR"
+			column="contact_addr"
+			type="string"
+			not-null="false"
+			length="80"
+		/><!--  -->
+		<property
+			name="MCHT_PERSON"
+			column="mcht_person"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!--  -->
+		<property
+			name="COMM_TEL"
+			column="comm_tel"
+			type="string"
+			not-null="false"
+			length="18"
+		/><!--  -->
+		<property
+			name="MANAGER"
+			column="manager"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!-- -->
+		<property
+			name="IDENTITY_NO"
+			column="identity_no"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!--  -->
+		<property
+			name="ADDR"
+			column="addr"
+			type="string"
+			not-null="false"
+			length="80"
+		/><!--  -->
+		<property
+			name="LICENCE_STAT"
+			column="licence_stat"
+			type="string"
+			not-null="false"
+			length="1"
+		/><!--  -->
+		
+		<property
+			name="MCHT_STLM_ACCT"
+			column="mcht_stlm_acct"
+			type="string"
+			not-null="false"
+			length="40"
+		/><!--  -->
+		<property
+			name="MCHT_ACCT_NM"
+			column="mcht_acct_nm"
+			type="string"
+			not-null="false"
+			length="60"
+		/><!--  -->
+		<property
+			name="SETTLE_BANK_NM"
+			column="settle_bank_nm"
+			type="string"
+			not-null="false"
+			length="80"
+		/><!-- -->
+		<property
+			name="SETTLE_BANK_NO"
+			column="settle_bank_no"
+			type="string"
+			not-null="false"
+			length="12"
+		/><!--  -->
+		<property
+			name="APPLY_DATE"
+			column="apply_date"
+			type="string"
+			not-null="false"
+			length="8"
+		/><!--  -->
+		
+		
+		<property
+			name="MISC1"
+			column="misc1"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC2"
+			column="misc2"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC3"
+			column="misc3"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC4"
+			column="misc4"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC5"
+			column="misc5"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC6"
+			column="misc6"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC7"
+			column="misc7"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC8"
+			column="misc8"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC9"
+			column="misc9"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		<property
+			name="MISC10"
+			column="misc10"
+			type="string"
+			not-null="false"
+			length="10"
+		/><!--  -->
+		
+	</class>	
+</hibernate-mapping>

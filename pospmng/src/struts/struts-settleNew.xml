@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="settleNew" extends="system">
+		
+		<!-- 系统拦截器 -->
+		<interceptors>
+			<interceptor name="logInter" class="com.allinfinance.interceptor.LogInter"></interceptor>
+			<interceptor-stack name="SystemInterceptor">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="logInter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+				<param name="charSet">UTF-8</param>
+				<param name="location">/page/system/emptyLocation.jsp</param>
+			</result>
+		</global-results>
+		
+		
+		<!-- 清算对账 -->
+		<action name="T10*_*" 
+			class="com.allinfinance.struts.settleNew.action.T10{1}" method="{2}">
+			<interceptor-ref name="SystemInterceptor"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+			<result name="error" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+		</action>
+		
+		
+		<!--批量处理-->
+		<action name="T100103Action"  class="com.allinfinance.struts.settleNew.action.T100103Action"/>
+		<action name="T100104Action"  class="com.allinfinance.struts.settleNew.action.T100104Action"/>
+	
+		<!--前置批量处理-->
+		<action name="T100201Action"  class="com.allinfinance.struts.settleNew.action.T100201Action"/>
+	
+		<!--新收单结算信息表-->
+		<action name="T100305Action"  class="com.allinfinance.struts.settleNew.action.T100305Action"/>
+	</package>
+</struts>

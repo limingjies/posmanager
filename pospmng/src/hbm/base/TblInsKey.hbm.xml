@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.base">
+	<class
+		name="TblInsKey"
+		table="TBL_INS_KEY"
+	>
+        <composite-id name="tblInsKeyPK" class="TblInsKeyPK">
+			<key-property name="insIdCd" column="INS_ID_CD" type="string" />
+			<key-property name="firstMchtNo" column="REC_UPD_TS" type="string" />
+		</composite-id>
+		<property
+			name="insKeyIdx"
+			column="INS_KEY_IDX"
+			type="string"
+			length="4"            
+			not-null="false"
+		/>
+		<property
+			name="insMacKeyLen"
+			column="INS_MAC_KEY_LEN"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="insMac1"
+			column="INS_MAC_1"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="insMac2"
+			column="INS_MAC_2"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="macChkValue"
+			column="MAC_CHK_VALUE"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="insPinKeyLen"
+			column="INS_PIN_KEY_LEN"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="insPin1"
+			column="INS_PIN_1"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="insPin2"
+			column="INS_PIN_2"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="pinChkValue"
+			column="PIN_CHK_VALUE"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="recOprId"
+			column="REC_OPR_ID"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="recUpdOpr"
+			column="REC_UPD_OPR"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		<property
+			name="recCrtTs"
+			column="REC_CRT_TS"
+			type="string"
+			not-null="false"
+			length="26"
+		/>
+		
+		
+	</class>	
+</hibernate-mapping>

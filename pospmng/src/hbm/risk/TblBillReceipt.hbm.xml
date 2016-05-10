@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblBillReceipt"
+		table="tbl_bill_receipt"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="billId"
+			type="string"
+			column="bill_id"
+		>
+			<generator class="assigned"/>
+		</id>
+		
+		<property
+			name="brhId"
+			column="brh_id"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		<property
+			name="mchtNo"
+			column="mcht_no"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		
+		<property
+			name="instDate"
+			column="inst_date"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="sysSeqNum"
+			column="sys_seq_num"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		
+		<property
+			name="pan"
+			column="pan"
+			type="string"
+			not-null="false"
+			length="19"
+		/>
+		
+		<property
+			name="amtTrans"
+			column="amt_trans"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		<property
+			name="receiptStatus"
+			column="receipt_status"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		
+		<property
+			name="billOpr"
+			column="bill_opr"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		
+		<property
+			name="billTime"
+			column="bill_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="receiptOpr"
+			column="receipt_opr"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		
+		<property
+			name="receiptTime"
+			column="receipt_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="receiptRemark"
+			column="receipt_remark"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="posImagPath"
+			column="pos_imag_path"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="misc"
+			column="misc"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="misc1"
+			column="misc1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+	</class>	
+</hibernate-mapping>

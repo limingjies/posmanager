@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblBankCardBlackOptLog"
+		table="TBL_BANK_CARD_BLACK_OPT_LOG"
+	>
+	<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblBankCardBlackOptLogPK">
+			<key-property
+				name="cardNo"
+				column="CARD_NO"
+				type="string"
+			/>
+			<key-property
+				name="optTime"
+				column="OPT_TIME"
+				type="string"
+			/>
+		</composite-id>
+
+		<property name="oprId" column="OPR_ID" type="string" not-null="false" length="15" />
+		<property name="optFlag" column="OPT_FLAG" type="string" not-null="false" length="1" />
+		<property name="remarkInfo" column="REMARK_INFO" type="string" not-null="false" length="200" />
+		<property name="resved" column="RESVED" type="string" not-null="false" length="100" />
+		<property name="resved1" column="RESVED1" type="string" not-null="false" length="200" />
+
+	</class>	
+</hibernate-mapping>

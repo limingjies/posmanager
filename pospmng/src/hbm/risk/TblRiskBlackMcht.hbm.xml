@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRiskBlackMcht"
+		table="TBL_RISK_BLACK_MCHT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="mchtNo"
+			type="string"
+			column="MCHT_NO"
+			length="15"
+		>
+			<generator class="assigned"/>
+		</id><!-- 商户号 -->
+		<property
+			name="crtOprId"
+			column="CRT_OPR_ID"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="crtDateTime"
+			column="CRT_DATE_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="resved"
+			column="RESVED"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="resved1"
+			column="RESVED1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+	</class>	
+</hibernate-mapping>

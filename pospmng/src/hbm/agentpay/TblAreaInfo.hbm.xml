@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.agentpay">
+	<class
+		name="TblAreaInfo"
+		table="TBL_AREA_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<meta attribute="sync-VO">true</meta>
+		<composite-id name="Id" class="TblAreaInfoPK">
+			<key-property
+				name="areaNo"
+				column="AREA_NO"
+				type="string"
+				/>
+			<key-property
+				name="zip"
+				column="ZIP"
+				type="string"
+				/>
+		</composite-id>
+			<property
+			name="province"
+			column="PROVINCE"
+			type="string"
+			not-null="false"
+			length="40"
+			/>
+			<property
+			name="areaName"
+			column="AREA_NAME"
+			type="string"
+			not-null="false"
+			length="40"
+			/>
+	</class>	
+</hibernate-mapping>

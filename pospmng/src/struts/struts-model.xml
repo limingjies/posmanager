@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="model" extends="system">
+
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+                <param name="charSet">UTF-8</param>
+                <param name="location">/page/system/emptyLocation.jsp</param>
+            </result>
+		</global-results> 
+		
+
+		<!-- 签购单打印管理 -->
+		<action name="modelInfoAction" 
+		class="com.allinfinance.struts.model.action.ModelInfoAction"/>
+		
+		<!-- 签购单打印管理
+		<action name="modelInfoAction" class="com.allinfinance.struts.model.action.ModelInfoAction">
+			<result type="redirect">/page/pos/ModelList.jsp</result>
+		</action> -->
+		
+
+		<!-- 商户信息维护日志 -->
+		<action name="T2010101Action" class="com.allinfinance.struts.mchnt.action.T2010101Action"/>
+		
+	</package>
+</struts>

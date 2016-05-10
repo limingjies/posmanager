@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblMchtFreeze"
+		table="TBL_MCHT_FREEZE"
+		>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="batchNo"
+			type="string"
+			column="BATCH_NO"
+			>
+			<generator class="assigned"/>
+		</id>
+        <property name="mchtId" column="MCHT_ID" type="string" not-null="false" length="15" />
+		<property name="freezeAmt" column="FREEZE_AMT" type="big_decimal" not-null="false" length="15" />
+		<property name="doFreezeAmt" column="DO_FREEZE_AMT" type="big_decimal" not-null="false" length="15" />
+		<!-- <property name="batchNo" column="BATCH_NO" type="string" not-null="false" length="14" /> -->
+		<property name="freezeDate" column="FREEZE_DATE" type="string" not-null="false" length="8" />
+		<property name="freezeFlag" column="FREEZE_FLAG" type="string" not-null="false" length="1" />
+		<property name="unFreezeFlag" column="UNFREEZE_FLAG" type="string" not-null="false" length="1" />
+		<property name="unFreezeDate" column="UNFREEZE_DATE" type="string" not-null="false" length="8" />
+		<property name="instDate" column="INST_DATE" type="string" not-null="false" length="14" />
+		<property name="updateDt" column="UPDATE_DT" type="string" not-null="false" length="14" />
+	</class>	
+</hibernate-mapping>

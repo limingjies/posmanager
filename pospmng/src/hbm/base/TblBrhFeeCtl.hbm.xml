@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.base">
+	<class
+		name="TblBrhFeeCtl"
+		table="TBL_BRH_FEE_CTL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="discId"
+			type="string"
+			column="DISC_ID"
+		>
+			<generator class="assigned"/>
+		</id>
+		<property
+			name="discName"
+			column="DISC_NAME"
+			type="string"
+			not-null="false"
+			length="60"
+		/>
+		<property
+			name="lstUpdTime"
+			column="LST_UPD_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="lstUpdTlr"
+			column="LST_UPD_TLR"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="createTime"
+			column="CREATE_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+	</class>	
+</hibernate-mapping>

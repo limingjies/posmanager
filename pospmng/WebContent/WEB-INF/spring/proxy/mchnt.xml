@@ -1,0 +1,1140 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--商户组别信息-->
+	<bean id="MchntTpGrpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchntTpGrpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchntTpGrpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchntTpGrpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchntTpGrpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T20302BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20302BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20302BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20302BOTarget" class="com.allinfinance.bo.impl.mchnt.T20302BOTarget">
+		<property name="tblMchntTpGrpDAO">
+			<ref bean="MchntTpGrpDAO" />
+		</property>
+	</bean>
+	<!--商户MCC信息-->
+	<bean id="MchntTpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchntTpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchntTpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchntTpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchntTpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T20303BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20303BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20303BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20303BOTarget" class="com.allinfinance.bo.impl.mchnt.T20303BOTarget">
+		<property name="tblMchntTpDAO">
+			<ref bean="MchntTpDAO" />
+		</property>
+	</bean>
+	
+	<!-- 入网商户临时 
+	<bean id="TblMchtNetTmpBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>as.allinfinance.bo.management.mer.TblMchtNetTmpBO</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+				<value>TblMchtNetTmpBOTarget</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TblMchtNetTmpBOTarget" class="as.allinfinance.bo.impl.management.mer.TblMchtNetTmpImpl">
+		<property name="tblMchtNetTmpDAO">
+			<ref bean="TblMchtNetTmpDAO"/>
+		</property>
+	</bean>
+	<bean id="TblMchtNetTmpDAO" class="as.allinfinance.dao.management.mer.TblMchtNetTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	-->
+	
+	<!--商户临时信息-->
+	<bean id="MchntTmpInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchntInfoTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchntTmpInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchntTmpInfoDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchntInfoTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T20101BOTarget" class="com.allinfinance.bo.impl.mchnt.T20101BOTarget">
+		<property name="tblMchntInfoTmpDAO">
+			<ref bean="MchntTmpInfoDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>
+		<property name="tblDivMchntTmpDAO">
+			<ref bean="DivMchntTmpDAO"/>
+		</property>
+	</bean>
+	<bean id="T20101BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20101BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20101BOTarget</value>
+		</property>
+	</bean>
+	
+	<bean id="TblMchntPosfService" class="com.allinfinance.bo.mchnt.TblMchntPosfServiceImpl">
+		<property name="tblMchtBaseInfPosfDAO">
+			<ref bean="tblMchtBaseInfPosfDAO" />
+		</property>
+		
+	</bean>
+	
+	
+		<bean id="tblMchtBaseInfPosfDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtBaseInfPosfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--商户临时临时信息-->
+	<bean id="MchntTmpInfoTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtBaseInfTmpTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchntTmpInfoTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchntTmpInfoTmpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtBaseInfTmpTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MchtSettleInfTmpTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtSettleInfTmpTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblMchtSettleInfTmpTmpDAO</value>
+		</property>
+	</bean>
+	<bean id="tblMchtSettleInfTmpTmpDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtSettleInfTmpTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T20901BOTarget" class="com.allinfinance.bo.impl.mchnt.T20901BOTarget">
+		<property name="tblMchtBaseInfTmpTmpDAO">
+			<ref bean="MchntTmpInfoTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpTmpDAO">
+			<ref bean="MchtSettleInfTmpTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchntRefuseDAO">
+			<ref bean="MchntRefuseDAOTarget" />
+		</property>
+		<!--<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>-->
+	</bean>
+	<bean id="T20901BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20901BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20901BOTarget</value>
+		</property>
+	</bean>
+	
+		<!--更新商户信息-->
+	<bean id="T2090401BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T2090401BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T2090401BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T2090401BOTarget" class="com.allinfinance.bo.impl.mchnt.T2090401BOTarget">
+		<property name="tblMchtBaseInfTmpTmpDAO">
+			<ref bean="MchntTmpInfoTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpTmpDAO">
+			<ref bean="MchtSettleInfTmpTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpDAO">
+			<ref bean="tblMchtSettleInfTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpHistDAO">
+			<ref bean="tblMchtSettleInfTmpHistDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpHistDAO">
+			<ref bean="tblMchtBaseInfTmpHistDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>
+		<property name="cashInfTmpTmpDAO">
+			<ref bean="TblMchtCashInfTmpTmpDAO" />
+		</property>
+		<property name="cashInfTmpDAO">
+			<ref bean="TblMchtCashInfTmpDAO" />
+		</property>
+	</bean>
+	
+	
+	
+		<!-- MCHNT ALL 渠道商户入网初审-->
+	<bean id="tblMchntNetWorkService" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.impl.mchnt.TblMchntNetWorkService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+				<value>TblMchntNetWorkServiceImpl</value>
+			</list>
+		</property>
+	</bean>
+	<!-- MCHNT TARGET 渠道商户入网初审-->
+	<bean id="TblMchntNetWorkServiceImpl" class="com.allinfinance.bo.impl.mchnt.TblMchntNetWorkServiceImpl">
+		<property name="tblMchtBaseInfTmpTmpDAO">
+			<ref bean="MchntTmpInfoTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpTmpDAO">
+			<ref bean="MchtSettleInfTmpTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfDAO">
+			<ref bean="tblMchtSettleInfDAO" />
+		</property>
+		<property name="tblMchntRefuseDAO">
+			<ref bean="MchntRefuseDAOTarget" />
+		</property>
+		<property name="tblGroupMchtInfDAO">
+			<ref bean="tblGroupMchtInfDAO" />
+		</property>
+		<property name="tblGroupMchtSettleInfDAO">
+			<ref bean="tblGroupMchtSettleInfDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpHistDAO">
+			<ref bean="tblMchtBaseInfTmpHistDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpHistDAO">
+			<ref bean="tblMchtSettleInfTmpHistDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>
+	</bean>
+	
+	<!--直联商户信息-->
+	<bean id="MchtCupInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchtCupInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchtCupInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchtCupInfDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCupInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T20105BOTarget" class="com.allinfinance.bo.impl.mchnt.T20105BOTarget">
+		<property name="tblMchtCupInfDAO">
+			<ref bean="MchtCupInfDAO" />
+		</property>
+	</bean>
+	<bean id="T20105BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20105BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20105BOTarget</value>
+		</property>
+	</bean>
+	<!--持卡人营销活动商户参与表-->
+	<bean id="HoldMchtParticipatDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblHoldMchtParticipatDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>HoldMchtParticipatDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="HoldMchtParticipatDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblHoldMchtParticipatDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T20802BOTarget" class="com.allinfinance.bo.impl.mchnt.T20802BOTarget">
+		<property name="tblHoldMchtParticipatDAO">
+			<ref bean="HoldMchtParticipatDAO" />
+		</property>
+	</bean>
+	<bean id="T20802BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20802BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20802BOTarget</value>
+		</property>
+	</bean>
+	
+	 
+	
+	<!--商户信息-->
+	<bean id="MchntInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchntInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchntInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchntInfoDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchntInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 分期信息 -->
+	<bean id="DivMchntDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblDivMchntDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>DivMchntDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="DivMchntDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblDivMchntDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 分期临时信息 -->
+	<bean id="DivMchntTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblDivMchntTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>DivMchntTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="DivMchntTmpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblDivMchntTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户审核退回/拒绝原因 -->
+	<bean id="MchntRefuseDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchntRefuseDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MchntRefuseDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MchntRefuseDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchntRefuseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户信息审核 -->
+	<bean id="T20201BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20201BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20201BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20201BOTarget" class="com.allinfinance.bo.impl.mchnt.T20201BOTarget">
+		<property name="tblMchntInfoDAO">
+			<ref bean="MchntInfoDAO" />
+		</property>
+		<property name="tblDivMchntDAO">
+			<ref bean="DivMchntDAO" />
+		</property>
+		<property name="tblMchntInfoTmpDAO">
+			<ref bean="MchntTmpInfoDAO" />
+		</property>
+		<property name="tblDivMchntTmpDAO">
+			<ref bean="DivMchntTmpDAO" />
+		</property>
+		<property name="tblMchntRefuseDAO">
+			<ref bean="MchntRefuseDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>
+	</bean>
+	
+	<!-- 商户信息批量录入 -->
+	<bean id="T20107BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20107BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20107BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20107BOTarget" class="com.allinfinance.bo.impl.mchnt.T20107BOTarget">
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpDAO">
+			<ref bean="tblMchtSettleInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+		<property name="tblMchtSettleInfDAO">
+			<ref bean="tblMchtSettleInfDAO" />
+		</property>
+		<property name="tblHisDiscAlgoDAO">
+			<ref bean="TblHisDiscAlgoDAO" />
+		</property>
+		<property name="tblInfDiscCdDAO">
+			<ref bean="TblInfDiscCdDAO" />
+		</property>
+		<property name="tblMchntTpDAO">
+			<ref bean="MchntTpDAO" />
+		</property>
+		<property name="tblRouteRuleDAO">
+			<ref bean="tblRouteRuleDAO" />
+		</property>
+		<property name="tblTermInfTmpDAO">
+			<ref bean="TblTermInfTmpDAO" />
+		</property>
+		<property name="tblTermKeyDAO">
+			<ref bean="TblTermKeyDAO" />
+		</property>
+		<property name="tblTermZmkInfDAO">
+			<ref bean="TblTermZmkInfDAO" />
+		</property>
+		<property name="tblTermInfDAO">
+			<ref bean="TblTermInfDAO" />
+		</property>
+		<property name="tblBlukImpRetInfDAO">
+			<ref bean="TblBlukImpRetInfDAO" />
+		</property>
+		<property name="shTblOprInfoDAO">
+			<ref bean="shTblOprInfoDAO" />
+		</property>
+	</bean>
+	
+	<!--商户权限信息-->
+	<bean id="TblMerRoleFuncMapDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMerRoleFuncMapDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MerRoleFuncMapDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="MerRoleFuncMapDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMerRoleFuncMapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T20301BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20301BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20301BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20301BOTarget" class="com.allinfinance.bo.impl.mchnt.T20301BOTarget">
+		<property name="tblMerRoleFuncMapDAO">
+			<ref bean="TblMerRoleFuncMapDAO" />
+		</property>		
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>	
+	</bean>
+	
+	<!--商户限额信息-->
+	
+	<bean id="CstMchtFeeInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value> com.allinfinance.dao.iface.mchnt.CstMchtFeeInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>CstMchtFeeInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="CstMchtFeeInfDAOTarget" class="com.allinfinance.dao.impl.mchnt.CstMchtFeeInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T20304BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20304BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20304BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20304BOTarget" class="com.allinfinance.bo.impl.mchnt.T20304BOTarget">
+		<property name="cstMchtFeeInfDAO">
+			<ref bean="CstMchtFeeInfDAO" />
+		</property>	
+	</bean>
+	
+	
+	<bean id="baseSupport" class="com.allinfinance.struts.system.action.BaseSupport" >
+		<property name="tblMchntService">
+			<ref bean="tblMchntService" />
+		</property>	
+		<property name="commQueryDAO">
+			<ref bean="commQueryDAO" />
+		</property>	
+	</bean>
+	<!-- MCHNT ALL 初审-->
+	<bean id="tblMchntService1" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.impl.mchnt.TblMchntService1</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+				<value>TblMchntServiceTarget1</value>
+			</list>
+		</property>
+	</bean>
+	<!-- MCHNT TARGET初审-->
+	<bean id="TblMchntServiceTarget1" class="com.allinfinance.bo.impl.mchnt.TblMchntServiceImpl1">
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpDAO">
+			<ref bean="tblMchtSettleInfTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfDAO">
+			<ref bean="tblMchtSettleInfDAO" />
+		</property>
+		<property name="tblMchntRefuseDAO">
+			<ref bean="MchntRefuseDAOTarget" />
+		</property>
+		<property name="tblGroupMchtInfDAO">
+			<ref bean="tblGroupMchtInfDAO" />
+		</property>
+		<property name="tblGroupMchtSettleInfDAO">
+			<ref bean="tblGroupMchtSettleInfDAO" />
+		</property>
+	</bean>
+	<!-- MCHNT ALL 终审 -->
+	<bean id="tblMchntService" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.impl.mchnt.TblMchntService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+				<value>TblMchntServiceTarget</value>
+			</list>
+		</property>
+	</bean>
+	<!-- MCHNT TARGET-->
+	<bean id="TblMchntServiceTarget" class="com.allinfinance.bo.impl.mchnt.TblMchntServiceImpl">
+		<property name="tblMchtBaseInfTmpTmpDAO">
+			<ref bean="MchntTmpInfoTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpDAO">
+			<ref bean="tblMchtSettleInfTmpDAO" />
+		</property>
+		<property name="tblMchtSettleInfDAO">
+			<ref bean="tblMchtSettleInfDAO" />
+		</property>
+		<property name="tblMchntRefuseDAO">
+			<ref bean="MchntRefuseDAOTarget" />
+		</property>
+		<property name="tblGroupMchtInfDAO">
+			<ref bean="tblGroupMchtInfDAO" />
+		</property>
+		<property name="tblGroupMchtSettleInfDAO">
+			<ref bean="tblGroupMchtSettleInfDAO" />
+		</property>
+		<property name="shTblOprInfoDAO">
+			<ref bean="shTblOprInfoDAO" />
+		</property>
+		<property name="iTblMchtBaseInfTmpLogDAO">
+			<ref bean="iTblMchtBaseInfTmpLogDAO" />
+		</property>
+		<property name="webFrontTxnLogDAO">
+			<ref bean="WebFrontTxnLogDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>
+		<property name="tblTermInfDAO" ref="TblTermInfDAO"></property>
+		<property name="tblTermInfTmpDAO">
+			<ref bean="TblTermInfTmpDAO" />
+		</property>
+		<property name="tblTermKeyDAO">
+			<ref bean="TblTermKeyDAO" />
+		</property>
+		<property name="tblMchtBaseInfTmpHistDAO">
+			<ref bean="tblMchtBaseInfTmpHistDAO" />
+		</property>
+		<property name="tblMchtSettleInfTmpHistDAO">
+			<ref bean="tblMchtSettleInfTmpHistDAO" />
+		</property>
+		<property name="tblRiskParamMngDAO">
+			<ref bean="tblRiskParamMngDAO" />
+		</property>
+		<property name="cashInfTmpTmpDAO">
+			<ref bean="TblMchtCashInfTmpTmpDAO" />
+		</property>
+		<property name="cashInfTmpDAO">
+			<ref bean="TblMchtCashInfTmpDAO" />
+		</property>
+		<property name="cashInfDAO">
+			<ref bean="TblMchtCashInfDAO" />
+		</property>
+	</bean>
+	<!-- MCHNT DAO -->
+	<bean id="iTblMchtBaseInfTmpLogDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtBaseInfTmpLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblMchtBaseInfTmpDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtBaseInfTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblMchtBaseInfDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtBaseInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblMchtSettleInfTmpDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtSettleInfTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblMchtSettleInfDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtSettleInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblGroupMchtInfDAO" class="com.allinfinance.dao.impl.mchnt.TblGroupMchtInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblGroupMchtSettleInfDAO" class="com.allinfinance.dao.impl.mchnt.TblGroupMchtSettleInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblMchtBaseInfTmpHistDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtBaseInfTmpHistDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblMchtSettleInfTmpHistDAO" class="com.allinfinance.dao.impl.mchnt.TblMchtSettleInfTmpHistDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	
+	<!--商户计费信息-->	
+	<!-- 计费算法表 -->
+	<bean id="TblInfDiscAlgoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value> com.allinfinance.dao.iface.mchnt.TblInfDiscAlgoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblInfDiscAlgoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblInfDiscAlgoDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblInfDiscAlgoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 计费代码表 -->
+	<bean id="TblInfDiscCdDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value> com.allinfinance.dao.iface.mchnt.TblInfDiscCdDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblInfDiscCdDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblInfDiscCdDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblInfDiscCdDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 计费日志 -->
+	<bean id="TblHisDiscAlgoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value> com.allinfinance.dao.iface.mchnt.TblHisDiscAlgoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblHisDiscAlgoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblHisDiscAlgoDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblHisDiscAlgoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T20701BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20701BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20701BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20701BOTarget" class="com.allinfinance.bo.impl.mchnt.T20701BOTarget">
+		<property name="tblInfDiscAlgoDAO">
+			<ref bean="TblInfDiscAlgoDAOTarget" />
+		</property>	
+		<property name="tblInfDiscCdDAO">
+			<ref bean="TblInfDiscCdDAOTarget" />
+		</property>	
+		<property name="tblHisDiscAlgoDAO">
+			<ref bean="TblHisDiscAlgoDAOTarget" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>	
+	</bean>
+	
+	<bean id="T20903BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20903BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20903BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20903BOTarget" class="com.allinfinance.bo.impl.mchnt.T20903BOTarget">
+		
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>	
+	</bean>
+	
+	<bean id="tblFirstMchtInfDAO" class="com.allinfinance.dao.impl.mchnt.TblFirstMchtInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--机构密钥 -->
+	<bean id="tblInsKeyDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.base.TblInsKeyDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblInsKeyDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblInsKeyDAOTarget" class="com.allinfinance.dao.impl.base.TblInsKeyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T20503BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20503BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20503BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20503BOTarget" class="com.allinfinance.bo.impl.mchnt.T20503BOTarget">
+		<property name="ITblFirstMchtInfDAO">
+			<ref bean="tblFirstMchtInfDAO" />
+		</property>
+		<property name="tblInsKeyDAO">
+			<ref bean="tblInsKeyDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>	
+	</bean>
+
+	
+	<!-- 	一二级商户映射   	 -->
+	<bean id="ITblInsMchtInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value> com.allinfinance.dao.iface.mchnt.ITblInsMchtInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblInsMchtInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblInsMchtInfDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblInsMchtInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T20504BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20504BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20504BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20504BOTarget" class="com.allinfinance.bo.impl.mchnt.T20504BOTarget">
+		<property name="ITblInsMchtInfDAO">
+			<ref bean="ITblInsMchtInfDAO" />
+		</property>
+	</bean>
+ 	<!-- 操作员管理 -->
+	
+	
+ 	 <bean id="T21002BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T21002BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T21002BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T21002BOTarget" class="com.allinfinance.bo.impl.mchnt.T21002BOTarget">
+		<property name="shTblOprInfoDAO">
+			<ref bean="shTblOprInfoDAO" />
+		</property>
+	</bean>
+	
+	<bean id="shTblOprInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ShTblOprInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>ShTblOprInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="ShTblOprInfoDAOTarget" class="com.allinfinance.dao.impl.mchnt.ShTblOprInfoDAO">
+		<property name="sessionFactory">
+			<!-- <ref bean="sessionFactory" /> -->
+			<ref bean="sessionFactory_mis" />
+		</property>
+	</bean>  
+	
+	
+	<!-- 商户别名维护 -->
+	<bean id="T20106BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20106BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20106BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20106BOTarget" class="com.allinfinance.bo.impl.mchnt.T20106BOTarget">
+		
+		<property name="tblMchtNameDAO">
+			<ref bean="TblMchtNameDAO" />
+		</property>
+		
+	</bean>
+	<bean id="TblMchtNameDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchtNameDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>mchtNameDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="mchtNameDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtNameDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--批量导入回执信息-->
+	<bean id="TblBlukImpRetInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblBlukImpRetInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblBlukImpRetInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblBlukImpRetInfDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblBlukImpRetInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--一级商户限额维护-->
+	<bean id="T20505BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20505BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20505BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20505BOTarget" class="com.allinfinance.bo.impl.mchnt.T20505BOTarget">
+		<property name="tblFirstMchtTxnDAO">
+			<ref bean="TblFirstMchtTxnDAO" />
+		</property>
+	</bean>
+	
+	<bean id="TblFirstMchtTxnDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value> com.allinfinance.dao.iface.mchnt.TblFirstMchtTxnDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblFirstMchtTxnDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblFirstMchtTxnDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblFirstMchtTxnDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	
+	<!-- 直联商户TMP -->
+	<bean id="T20401BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20401BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20401BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20401BOTarget" class="com.allinfinance.bo.impl.mchnt.T20401BOTarget">
+		<property name="tblMchtCupInfoTmpDAO">
+			<ref bean="TblMchtCupInfoTmpDAO" />
+		</property>
+	</bean>
+	<bean id="TblMchtCupInfoTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchtCupInfoTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtCupInfoTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtCupInfoTmpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCupInfoTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 直联商户 -->
+	<bean id="T20402BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20402BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20402BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T20402BOTarget" class="com.allinfinance.bo.impl.mchnt.T20402BOTarget">
+		<property name="tblMchtCupInfoDAO">
+			<ref bean="TblMchtCupInfoDAO" />
+		</property>
+	</bean>
+	<bean id="TblMchtCupInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.TblMchtCupInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtCupInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtCupInfoDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCupInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T20202BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20202BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20202BOTarget</value>
+		</property>
+	</bean>
+
+
+
+	<bean id="T20202BOTarget" class="com.allinfinance.bo.impl.mchnt.T20202BOTarget">	
+		
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+		<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+			<property name="iTblMchtBaseInfTmpLogDAO">
+			<ref bean="iTblMchtBaseInfTmpLogDAO" />
+		</property>
+		<property name="iTblMchtLimitDateDAO">
+			<ref bean="iTblMchtLimitDateDAO" />
+		</property>
+	</bean>
+	
+	<bean id="iTblMchtLimitDateDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtLimitDateDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtLimitDateDAOTarget</value>
+		</property>
+	</bean>
+	
+	<bean id="TblMchtLimitDateDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtLimitDateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	
+	<!--存量商户开户-->
+	<bean id="T20108BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.mchnt.T20108BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T20108BOTarget</value>
+		</property>
+	</bean>
+	
+	<bean id="T20108BOTarget" class="com.allinfinance.bo.impl.mchnt.T20108BOTarget">	
+		
+		<property name="tblMchtBaseInfTmpDAO">
+			<ref bean="tblMchtBaseInfTmpDAO" />
+		</property>
+			<property name="tblMchtBaseInfDAO">
+			<ref bean="tblMchtBaseInfDAO" />
+		</property>
+		<property name="tblMchtSettleInfDAO">
+			<ref bean="tblMchtSettleInfDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO" />
+		</property>	
+	</bean>
+		<bean id="TblMchtCashInfTmpTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtCashInfTmpTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtCashInfTmpTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfTmpTmpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCashInfTmpTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtCashInfTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtCashInfTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfTmpDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCashInfTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtCashInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtCashInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCashInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfTmpHisDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.mchnt.ITblMchtCashInfTmpHisDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtCashInfTmpHisDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblMchtCashInfTmpHisDAOTarget" class="com.allinfinance.dao.impl.mchnt.TblMchtCashInfTmpHisDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>

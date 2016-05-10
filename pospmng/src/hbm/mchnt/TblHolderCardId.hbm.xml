@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblHolderCardId"
+		table="TBL_HOLDER_CARD_ID"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="TblHolderCardIdPK">
+			<key-property
+				name="ACT_NO"
+				column="ACT_NO"
+				type="string"
+			/>
+			<key-property
+				name="CARD_ID"
+				column="CARD_ID"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="CARD_TYPE"
+			column="CARD_TYPE"
+			type="string"
+			not-null="true"
+			length="2"
+		/>
+	</class>	
+</hibernate-mapping>

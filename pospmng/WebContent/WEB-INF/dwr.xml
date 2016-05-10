@@ -1,0 +1,120 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+	<allow>
+		<!--下拉列表数据-->
+		<create creator="new" javascript="SelectOptionsDWR" scope="request">
+			<param name="class" value="com.allinfinance.dwr.system.SelectOptionsDWR" />
+		</create>
+		<!--授权管理-->
+		<create creator="new" javascript="AuthoriseDwr" scope="request">
+			<param name="class" value="com.allinfinance.dwr.system.AuthoriseDwr" />
+		</create>
+		<!--图表数据-->
+		<create creator="new" javascript="ChartUtilDWR" scope="request">
+			<param name="class" value="com.allinfinance.dwr.system.ChartUtilDWR" />
+		</create>
+        <!--终端管理-->
+        <create creator="new" javascript="T30101" scope="request">
+            <param name="class" value="com.allinfinance.dwr.term.T30101" />
+        </create>
+        <!--删除终端TMK-->
+		<create creator="new" javascript="T30204" scope="request">
+			<param name="class" value="com.allinfinance.dwr.term.T30204" />
+		</create>
+        <!--直联终端管理-->
+        <create creator="new" javascript="T30401" scope="request">
+            <param name="class" value="com.allinfinance.dwr.term.T30401" />
+        </create>
+        <!--机具绑定-->
+        <create creator="new" javascript="T30305" scope="request">
+            <param name="class" value="com.allinfinance.dwr.term.T30305" />
+        </create>
+		<!--商户管理-->
+		<create creator="new" javascript="T20101" scope="request">
+			<param name="class" value="com.allinfinance.dwr.mchnt.T20101" />
+		</create>
+		<!--新增商户-->
+		<create creator="new" javascript="T20100" scope="request">
+			<param name="class" value="com.allinfinance.dwr.mchnt.T20100" />
+		</create>
+		<!--直联商户开户行-->
+		<create creator="new" javascript="T20401" scope="request">
+			<param name="class" value="com.allinfinance.dwr.mchnt.T20401" />
+		</create>
+		<!--商户黑名单管理-->
+		<create creator="new" javascript="T40202" scope="request">
+			<param name="class" value="com.allinfinance.dwr.risk.T40202" />
+		</create>
+		<!--动态转译-->
+		<create creator="new" javascript="RemoteTransDWR" scope="request">
+			<param name="class" value="com.allinfinance.dwr.mchnt.RemoteTransDWR" />
+		</create>
+		
+		
+		<!--加解密类-->
+		<create creator="new" javascript="EncryptUtils" scope="request">
+			<param name="class" value="com.allinfinance.system.util.EncryptUtils" />
+		</create>
+		<convert match="as.allinfinance.po.management.mer.TblMchtBaseInf" converter="bean" />
+		<!--下载TMK-->
+		<create creator="new" javascript="DownloadTmk" scope="request">
+			<param name="class" value="com.allinfinance.dwr.term.DownloadTmk" />
+		</create>
+		<!--密钥同步-->
+		<create creator="new" javascript="T10210" scope="request">
+			<param name="class" value="com.allinfinance.dwr.base.T10210" />
+		</create>
+		<!-- 代收付系统-->
+		<!-- 请求获取文件报文 -->
+		<create creator="new" javascript="GetDSFFiles" scope="request">
+			<param name="class" value="com.allinfinance.dwr.agentpay.GetDSFFiles" />
+		</create>
+		<!-- 请求发送文件报文 -->
+		<create creator="new" javascript="SendRspFiles" scope="request">
+			<param name="class" value="com.allinfinance.dwr.agentpay.SendRspFiles" />
+		</create>
+		<!--  -->
+		<create creator="new" javascript="SendStlmFiles" scope="request">
+			<param name="class" value="com.allinfinance.dwr.agentpay.SendStlmFiles" />
+		</create>
+		
+		<!-- 路由管理-->
+		<create creator="new" javascript="T10600" scope="request">
+			<param name="class" value="com.allinfinance.dwr.base.T10600" />
+		</create>
+		
+		<!-- 风控管理-->
+		<create creator="new" javascript="T40206" scope="request">
+			<param name="class" value="com.allinfinance.dwr.risk.T40206" />
+		</create>
+		
+		<!--检测系统日期-->
+		<create creator="new" javascript="T50108" scope="request">
+			<param name="class" value="com.allinfinance.dwr.query.T50108" />
+		</create>
+		
+		<!--中信小额支付-->
+		<create creator="new" javascript="T80904" scope="request">
+			<param name="class" value="com.allinfinance.dwr.settle.T80904" />
+		</create>
+		
+		<!--追退货批量-->
+		<create creator="new" javascript="T80604" scope="request">
+			<param name="class" value="com.allinfinance.dwr.settle.T80604" />
+		</create>
+		
+		<!--追退货批量New-->
+		<create creator="new" javascript="T100104" scope="request">
+			<param name="class" value="com.allinfinance.dwr.settleNew.T100104" />
+		</create>
+		
+		<!--消费调账-->
+		<create creator="new" javascript="FrontT70404" scope="request">
+			<param name="class" value="com.allinfinance.dwr.daytrade.FrontT70404" />
+		</create>
+		<convert  match="com.allinfinance.vo.WorkStationVO" converter="bean" />
+	</allow>
+</dwr>

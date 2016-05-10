@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="base" extends="system">
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+                <param name="charSet">UTF-8</param>
+                <param name="location">/page/system/emptyLocation.jsp</param>
+            </result>
+		</global-results>
+		
+		<!-- 机构信息维护 -->
+		<action name="T10101Action" class="com.allinfinance.struts.base.action.T10101Action" />
+		<!-- 清算凭证 -->
+		<action name="T10102Action" class="com.allinfinance.struts.base.action.T10102Action" />
+		<action name="T10103Action" class="com.allinfinance.struts.base.action.T10103Action" />
+		<action name="T10105Action" class="com.allinfinance.struts.base.action.T10105Action" />
+		<!-- 地区码信息维护 -->
+		<action name="T10201Action" class="com.allinfinance.struts.base.action.T10201Action" />
+		<!-- 系统参数信息维护 -->
+		<action name="T10202Action" class="com.allinfinance.struts.base.action.T10202Action" />		
+		<!-- 交易码信息维护 -->
+		<action name="T10203Action" class="com.allinfinance.struts.base.action.T10203Action" />
+		<!-- 角色信息维护 -->
+		<action name="T10301Action" class="com.allinfinance.struts.base.action.T10301Action" />
+		<!-- 交易授权配置 -->
+		<action name="T10302Action" class="com.allinfinance.struts.base.action.T10302Action" />
+		<!-- 操作员信息维护 -->
+		<action name="T10401Action" class="com.allinfinance.struts.base.action.T10401Action" />
+		<!-- 操作员操作记录统计 -->
+		<action name="T10404Action" class="com.allinfinance.struts.base.action.T10404Action" />
+		<!-- 银联卡表维护-->
+		<action name="T10205Action" class="com.allinfinance.struts.base.action.T10205Action" />
+		<!-- 银联卡表维护-->
+		<action name="T10204Action" class="com.allinfinance.struts.base.action.T10204Action" />
+		<!-- CA银联公钥维护-->
+		<action name="T10206Action" class="com.allinfinance.struts.base.action.T10206Action" />
+		<!-- IC卡其他参数维护-->
+		<action name="T10208Action" class="com.allinfinance.struts.base.action.T10208Action" />
+		<!-- 虚拟柜员表维护-->
+		<action name="T10207Action" class="com.allinfinance.struts.base.action.T10207Action" />
+		<!-- 本行卡表维护-->
+		<action name="T10209Action" class="com.allinfinance.struts.base.action.T10209Action" />
+		<!-- 机构密钥同步-->
+		<action name="T10501Action" class="com.allinfinance.struts.base.action.T10501Action" />
+		<!-- 设备同步-->
+		<action name="T10502Action" class="com.allinfinance.struts.base.action.T10502Action" />
+		
+		<!-- 路由管理-->
+		<action name="T10602Action" class="com.allinfinance.struts.base.action.T10602Action" />
+		<action name="T10603Action" class="com.allinfinance.struts.base.action.T10603Action" />
+		<!-- 商户路由批量配置-->
+		<action name="T10604Action" class="com.allinfinance.struts.base.action.T10604Action" />
+		<!-- 商户路由批量配置 模板下载-->
+		<action name="T1060401Action" class="com.allinfinance.struts.base.action.T1060401Action" />
+		
+		<!-- 规则商户映射维护-->
+		<action name="T10211Action" class="com.allinfinance.struts.base.action.T10211Action" />
+		<action name="T10212Action" class="com.allinfinance.struts.base.action.T10212Action" />
+		<!-- 刷新共享内存-->
+		<action name="T10213Action" class="com.allinfinance.struts.base.action.T10213Action" />
+		<!-- 划付文件大额拆分-->
+		<action name="T10214Action" class="com.allinfinance.struts.base.action.T10214Action" />
+		<!--划付文件-->
+		<action name="T10215Action" class="com.allinfinance.struts.base.action.T10215Action" />
+		<!--新划付文件-->
+		<action name="T10216Action" class="com.allinfinance.struts.base.action.T10216Action" />
+		
+		<action name="T3030101Action" class="com.allinfinance.struts.pos.action.T3030101Action"/>
+		
+		<!-- 机具模块-->
+		<action name="T30302Action" class="com.allinfinance.struts.pos.action.T30302Action" />
+		<action name="T30303Action" class="com.allinfinance.struts.pos.action.T30303Action" />
+		<action name="T30308Action" class="com.allinfinance.struts.pos.action.T30308Action" />
+		<action name="T30309Action" class="com.allinfinance.struts.pos.action.T30309Action" />
+		<action name="T30310Action" class="com.allinfinance.struts.pos.action.T30310Action" />
+		<action name="T30311Action" class="com.allinfinance.struts.pos.action.T30311Action" />
+		
+		<!-- 直联终端-->
+		<action name="T30401Action" class="com.allinfinance.struts.pos.action.T30401Action" />
+		<action name="T3040101Action" class="com.allinfinance.struts.pos.action.T3040101Action" />
+		<action name="T30402Action" class="com.allinfinance.struts.pos.action.T30402Action" />
+		<!-- 数据迁移，文件导入 -->
+		<action name="DataImportAction" class="com.allinfinance.struts.dataImport.action.DataImportAction" />
+		
+		 <action name="download" class="com.allinfinance.struts.system.action.DownLoadAction">   
+            <result name="success" type="stream">
+                <param name="contentType">text/plain</param>  
+                <param name="inputName">down</param>                
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+            </result>
+        </action>   
+	</package>
+</struts>

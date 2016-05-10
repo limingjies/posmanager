@@ -1,0 +1,3944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECTS>
+	<!--
+		value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC:
+		DYNAMIC_MODE 调用接口方法
+	-->
+	<!--机构编号-->
+	<TXN_ID id="BRH_ID">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM>TBL_BRH_INFO</TBL_NM>
+				<FLD_NM>BRH_LVL</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT BRH_ID,BRH_ID||'-'||BRH_NAME as BRH_NAME FROM TBL_BRH_INFO order by BRH_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--用于显示的角色编号和角色名称-->
+	<TXN_ID id="ROLE_FOR_LOOK">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM>TBL_ROLE_INF</TBL_NM>
+				<FLD_NM>ROLE_ID</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT ROLE_ID,ROLE_NAME as BRH_NAME FROM TBL_ROLE_INF order by ROLE_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--机构级别-->
+	<TXN_ID id="BRH_LVL">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_BRH_INFO</TBL_NM>
+				<FLD_NM>BRH_LVL</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhLvlByOprInfo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--机构级别，机构信息管理用-->
+	<TXN_ID id="BRH_LVL_BRH_INFO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_BRH_INFO</TBL_NM>
+				<FLD_NM>BRH_LVL</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhLvlByOprInfo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--机构级别，机构信息管理详细信息查询用-->
+	<TXN_ID id="BRH_LVL_BRH_INFO_DTL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhLvlByDtl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--上级营业网点编号-->
+	<TXN_ID id="UP_BRH_ID">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT BRH_ID,BRH_ID||'-'||BRH_NAME as BRH_NAME FROM TBL_BRH_INFO where brh_level <> '2' order by BRH_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getUpBrhIdByOprInfo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--商户地区代码编号-->
+	
+	<TXN_ID id="CITY_CODE">
+		<!--
+			value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC:
+			DYNAMIC_MODE 调用接口方法
+		-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select MCHT_CITY_CODE,MCHT_CITY_CODE||' - '||CITY_NAME as name from CST_CITY_CODE]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCityCode" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--机构地区代码编号-->
+	
+	<TXN_ID id="CUP_CITY_CODE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupCityCode" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 根据商户编号查询该商户可以选择的交易码 -->
+	<TXN_ID id="MCHT_FUNC_ROLE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtRoleFuncByMerId" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 根据商户类型编号查询商户组别已经选择的权限码 -->
+	<TXN_ID id="MER_FUNC_ROLE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMerRoleFunc" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--查询商户权限集信息-->
+	<TXN_ID id="MER_FUNC_ALL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMerMerFuncAll" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--查询商户权限集信息
+	<TXN_ID id="MER_FUNC_ALL">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT FUNC_ID,FUNC_NAME from TBL_MER_FUNC_INF where FUNC_TYPE = '0' order by FUNC_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	-->
+	<!--查询一级菜单信息-->
+	<TXN_ID id="MENU_LEVEL_1">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT FUNC_ID ,FUNC_NAME  FROM TBL_FUNC_INF where FUNC_TYPE = '1' order by FUNC_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--根据上级菜单编号查询菜单信息-->
+	<TXN_ID id="MENU_LEVEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getLevelMenu" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--根据角色编号查找角色菜单信息-->
+	<TXN_ID id="ROLE_MENU">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRoleMenu" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+		<!--根据MCC查找相应计费代码-->
+	<TXN_ID id="MCC_FEE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMccFee" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--查询一级菜单信息-->
+	<TXN_ID id="AUTHOR_LEVEL_1">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAuthorMenu" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--根据上级菜单编号查询菜单信息-->
+	<TXN_ID id="AUTHOR_LEVEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAuthorNextMenu" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--根据角色编号查找角色菜单信息-->
+	<TXN_ID id="AUTHOR_MENU">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAuthorisedMenu" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构 -->
+	<TXN_ID id="BRH_BELOW">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhInfoBelow" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构(全部) -->
+	<TXN_ID id="BRH_BELOW_BRANCH_SHORT">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhInfoBelowBranchShort" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构(全部) -->
+	<TXN_ID id="BRH_BELOW_BRANCH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhInfoBelowBranch" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构(全部) -->
+	<TXN_ID id="BRH_BELOW_BRANCH_NEW_NO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhInfoBelowBranchForNewNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构(总分行) -->
+	<TXN_ID id="BRH_BELOW_HD">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhInfoHd" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得直联商户信息表 的所属平台机构代码 -->
+	<TXN_ID id="InstId">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getInstId" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构(只有总分行) 银联编号 -->
+	<TXN_ID id="CUP_BELOW_BRANCH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupInfoBelowBranch" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构 -->
+	<TXN_ID id="CUP_BRH_BELOW">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupBrhInfoBelow" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得银联机构码 -->
+	<TXN_ID id="CUP_BRH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupBrh" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得银联机构码 -->
+	<TXN_ID id="CUP_BRH_S">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupBrhS" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 获得当前机构的下属机构(回显机构编号) -->
+	<TXN_ID id="BRH_BELOW_ID">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhInfoBelowShowId" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 机构上级机构 -->
+	<TXN_ID id="BRH_UP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBrhUp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 根据机构级别获得角色信息 -->
+	<TXN_ID id="ROLE_BY_BRH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRoleInfoByBrh" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 商户名称 -->
+	<TXN_ID id="MCHT_NM">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtNm" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+		<!-- 申请人 -->
+	<TXN_ID id="CRT_OPR_ID">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT CRT_OPR_ID,CRT_OPR_ID ||' - '||(select opr_name from tbl_opr_info b where b.opr_id = a.CRT_OPR_ID ) as DESCR FROM TBL_MCHT_BASE_INF_TMP_TMP a]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 商户组别信息 -->
+	<TXN_ID id="MCHNT_GRP_ALL">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT MCHNT_TP_GRP,MCHNT_TP_GRP ||' - '||DESCR as DESCR FROM TBL_INF_MCHNT_TP_GRP]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRoleInfoByBrh" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户组别信息 -->
+	<TXN_ID id="MCHNT_GRP_CUP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntGrpCup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户费率 -->
+	<TXN_ID id="MCHT_FEE_ACT">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntFeeAct" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户分润算法 -->
+	<TXN_ID id="MCHNT_CUP_FATE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntCupFate" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户状态 -->
+	<TXN_ID id="MCHNT_TYPE_CUP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntTypeCup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联终端拨入类型-->
+	<TXN_ID id="CALL_TYPE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCallType" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联终端密钥索引-->
+	<TXN_ID id="TERM_CUP_KEY_INDEX">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermCupKeyInde" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联终端加密密钥方式-->
+	<TXN_ID id="TERM_KEY_MODE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermKeyMode" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联终端状态 -->
+	<TXN_ID id="TERM_STATE_CUP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermStateCup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联终端类型 -->
+	<TXN_ID id="TERM_CUP_TYPE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermTypeCup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 套用商户类型原因 -->
+	<TXN_ID id="APP_REASON">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAppReason" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 连锁店标识-->
+	<TXN_ID id="CH_STORE_FLAG">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getStoreFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- MCC套用依据-->
+	<TXN_ID id="MCC_MD">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMccMd" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+		<!-- 商户组别信息(转译截前2个汉字) -->
+	<TXN_ID id="MCHNT_GRP">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT MCHNT_TP_GRP,MCHNT_TP_GRP ||' - '||substr(DESCR,0,4) as DESCR FROM TBL_INF_MCHNT_TP_GRP]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntGrp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--集团商户1-->
+	<TXN_ID id="MCHT_GROUP">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT trim(group_mcht_cd) as id,trim(group_mcht_cd)||' - '||trim(group_name) as name FROM tbl_group_mcht_inf ORDER BY group_mcht_cd]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--新的集团商户 by xupengfei-->
+	<TXN_ID id="MCHT_GROUP_NEW">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtGroupNew" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户费率1 -->
+	<TXN_ID id="CUP_FEE_TP1">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupFeeTp1" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户费率2 -->
+	<TXN_ID id="CUP_FEE_TP2">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupFeeTp2" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 根据商户组别获得商户编号(启用部分) -->
+	<TXN_ID id="MCHNT_TP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntTpByGrp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 根据商户组别获得商户编号 (全部)-->
+	<TXN_ID id="MCHNT_TP_ALL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntTpByGrpAll" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 根据商户组别获得商户编号(启用部分) -->
+	<TXN_ID id="MCHNT_TP_CUP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntTpCup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 地区码 -->
+	<TXN_ID id="INT_CITY_CODE">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT CUP_CITY_CODE,CUP_CITY_CODE ||' - '|| CITY_NAME AS CITY_NAME FROM TBL_CITY_CODE]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 企业性质 -->
+	<TXN_ID id="MCHNT_ATTR">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT KEY,VALUE FROM CST_SYS_PARAM WHERE OWNER = 'MCHNT_ATTR']]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 商户证件类型 -->
+	<TXN_ID id="CERTIFICATE">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT KEY,VALUE FROM CST_SYS_PARAM WHERE OWNER = 'CERTIFICATE']]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 直联商户证件类型 -->
+	<TXN_ID id="CERTIFICATE_CUP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCertCup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 登记原因码 -->
+	<TXN_ID id="REASON_CODE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getReasonCode" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 查询真是表中商户编号 -->
+	<TXN_ID id="MCHNT_NO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 查询MODEL信息表中status为1的id，name-->
+	<TXN_ID id="MCHNT_MODEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntModel" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 查询临时表中直联商户编号 -->
+	<TXN_ID id="CUP_MCHNT_NO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupMchntNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 查询真实中直联商户编号 -->
+	<TXN_ID id="CUP_MCHNT_NO_TMP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCupMchntNoTmp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 风险模型设置类型 -->
+	<TXN_ID id="KIND">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getKind" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>	
+	
+	
+	<!-- 风险模型组别 -->
+	<TXN_ID id="kindGrp">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getKindGrp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>	
+	
+	<!-- 查询商户分店列表 -->
+	<TXN_ID id="TBL_MCHT_BRAN_INF">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtBranInf" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 查询商户限额列表 -->
+	<TXN_ID id="CST_MCHT_FEE_INF">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCstMchtFee" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 终端类型 -->
+	<TXN_ID id="TERM_TYPE">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select term_tp,descr from tbl_term_tp]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 交易码 -->
+	<TXN_ID id="TXN_NUM">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select TXN_NUM,TXN_NAME from TBL_TXN_NAME order by TXN_NUM]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 错误类型交易码 -->
+	<TXN_ID id="TXN_ERR">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select dest_rsp_code,rsp_code_dsp from tbl_rsp_code_map where dest_rsp_code <> '00' order by dest_rsp_code]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 查询商户MCC -->
+	<TXN_ID id="MCC">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select mchnt_tp,mchnt_tp ||' - '||descr from tbl_inf_mchnt_tp]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getPosTxnNum" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 查询商户MCC -->
+	<TXN_ID id="routeRuleMCC">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select mchnt_tp,mchnt_tp||' - '||substr(descr,6) from tbl_inf_mchnt_tp]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 查询商户MCC Dtl -->
+	<TXN_ID id="routeRuleMccDtl">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteRuleMccDtl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 终端申请单号-查询用 -->
+	<TXN_ID id="TERM_BATCH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select app_id,app_id from tbl_term_management_app_main where stat ='1']]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermBacth" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 终端申请单号-入库用-只显示已审核 -->
+	<TXN_ID id="APP_TERM_BATCH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select app_id,app_id from tbl_term_management_app_main where stat ='1']]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermBacthApp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+    <!-- 查询终端厂家 -->
+    <TXN_ID id="MANUFACTURER">
+        <EXTRACT_TYPE value="DYNAMIC">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name="getManufacturer" />
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+    <!-- 查询厂家终端类型 -->
+    <TXN_ID id="TERMINALTYPE">
+        <EXTRACT_TYPE value="DYNAMIC">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name="getTermType" />
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID>
+    <!-- 查询终端库存编号 -->
+    <TXN_ID id="TERMIDID">
+        <EXTRACT_TYPE value="DYNAMIC">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name="getTermIdId" />
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID>
+    <!-- 查询终端厂家 -->
+    <TXN_ID id="TERM_STATE">
+        <EXTRACT_TYPE value="STATIC">
+            <STATIC_MODE>
+                <TBL_NM>TBL_TERM_MANAGEMENT</TBL_NM>
+                <FLD_NM>STATE</FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name=""/>
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+     <!-- 查询终端绑定标志 -->
+    <TXN_ID id="TERM_STATE">
+        <EXTRACT_TYPE value="STATIC">
+            <STATIC_MODE>
+                <TBL_NM>TBL_TERM_MANAGEMENT</TBL_NM>
+                <FLD_NM>BAND_FLAG</FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name=""/>
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+    <!--企业资质等级-->
+	<TXN_ID id="MCHT_LVL">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtLvl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--人员属性-->
+	<TXN_ID id="MEM_PROPERTY">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMemproperty" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--职务类别-->
+	<TXN_ID id="JOB_TYPE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getJobtype" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	 <!--获得是/否的选择下拉框-->
+	<TXN_ID id="YES_NOT">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getYesOrNotSelect" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+		 <!--获得公/私的选择下拉框-->
+	<TXN_ID id="A_P">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAOrPSelect" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	 <!--获得佣金类型下拉框-->
+	<TXN_ID id="DISC_ALGO_FLAG">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDiscAlgoFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	 <!--获得交易类型下拉框(前台大多数页面都已使用这个名字，现内容更改为卡种)-->
+	<TXN_ID id="TXN_NUM_FEE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_HIS_DISC_ALGO</TBL_NM>
+				<FLD_NM>TXN_NUM</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	 <!--获得交易类型下拉框-->
+	<TXN_ID id="TXN_NUM_LIMIT">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM>CST_MCHT_FEE_INF</TBL_NM>
+				<FLD_NM>TXN_NUM</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select TXN_NUM,TXN_NAME from TBL_TXN_NAME where DC_FLAG = '1' order by TXN_NUM]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+    
+    
+     <!--获得卡类型下拉框-->
+	<TXN_ID id="CARD_TYPE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCardType" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	 <!--卡类型下拉框-->
+	<TXN_ID id="CARD_TYPE_TL">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCardTypeTl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--本行卡类型下拉框-->
+	<TXN_ID id="CARD_TYPE_IN">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCardTypeIn" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	  <!--获得交易渠道下拉框-->
+	<TXN_ID id="CHANNEL">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getChannel" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--商户结算方式-->
+	<TXN_ID id="SETTLE_TYPE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_SETTLE_INF</TBL_NM>
+				<FLD_NM>SETTLE_TYPE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+    <!-- 手续费类型 -->
+	<TXN_ID id="FEE_TYPE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_SETTLE_INF</TBL_NM>
+				<FLD_NM>FEE_TYPE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--手续费结算类型-->
+	<TXN_ID id="RATE_FLAG">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_SETTLE_INF</TBL_NM>
+				<FLD_NM>RATE_FLAG</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--商户结算渠道-->
+	<TXN_ID id="SETTLE_CHN">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_SETTLE_INF</TBL_NM>
+				<FLD_NM>SETTLE_CHN</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT KEY,VALUE FROM CST_SYS_PARAM WHERE OWNER = 'MCHT_E_CD' ORDER BY KEY]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户类型-->
+	<TXN_ID id="GROUP_TYPE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>GROUP_TYPE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户清算依据-->
+	<TXN_ID id="MCHT_STLM_MD">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>MCHT_STLM_MD</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户本金清算周期-->
+	<TXN_ID id="MCHT_CP_STLM_CYCLE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>MCHT_CP_STLM_CYCLE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户出入账模式-->
+	<TXN_ID id="MCHT_OUT_IN_MD">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>MCHT_OUT_IN_MD</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户结算路径-->
+	<TXN_ID id="MCHT_STLM_WAY">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>MCHT_STLM_WAY</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户付费方式-->
+	<TXN_ID id="MCHT_STLM_STYLE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>MCHT_STLM_STYLE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户对账单发送周期-->
+	<TXN_ID id="CHK_SND_CYCLE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>CHK_SND_CYCLE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--集团商户对账单发送周期-->
+	<TXN_ID id="CHK_SND_MD">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_GROUP_MCHT_INF</TBL_NM>
+				<FLD_NM>CHK_SND_MD</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--外卡币种-->
+	<TXN_ID id="SET_CUR">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCurType" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--活动编号-->
+	<TXN_ID id="ACT_NO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getActNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 计费算法类型 -->
+	<TXN_ID id="DISC_FLAG">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_HIS_DISC_ALGO</TBL_NM>
+				<FLD_NM>FLAG</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="CON_TXN">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT FUNC_ID,FUNC_NAME FROM TBL_FUNC_INF WHERE FUNC_TYPE = '0' ORDER BY FUNC_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 查询卡表信息 -->
+	<TXN_ID id="INS_ID_CD">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select distinct trim(INS_ID_CD) as id,trim(INS_ID_CD)||' - '||trim(CARD_DIS) from TBL_BANK_BIN_INF order by id]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--清算状态-->
+	<TXN_ID id="SETTLE_FLAG">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHNT_INFILE_DTL</TBL_NM>
+				<FLD_NM>SETTLE_FLAG</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--商户类型-->
+	<TXN_ID id="CONN_TYPE">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_BASE_INF</TBL_NM>
+				<FLD_NM>CONN_TYPE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--直联商户类型-->
+	<TXN_ID id="CUP_CONN_TYPE">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_CUP_INFO</TBL_NM>
+				<FLD_NM>CUP_CONN_TYPE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--商户种类-->
+	<TXN_ID id="MCHT_GROUP_FLAG">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_BASE_INF</TBL_NM>
+				<FLD_NM>MCHT_GROUP_FLAG</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--直联商户种类-->
+	<TXN_ID id="MCHT_CUP_TYPE">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_MCHT_CUP_INFO</TBL_NM>
+				<FLD_NM>MCHT_CUP_TYPE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="PAPER_ID">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select distinct PAPER_ID,PAPER_ID as PAPER from TBL_PAPER_HIS_INF]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="ORGAN">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getOragn" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="PROP_TP">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_TERM_INF</TBL_NM>
+				<FLD_NM>PROP_TP</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="CONNECT_MODE">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_TERM_INF</TBL_NM>
+				<FLD_NM>CONNECT_MODE</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 通过机构号查询 版本号-->
+	<TXN_ID id="EPOS_VERSION">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getEposVersion" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 通过银联编号查询 版本号-->
+	<TXN_ID id="EPOS_VER">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getEposVer" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--EPOS有效状态-->
+	<TXN_ID id="USAGE_KEY">
+		<EXTRACT_TYPE value="STATIC">
+			<STATIC_MODE>
+				<TBL_NM>TBL_EPOS_INFO</TBL_NM>
+				<FLD_NM>USAGE_KEY</FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--EPOS交易提示信息-->
+	<TXN_ID id="PPT_MSG">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getPptMsg" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--EPOS交易提示信息-->
+	<TXN_ID id="TXN_CODE">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select INT_TXN_CODE,INT_TXN_CODE||'-'||DSP from TBL_TERM_TXN where mod(INT_TXN_CODE,2)=1 order by INT_TXN_CODE]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+		<!--操作员查询-->
+	<TXN_ID id="OPR_ID">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select opr_id,opr_id||'-'||opr_name from tbl_opr_info order by opr_id]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+		<!--下属操作员查询-->
+	<TXN_ID id="OPR_ID_BELLOW">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getOprBellow" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--MCC-费率关联时 查询MCC-->
+	<TXN_ID id="MCC_FEE_INFO">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select disc_cd, disc_cd || '-' || disc_nm from tbl_inf_disc_cd]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--商户号-->
+	<TXN_ID id="MCHT_NO_NAME">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT distinct t1.MCHT_NO,t1.MCHT_NO||'-'||t2.MCHT_NM FROM TBL_HOLD_MCHT_PARTICIPAT t1 left join TBL_MCHT_BASE_INF t2 on t1.MCHT_NO=t2.MCHT_NO ORDER BY t1.MCHT_NO]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--活动号-->
+	<TXN_ID id="ACT_NO_NAME">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT distinct ACT_NO,trim(ACT_NO)||' - '||trim(ACT_NAME) FROM TBL_HOLDER_ACT ORDER BY ACT_NO]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--活动号-->
+	<TXN_ID id="ACT_NO_NAME_draw">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT distinct ACT_NO,trim(ACT_NO)||' - '||trim(ACT_NAME) FROM TBL_HOLDER_ACT where act_content='3' ORDER BY ACT_NO]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--活动号-->
+	<TXN_ID id="ACT_NO_NAME_draws">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT  ACT_NO,trim(ACT_NO)||' - '||trim(ACT_NAME) FROM TBL_HOLDER_ACT where act_content in ('3','2') ORDER BY ACT_NO]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--活动号-->
+	<TXN_ID id="CARD_ID_NAME">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT  trim(card_id)as cardId,(trim(card_id)||' - '||trim(card_name))as cardName FROM tbl_card_route  ORDER BY card_id]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--终端厂商-->
+	<TXN_ID id="TERM_COMPANY">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select distinct manufaturer,manufaturer from tbl_term_management ]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--终端型号-->
+	<TXN_ID id="TERM_TYPES">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select distinct terminal_type,terminal_type from tbl_term_management ]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 获得当前一级商户编号(全部) -->
+	<TXN_ID id="FIRST_MCHT_NO">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select first_mcht_cd,first_mcht_cd||' - '||first_mcht_nm as first_mcht_nm from tbl_first_mcht_inf ]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 获得当前二级商户编号(全部) -->
+	<TXN_ID id="MCHT_NO">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select mcht_no,mcht_no||' - '||mcht_nm from tbl_mcht_base_inf ]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!-- 交易类型显示 -->
+	<TXN_ID id="TXN_TYPES">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTxnTypes" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+		<!-- 交易结果显示 -->
+	<TXN_ID id="TXN_STATUS">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTxnStatus" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+		<!-- 下属商户号显示 -->
+	<TXN_ID id="MCHT_TMP_BELOW">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntTmpBelow" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+<TXN_ID id="SND_PACK_MCHNT_NO">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM>tbl_snd_pack</TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select distinct(t.COM_CODE),t.COM_CODE  from tbl_snd_pack t order by t.COM_CODE]]>
+				</SQL>
+				<QUERY_DAO>CommDFQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 代收付系统—参数管理—参数信息维护—参数类型下拉列表 -->
+	<TXN_ID id="DSF_PARAM_TYPE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfParamType" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 参数属性 -->
+	<TXN_ID id="DSF_PARAM_PRO">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfParamPro" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 代收付系统—商户管理—商户信息表维护 -->
+	<!-- 状态 -->
+	<TXN_ID id="DSF_MCHTINFO_STAT">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfMchtInfoStat" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- flag 标志 -->
+	<TXN_ID id="DSF_MCHTINFO_FLAG">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfMchtinfoFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 商户风险级别 -->
+	<TXN_ID id="DSF_MCHTINFO_RISLLVL">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfMchtinfoRisllvl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+<!-- 商户级别-->
+	<TXN_ID id="DSF_MCHTINFO_MCHTLVL">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfMchtinfoMchtlvl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 文件获取方式-->
+	<TXN_ID id="DSF_GET_FILE_WAY">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfGetFileWay" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 通讯方式-->
+	<TXN_ID id="DSF_COMM_WAY">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfCommWay" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 文件验证方式-->
+	<TXN_ID id="DSF_CHECK_TYPE">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfCheckType" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 回执发送方式-->
+	<TXN_ID id="DSF_RSP_SEND_FLAG">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfRspSendFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="DSF_MCHT_NO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfMchtNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="DSF_MCHT_NO_FORADD">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDsfMchtNoForAdd" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+		<!-- 路由交易类型 -->
+	<TXN_ID id="routeTxnTp">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteTxnTp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 路由渠道编号 -->
+	<TXN_ID id="routeBrhId">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteBrhId" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!-- 路由商户编号 -->
+	<TXN_ID id="routeMchtNo">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteMchtNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!-- 路由商户组别信息 -->
+	<TXN_ID id="ROUTE_MCHNT_GRP_ALL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteMchtGrp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 路由商户Mcc -->
+	<TXN_ID id="ROUTE_MCHNT_TP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteMchntTpByGrp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 路由bankcd -->
+	<TXN_ID id="routeBankCd">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteBankCd" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 路由地区 -->
+	<TXN_ID id="routeMchtArea">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteMchtArea" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 路由规则代码 -->
+	<TXN_ID id="routeRuleCode">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select trim(RULE_CODE),trim(RULE_CODE)||' - '||MSC1  from TBL_RULE_MCHT_REL  order by RULE_CODE]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!-- 路由规则一级商户 -->
+	<TXN_ID id="routeFirstMchtCd">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select trim(FIRST_MCHT_CD),trim(FIRST_MCHT_CD)||' - '||trim(FIRST_MCHT_NM)  from TBL_FIRST_MCHT_INF  order by FIRST_MCHT_CD]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+		
+	<!-- 路由规则一级商户 -->
+	<TXN_ID id="routeFirstMchtCdRt">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select trim(mcht_id_up),trim(mcht_id_up)||' - '||trim(mcht_name_up)  from Tbl_Upbrh_Mcht  order by mcht_id_up]]>
+				</SQL>
+				<QUERY_DAO>commGWQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 商户风险级别[查询] -->
+	
+	<TXN_ID id="RISK_LVL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRiskLvl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+
+	
+	<!--商户风险级别[新增和修改，无白名单]-->
+	<TXN_ID id="RISL_LVL">
+		<!-- value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC: DYNAMIC_MODE 调用接口方法-->
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT DISTINCT trim(RISK_LVL), trim(RISK_LVL)||' - '||trim(RESVED) FROM TBL_RISK_LVL where risk_lvl != '4' and trim(RESVED) is not NULL]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+			<!-- 商户正式表下属商户号显示 -->
+	<TXN_ID id="MCHT_BELOW">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntBelow" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 风控级别 -->
+	<TXN_ID id="runRiskLvl">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRunRiskLvl" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+
+	<!-- 手续费改 卡类型  by ctz -->
+	<TXN_ID id="feeCardType">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getFeeCardType" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!-- 手续费改   交易类型  by ctz -->
+	<TXN_ID id="feeTxnNum">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getFeeTxnNum" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!-- 风控警报级别 -->
+    <TXN_ID id="ALARM_LVL">
+        <EXTRACT_TYPE value="STATIC">
+            <STATIC_MODE>
+                <TBL_NM>TBL_RISK_INF</TBL_NM>
+                <FLD_NM>MISC</FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name=""/>
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+    
+    
+    
+    
+    <!-- 批量管理_组ID -->
+    <TXN_ID id="GRP_ID_NAME">
+        <EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getGrpIdName" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+    </TXN_ID>
+    
+    
+    <!-- 批量管理_组ID_T0 -->
+    <TXN_ID id="GRP_ID_NAME_NEW">
+        <EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getGrpIdNameNew" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+    </TXN_ID>
+	
+	
+		<!-- 结算标志显示 -->
+	<TXN_ID id="SETTLE_FLAG">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getSettleFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID> 
+    
+    
+    
+    <!-- 交易通道 -->
+    <TXN_ID id="SETTLE_BRH">
+        <EXTRACT_TYPE value="SQL">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[select DEST_ID,DEST_ID||' - '||FIRST_BRH_NAME  from TBL_FIRST_BRH_DEST_ID  order by DEST_ID]]>
+                </SQL>
+                <QUERY_DAO>CommQueryDAO</QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name=""/>
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+    
+        <!-- 交易通道 -路由-->
+    <TXN_ID id="SETTLE_BRH_RT">
+        <EXTRACT_TYPE value="SQL">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[select distinct(a.dest_id), a.dest_id || '-' || b.name from tbl_route_upbrh2 a inner join tbl_route_upbrh b on a.brh_id2 = b.brh_id]]>
+                </SQL>
+                <QUERY_DAO>commGWQueryDAO</QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name=""/>
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+    
+    <!-- 交易通道(差错明细  0001..) -->
+    <TXN_ID id="SETTLE_CHANNEL_BRH">
+        <EXTRACT_TYPE value="SQL">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[select FIRST_BRH_ID,FIRST_BRH_ID||' - '||FIRST_BRH_NAME  from TBL_FIRST_BRH_DEST_ID  order by FIRST_BRH_ID]]>
+                </SQL>
+                <QUERY_DAO>CommQueryDAO</QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name=""/>
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID> 
+    
+    <!-- 结算通道 -->
+	<TXN_ID id="CHANNEL_ID">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select CHANNEL_ID,CHANNEL_ID||' - '||CHANNEL_NAME  from TBL_PAY_CHANNEL_INFO  order by CHANNEL_ID]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 结算通道 -->
+	<TXN_ID id="PAY_FILE_ID">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select CHANNEL_ID as a1,CHANNEL_ID||' - '||CHANNEL_NAME  from TBL_PAY_CHANNEL_INFO  where CHANNEL_ID!='1510' union select '1510' as a1,'1510 - 中信银行(旧)' from dual union select '1500' as a1,'1500 - 中信网银(新)' from dual order by a1]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 结算通道 -->
+	<TXN_ID id="PAY_FILE_ID_SETTLE">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select CHANNEL_ID as a1,CHANNEL_ID||' - '||CHANNEL_NAME  from TBL_PAY_CHANNEL_INFO  where CHANNEL_ID!='1510' and CHANNEL_ID in(select CHANNEL_ID from TBL_PAY_CHANNEL_INFO where CHANNEL_FLAG ='1') union select '1510' as a1,'1510 - 中信银行(旧)' from dual union select '1500' as a1,'1500 - 中信网银(新)' from dual order by a1]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+    <!-- 查询开户行信息 -->
+    <TXN_ID id="CNAPS_INFO">
+        <EXTRACT_TYPE value="DYNAMIC">
+            <STATIC_MODE>
+                <TBL_NM></TBL_NM>
+                <FLD_NM></FLD_NM>
+            </STATIC_MODE>
+            <SQL_MODE>
+                <SQL>
+                    <![CDATA[]]>
+                </SQL>
+                <QUERY_DAO></QUERY_DAO>
+            </SQL_MODE>
+            <DYNAMIC_MODE>
+                <METHOD name="getCnapsInfo" />
+            </DYNAMIC_MODE>
+        </EXTRACT_TYPE>
+    </TXN_ID>
+    
+    <!-- 查询已添加的结算通道（已启用） -->
+    <TXN_ID id="PAY_CHANNEL_INFO">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT CHANNEL_ID,CHANNEL_ID||' - '||CHANNEL_NAME FROM TBL_PAY_CHANNEL_INFO WHERE CHANNEL_STA = '1']]>
+                </SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--根据风险等级查找关联风控模型信息-->
+	<TXN_ID id="RISK_PARAM_INF">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRiskParamInf" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+    
+    <!-- 查询所有风控模型 -->
+    <TXN_ID id="SA_MODEL_KIND">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT SA_MODEL_KIND AS VAL,SA_MODEL_KIND AS DSP FROM TBL_RISK_INF ORDER BY SA_MODEL_KIND]]>
+                </SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--查找风控模型关联项信息-->
+	<TXN_ID id="SA_MODEL_CONN">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getSaModelConn" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--根据银行卡号查找发卡行信息-->
+	<TXN_ID id="BANK_BIN">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBankBin" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	 <!-- 机构分润费率代码 -->
+    <TXN_ID id="BRH_FEE_CTL">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[SELECT DISC_ID,DISC_ID||'-'||DISC_NAME as DISC_ID_NAME FROM TBL_BRH_FEE_CTL order by DISC_ID ]]>
+                </SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+
+	<!--取所有支付渠道-->
+	<TXN_ID id="CHANNEL_ALL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getChannelAll" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--取所有支付渠道-->
+	<TXN_ID id="BUSI_SEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBusinessSel" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--取性质-->
+	<TXN_ID id="PROP_SEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getPropertySel" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!--取路由商户组-->
+	<TXN_ID id="ROUTE_MCHTG_SEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRouteMchtgSel" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 结算方式类型 -->
+	<TXN_ID id="FLAG">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+
+	<!-- 结算方式类型 -->
+	<TXN_ID id="FLAG">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getFlag" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 开户行信息 -->
+	<TXN_ID id="BANKNAME">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBankName" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="PROVINCE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getProvince" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="CITY">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCity" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="SUBBRANCH">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getSubbranch" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="SUBBRANCH_UPDATE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getSubbranchForUpdate" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--取所有档位名称-->
+	<TXN_ID id="DISC_NM">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getDiscNm" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!--取所有规则商户名称-->
+	<TXN_ID id="MCHT_NAME">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtName" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	
+	<!--取所有规则商户名称-->
+	<TXN_ID id="businessNmStore">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getBusinessNmStore" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 查询渠道商户中 合规商户信息数据源(从gtwy数据库中查找) -->
+	<TXN_ID id="MCHNT_NO_GTWY">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchntNoGtwy" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 新增商户时，选择费率档的取值(费率类别为1时) -->
+	<TXN_ID id="rateIdStore1">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRateIdStore1" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<!-- 新增商户时，选择费率档的取值(费率类别为2时) -->
+	<TXN_ID id="rateIdStore2">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRateIdStore2" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="ADDR_PROVINCE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAddrProvince" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="ADDR_CITY">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAddrCity" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 通道列表 -->
+	<TXN_ID id="TRANS_CHANNEL_BRH">
+		<EXTRACT_TYPE value="SQL">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[select DEST_ID,DEST_ID||' - '||FIRST_BRH_NAME  from TBL_FIRST_BRH_DEST_ID  order by DEST_ID ]]>
+				</SQL>
+				<QUERY_DAO>CommQueryDAO</QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="ADDR_PROVINCE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAddrProvince" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="ADDR_CITY">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getAddrCity" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 终端厂商 -->
+	<TXN_ID id="TERM_FACTURE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermFacture" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<!-- 终端型号 -->
+	<TXN_ID id="TERM_MODEL">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getTermModel" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="rateIdStore3">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getRateIdStore3" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>	
+</SELECTS>

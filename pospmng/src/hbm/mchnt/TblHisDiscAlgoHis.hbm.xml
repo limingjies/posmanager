@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblHisDiscAlgoHis"
+		table="TBL_HIS_DISC_ALGO_HIS"
+	>
+	<composite-id name="Id" class="TblHisDiscAlgoHisPK">
+		<key-property
+			name="discId"
+			column="DISC_ID"
+			type="string"
+		/>
+		<key-property
+			name="indexNum"
+			column="INDEX_NUM"
+			type="integer"
+		/>
+		<key-property
+			name="serialNo"
+			column="SERIAL_NO"
+			type="integer"
+		/>
+	</composite-id>
+
+		<property
+			name="minFee"
+			column="MIN_FEE"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="maxFee"
+			column="MAX_FEE"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="floorMount"
+			column="FLOOR_AMOUNT"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="upperMount"
+			column="UPPER_AMOUNT"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="Flag"
+			column="FLAG"
+			type="integer"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="feeValue"
+			column="FEE_VALUE"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="recUpdUsrId"
+			column="REC_UPD_USR_ID"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="recUpdTs"
+			column="REC_UPD_TS"
+			type="string"
+			not-null="true"
+			length="14"
+		/>
+		<property
+			name="recCrtTs"
+			column="REC_CRT_TS"
+			type="string"
+			not-null="true"
+			length="14"
+		/>
+
+			<property
+			name="txnNum"
+			column="TXN_NUM"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		
+		<property
+			name="cardType"
+			column="card_type"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		
+		<property
+			name="misc1"
+			column="misc1"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		
+		<property
+			name="misc2"
+			column="misc2"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+	</class>
+</hibernate-mapping>

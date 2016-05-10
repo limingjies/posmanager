@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblTermZmkInf"
+		table="tbl_term_zmk_inf"
+	>
+	<meta attribute="sync-DAO">false</meta>
+	<composite-id name="Id" class="TblTermZmkInfPK" >
+		<key-property name="MchtNo" column="MCHT_NO" type="string" />
+		<key-property name="TermId" column="TERM_ID" type="string" />
+	</composite-id>
+	<property
+		name="KeyIndex"
+		column="KEY_INDEX"
+		type="string"
+		not-null="false"
+		length="10"
+	/>
+	<property
+		name="random"
+		column="RANDOM"
+		type="string"
+		not-null="false"
+		length="6"
+	/>
+	<property
+		name="Misc1"
+		column="MISC_1"
+		type="string"
+		not-null="false"
+		length="256"
+	/>
+	<property
+		name="Misc2"
+		column="MISC_2"
+		type="string"
+		not-null="false"
+		length="256"
+	/>
+	<property
+		name="RecOprId"
+		column="REC_OPR_ID"
+		type="string"
+		not-null="false"
+		length="1"
+	/>
+	<property
+		name="RecUpdOpr"
+		column="REC_UPD_OPR"
+		type="string"
+		not-null="false"
+		length="10"
+	/>
+	<property
+		name="RecCrtTs"
+		column="REC_CRT_TS"
+		type="string"
+		not-null="false"
+		length="26"
+	/>
+	<property
+		name="RecUpdTs"
+		column="REC_UPD_TS"
+		type="string"
+		not-null="false"
+		length="26"
+	/>
+
+	</class>	
+</hibernate-mapping>

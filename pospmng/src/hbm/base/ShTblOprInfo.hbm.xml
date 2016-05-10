@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="ShTblOprInfo"
+		table="sh_tbl_opr_info"
+	>
+		<meta attribute="sync-DAO">true</meta>
+		<composite-id name="id" class="ShTblOprInfoPk">
+			<key-property
+				name="oprId"
+				column="OPR_ID"
+				type="string"
+			/>
+			<key-property
+				name="mchtNo"
+				column="MCHT_NO"
+				type="string"
+			/>
+			<key-property
+				name="brhId"
+				column="BRH_ID"
+				type="string"
+			/>
+		</composite-id>
+		
+		
+		
+		<property
+			name="mchtBrhFlag"
+			column="MCHT_BRH_FLAG"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+
+		<property
+			name="OprName"
+			column="OPR_NAME"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		<property
+			name="RoleId"
+			column="ROLE_ID"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		<property
+			name="OprStatus"
+			column="OPR_STATUS"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="OprPwd"
+			column="OPR_PWD"
+			type="string"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="OprSex"
+			column="OPR_SEX"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="CerType"
+			column="CER_TYPE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="CerNo"
+			column="CER_NO"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="ContactPhone"
+			column="CONTACT_PHONE"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="Email"
+			column="EMAIL"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="PwdWrTm"
+			column="PWD_WR_TM"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="PwdWrTmTotal"
+			column="PWD_WR_TM_TOTAL"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="PwdWrLastDt"
+			column="PWD_WR_LAST_DT"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="PwdOutDate"
+			column="PWD_OUT_DATE"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="Resv1"
+			column="RESV1"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="Resv2"
+			column="RESV2"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="LstUpdOpr"
+			column="LST_UPD_OPR"
+			type="string"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LstUpdTime"
+			column="LST_UPD_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="CreateTime"
+			column="CREATE_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property name="resvInfo" column="RESV_INFO" type="string" not-null="false" length="64" />
+		<property name="lastLoginTime" column="LAST_LOGIN_TIME" type="string" not-null="false" length="14" />
+		<property name="lastLoginIp" column="LAST_LOGIN_IP" type="string" not-null="false" length="20" />
+		<property name="lastLoginStatus" column="LAST_LOGIN_STATUS" type="string" not-null="false" length="1" />
+		<property name="currentLoginTime" column="CURRENT_LOGIN_TIME" type="string" not-null="false" length="14" />
+		<property name="currentLoginIp" column="CURRENT_LOGIN_IP" type="string" not-null="false" length="20" />
+		<property name="currentLoginStatus" column="CURRENT_LOGIN_STATUS" type="string" not-null="false" length="1" />
+		<property name="pwdWrTmContinue" column="PWD_WR_TM_CONTINUE" type="string" not-null="false" length="2" />
+
+	</class>
+</hibernate-mapping>

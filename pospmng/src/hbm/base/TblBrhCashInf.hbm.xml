@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-19 15:41:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.allinfinance.po.base.TblBrhCashInf" table="TBL_BRH_CASH_INF" schema="TGPADM">
+        <composite-id name="id" class="com.allinfinance.po.base.TblBrhCashInfId">
+            <key-property name="brhId" type="string">
+                <column name="BRH_ID" length="10" />
+            </key-property>
+            <key-property name="rateId" type="string">
+                <column name="RATE_ID" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="name" type="string">
+            <column name="NAME" length="20">
+                <comment>&#181;&#181;&#206;&#187;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="1">
+                <comment>&#181;&#181;&#206;&#187;&#192;&#224;&#208;&#205;0:&#177;&#200;&#192;&#253;;1:&#183;&#226;&#182;&#165;</comment>
+            </column>
+        </property>
+        <property name="rate" type="java.lang.Double">
+            <column name="RATE" precision="16" scale="3">
+                <comment>&#177;&#200;&#192;&#253;&#187;&#242;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="crtTime" type="string">
+            <column name="CRT_TIME" length="14" />
+        </property>
+        <property name="crtOpr" type="string">
+            <column name="CRT_OPR" length="10" />
+        </property>
+        <property name="uptTime" type="string">
+            <column name="UPT_TIME" length="14" />
+        </property>
+        <property name="uptOpr" type="string">
+            <column name="UPT_OPR" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

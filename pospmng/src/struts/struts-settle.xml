@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring" />
+	<package name="batch" extends="system">
+		
+		<!-- 系统拦截器 -->
+		<interceptors>
+			<interceptor name="logInter" class="com.allinfinance.interceptor.LogInter"></interceptor>
+			<interceptor-stack name="SystemInterceptor">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="logInter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+                <param name="charSet">UTF-8</param>
+                <param name="location">/page/system/emptyLocation.jsp</param>
+            </result>
+		</global-results>
+		
+		<!-- 批处理控制 -->
+        <action name="QryBatMainAction" class="qryBatMainAction"/>
+        
+		<!-- 清算对账 -->
+		<action name="T8*_*" 
+			class="com.allinfinance.struts.settle.action.T8{1}" method="{2}">
+			<interceptor-ref name="SystemInterceptor"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+			<result name="error" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+		</action>
+	<!--差错退货申请-->
+	<action name="T80300Action"  class="com.allinfinance.struts.settle.action.T80300Action"/>
+	<action name="T80301Action"  class="com.allinfinance.struts.settle.action.T80301Action"/>
+	<action name="T80303Action"  class="com.allinfinance.struts.settle.action.T80303Action"/>
+	<action name="T80304Action"  class="com.allinfinance.struts.settle.action.T80304Action"/>
+	
+	<action name="T80305Action"  class="com.allinfinance.struts.settle.action.T80305Action"/>
+
+	<!--报表统计-->
+	<action name="T80401Action"  class="com.allinfinance.struts.settle.action.T80401Action"/>
+	<action name="T804011Action"  class="com.allinfinance.struts.settle.action.T804011Action"/>
+	<action name="T80402Action"  class="com.allinfinance.struts.settle.action.T80402Action"/>
+	
+	<!--批量处理-->
+	<action name="T80603Action"  class="com.allinfinance.struts.settle.action.T80603Action"/>
+	<action name="T80604Action"  class="com.allinfinance.struts.settle.action.T80604Action"/>
+	<!--<action name="T80003Action"  class="com.allinfinance.struts.settle.action.T80003Action"/>-->
+	<!--差错处理-->
+	<action name="T80701Action"  class="com.allinfinance.struts.settle.action.T80701Action"/>
+	<action name="T80721Action_*"  class="com.allinfinance.struts.settle.action.T80721Action" method="{1}"/>
+	<action name="T80711Action_*"  class="com.allinfinance.struts.settle.action.T80711Action" method="{1}"/>
+	<action name="T80731Action"  class="com.allinfinance.struts.settle.action.T80731Action"/>
+	<action name="T80732Action"  class="com.allinfinance.struts.settle.action.T80732Action"/>
+	
+	<!--资金清算-->
+	<action name="T80801Action"  class="com.allinfinance.struts.settle.action.T80801Action"/>
+	<action name="T80802Action"  class="com.allinfinance.struts.settle.action.T80802Action"/>
+	<action name="T80803Action"  class="com.allinfinance.struts.settle.action.T80803Action"/>
+	
+	<!-- 商户结算单历史汇总报表下载-->		
+	<action name="T80805Action"  class="com.allinfinance.struts.settle.action.T80805Action" />
+	<!-- 商户结算单历史详细报表下载-->		
+	<action name="T8080501Action"  class="com.allinfinance.struts.settle.action.T8080501Action" />
+	<action name="T8080502Action"  class="com.allinfinance.struts.settle.action.T8080502Action" />
+	<!-- 商户结算 -->		
+	<action name="T80806Action"  class="com.allinfinance.struts.settle.action.T80806Action" />
+	
+	<!--结算通道维护-->
+	<action name="T80901Action"  class="com.allinfinance.struts.settle.action.T80901Action"/>
+	<action name="T80902Action"  class="com.allinfinance.struts.settle.action.T80902Action"/>
+	<!--中信收款单位文件下载-->
+	<action name="T80903Action"  class="com.allinfinance.struts.settle.action.T80903Action"/>
+	<!--中信小额支付-->
+	<action name="T80904Action"  class="com.allinfinance.struts.settle.action.T80904Action"/>
+	<!--交易通道维护-->
+	<action name="T80905Action"  class="com.allinfinance.struts.settle.action.T80905Action"/>
+	<!--准退货退款明细报表-->
+	<action name="T81002Action"  class="com.allinfinance.struts.settle.action.T81002Action"/>
+	
+	<!-- 虚拟账户开户 -->
+	<action name="T80001Action"  class="com.allinfinance.struts.settle.action.T80001Action"/>
+	<action name="T80002Action"  class="com.allinfinance.struts.settle.action.T80002Action"/>
+	<!-- 通道应到账报表-->
+	<action name="T80807Action"  class="com.allinfinance.struts.settle.action.T80807Action"/>
+	</package>
+</struts>

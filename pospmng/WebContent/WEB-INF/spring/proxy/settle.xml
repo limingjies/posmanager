@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--批量处理-->
+    <bean id="qryBatMainAction" class="com.allinfinance.struts.settle.action.QryBatMainAction" singleton="false">
+        <property name="batMainBO">
+            <ref bean="batMainBO"/>
+        </property>
+    </bean>
+    
+    
+    <!-- MCHNT ALL -->
+	<bean id="TblSettleService" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.impl.settle.TblSettleService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+				<value>TblSettleServiceTarget</value>
+			</list>
+		</property>
+	</bean>
+	<!-- MCHNT TARGET-->
+	<bean id="TblSettleServiceTarget" class="com.allinfinance.bo.impl.settle.TblSettleServiceImpl">
+		<property name="tblInfileOptDAO">
+			<ref bean="tblInfileOptDAO" />
+		</property>
+	</bean>
+	<!-- MCHNT DAO -->
+	<bean id="tblInfileOptDAO" class="com.allinfinance.dao.TblInfileOptDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 差错退换管理 -->
+	<bean id="T80301BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80301BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80301BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80301BOTarget" class="com.allinfinance.bo.impl.settle.T80301BOTarget">
+		
+		<property name="tblAmtbackApplyDAO">
+			<ref bean="TblAmtbackApplyDAO" />
+		</property>
+		
+		<property name="bthGcTxnSuccDAO">
+			<ref bean="BthGcTxnSuccDAO" />
+		</property>
+		
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblAmtbackApplyDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblAmtbackApplyDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>amtbackApplyDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="amtbackApplyDAOTarget" class="com.allinfinance.dao.impl.settle.TblAmtbackApplyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="BthGcTxnSuccDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.BthGcTxnSuccDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>bthGcTxnSuccDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="bthGcTxnSuccDAOTarget" class="com.allinfinance.dao.impl.settle.BthGcTxnSuccDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商服退货审核 -->
+	<bean id="T80306BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80306BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80306BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80306BOTarget" class="com.allinfinance.bo.impl.settle.T80306BOTarget">
+		<property name="tblAmtbackApplyresDAO">
+			<ref bean="TblAmtbackApplyresDAO" />
+		</property>
+        <property name="tblAmtbackApplymisDAO">
+			<ref bean="TblAmtbackApplymisDAO" />
+		</property>
+	</bean>
+	<bean id="TblAmtbackApplyresDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblAmtbackApplyresDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>amtbackApplyresDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="amtbackApplyresDAOTarget" class="com.allinfinance.dao.impl.settle.TblAmtbackApplyresDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+		<bean id="TblAmtbackApplymisDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblAmtbackApplymisDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>amtbackApplymisDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="amtbackApplymisDAOTarget" class="com.allinfinance.dao.impl.settle.TblAmtbackApplymisDAO">
+		<property name="sessionFactory">
+			<!-- <ref bean="sessionFactory" /> -->
+			<ref bean="sessionFactory_mis" />
+		</property>
+	</bean>
+	
+	
+	<!--批量处理-->
+	<bean id="T80603BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80603BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80603BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80603BOTarget" class="com.allinfinance.bo.impl.settle.T80603BOTarget">
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	
+	
+	<!-- 划付文件下载 -->
+	<bean id="T80803BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80803BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80803BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80803BOTarget" class="com.allinfinance.bo.impl.settle.T80803BOTarget">
+		
+		<property name="tblPaySettleDtlDAO">
+			<ref bean="TblPaySettleDtlDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+		<property name="tblPayChannelInfoDAO">
+			<ref bean="TblPayChannelInfoDAO" />
+		</property>
+	</bean>
+	
+	<bean id="TblPaySettleDtlDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblPaySettleDtlDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblPaySettleDtlDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblPaySettleDtlDAOTarget" class="com.allinfinance.dao.impl.settle.TblPaySettleDtlDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 结算通道维护 -->
+	<bean id="T80901BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80901BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80901BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80901BOTarget" class="com.allinfinance.bo.impl.settle.T80901BOTarget">
+		<property name="tblPayChannelInfoDAO">
+			<ref bean="TblPayChannelInfoDAO" />
+		</property>
+	</bean>
+	<bean id="TblPayChannelInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblPayChannelInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblPayChannelInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblPayChannelInfoDAOTarget" class="com.allinfinance.dao.impl.settle.TblPayChannelInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 开户行通道关联维护 -->
+	<bean id="T80902BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80902BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80902BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80902BOTarget" class="com.allinfinance.bo.impl.settle.T80902BOTarget">
+		<property name="tblChannelCnapsMapDAO">
+			<ref bean="TblChannelCnapsMapDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblChannelCnapsMapDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblChannelCnapsMapDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblChannelCnapsMapDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblChannelCnapsMapDAOTarget" class="com.allinfinance.dao.impl.settle.TblChannelCnapsMapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 中信小额支付维护 -->
+	<bean id="T80904BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80904BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80904BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80904BOTarget" class="com.allinfinance.bo.impl.settle.T80904BOTarget">
+		<property name="tblPayTypeSmallDAO">
+			<ref bean="TblPayTypeSmallDAO" />
+		</property>
+	</bean>
+	<bean id="TblPayTypeSmallDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblPayTypeSmallDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblPayTypeSmallDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblPayTypeSmallDAOTarget" class="com.allinfinance.dao.impl.settle.TblPayTypeSmallDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 交易通道维护 -->
+	<bean id="T80905BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80905BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80905BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80905BOTarget" class="com.allinfinance.bo.impl.settle.T80905BOTarget">
+		<property name="tblFirstBrhDestIdDAO">
+			<ref bean="TblFirstBrhDestIdDAO" />
+		</property>
+	</bean>
+	<bean id="TblFirstBrhDestIdDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblFirstBrhDestIdDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblFirstBrhDestIdDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblFirstBrhDestIdDAOTarget" class="com.allinfinance.dao.impl.settle.TblFirstBrhDestIdDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+
+	<!-- 准退货批量任务 -->
+	<bean id="T80604BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80604BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80604BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80604BOTarget" class="com.allinfinance.bo.impl.settle.T80604BOTarget">
+		<property name="tblZthDtlDAO">
+			<ref bean="TblZthDtlDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblZthDtlDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblZthDtlDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblZthDtlDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblZthDtlDAOTarget" class="com.allinfinance.dao.impl.settle.TblZthDtlDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 商户手工差错调整 -->
+	<bean id="TblMchtErrAdjustDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblMchtErrAdjustDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblMchtErrAdjustDAOImpl</value>
+		</property>
+	</bean>
+	<bean id="TblMchtErrAdjustDAOImpl" class="com.allinfinance.dao.impl.settle.TblMchtErrAdjustDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 差错交易调账 -->
+	<bean id="TblInstBalanceAjustDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblInstBalanceAjustDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblInstBalanceAjustDAOImpl</value>
+		</property>
+	</bean>
+	<bean id="TblInstBalanceAjustDAOImpl" class="com.allinfinance.dao.impl.settle.TblInstBalanceAjustDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="T80711BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80711BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80711BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80711BOTarget" class="com.allinfinance.bo.impl.settle.T80711BOTarget">
+		<property name="tblMchtErrAdjustDAO">
+			<ref bean="TblMchtErrAdjustDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="T80732BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80732BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80732BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80732BOTarget" class="com.allinfinance.bo.impl.settle.T80732BOTarget">
+		<property name="tblInstBalanceAjustDAO">
+			<ref bean="TblInstBalanceAjustDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<!-- 合作伙伴手工差错调整 -->
+	<bean id="TblBrhErrAdjustDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblBrhErrAdjustDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblBrhErrAdjustDAOImpl</value>
+		</property>
+	</bean>
+	<bean id="TblBrhErrAdjustDAOImpl" class="com.allinfinance.dao.impl.settle.TblBrhErrAdjustDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T80721BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settle.T80721BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T80721BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T80721BOTarget" class="com.allinfinance.bo.impl.settle.T80721BOTarget">
+		<property name="tblBrhErrAdjustDAO">
+			<ref bean="TblBrhErrAdjustDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<!--<bean id="TblPaySettleDtlTmpDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblPaySettleDtlTmpDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblPaySettleDtlTmpDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblPaySettleDtlTmpDAOTarget" class="com.allinfinance.dao.impl.settle.TblPaySettleDtlTmpDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="TblPaySettleMchtErrorDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settle.TblPaySettleMchtErrorDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>tblPaySettleMchtErrorDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="tblPaySettleMchtErrorDAOTarget" class="com.allinfinance.dao.impl.settle.TblPaySettleMchtErrorDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>-->
+	
+</beans>

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--通用查询-->
+ 	<bean id="CommQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commQueryDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commQueryDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commQueryDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactoryQuery" />
+		</property>
+	</bean>
+	<!-- mis通用查询 -->
+	<bean id="commMisQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commMisQueryDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commMisQueryDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_mis" />
+		</property>
+	</bean>
+	<!-- TMS用查询 -->
+	<bean id="commTMSQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commTMSQueryDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commTMSQueryDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_tms" />
+		</property>
+	</bean>
+	<!--连接代付数据库的通用查询
+	<bean id="commDFQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commQueryDFDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="CommDFQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commQueryDFDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commQueryDFDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="dfSessionFactoryQuery" />
+		</property>
+	</bean>-->
+	<!-- gateway DAO -->
+	<bean id="commGWQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commGWQueryDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commGWQueryDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_gw" />
+		</property>
+	</bean>
+	
+	<!-- 日志信息 -->
+	<bean id="TxnInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.TblTxnInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>txnInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="txnInfDAOTarget" class="com.allinfinance.dao.impl.TblTxnInfoDAOTarget">
+		<property name="txnInfoDAO">
+			<ref bean="TblTxnInfoDAO" />
+		</property>
+	</bean>
+	<bean id="TblTxnInfoDAO" class="com.allinfinance.dao.TblTxnInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!--角色信息-->
+	<bean id="RoleInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.TblRoleInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>roleInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="roleInfDAOTarget" class="com.allinfinance.dao.TblRoleInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T10301BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.base.T10301BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T10301BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T10301BOTarget" class="com.allinfinance.bo.impl.base.T10301BOTarget">
+		<property name="tblRoleInfDAO">
+			<ref bean="RoleInfDAO" />
+		</property>
+		<property name="tblRoleFuncMapDAO">
+			<ref bean="RoleFuncMapDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<!-- <ref bean="CommQueryDAO" /> -->
+			<ref bean="commQueryDAO" />
+		</property>
+	</bean>
+	<!--角色交易对应信息-->
+	<bean id="RoleFuncMapDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.TblRoleFuncMapDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>roleFuncMapDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="roleFuncMapDAOTarget" class="com.allinfinance.dao.TblRoleFuncMapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--连接POS收单-前置系统数据库的通用查询-->
+<!-- 	<bean id="commQuery_frontDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commQuery_frontDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commQuery_frontDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactoryQuery_front" />
+		</property>
+	</bean> -->
+	<bean id="commPOSPQueryDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.commquery.dao.ICommQueryDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>commPOSPQueryDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="commPOSPQueryDAOTarget" class="com.allinfinance.commquery.dao.CommQueryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_posp" />
+		</property>
+	</bean>
+</beans>

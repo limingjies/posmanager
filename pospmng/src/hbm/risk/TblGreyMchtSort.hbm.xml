@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblGreyMchtSort"
+		table="TBL_GREY_MCHT_SORT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="sortNo"
+			type="string"
+			column="SORT_NO"
+		>
+			<generator class="assigned"/>
+		</id>
+
+		<property name="sortName" column="SORT_NAME" type="string" not-null="false" length="50" />
+		<property name="crtOpr" column="CRT_OPR" type="string" not-null="false" length="15" />
+		<property name="crtTime" column="CRT_TIME" type="string" not-null="false" length="14" />
+		<property name="updOpr" column="UPD_OPR" type="string" not-null="false" length="15" />
+		<property name="updTime" column="UPD_TIME" type="string" not-null="false" length="14" />
+		<property name="resved" column="RESVED" type="string" not-null="false" length="100" />
+		<property name="resved1" column="RESVED1" type="string" not-null="false" length="200" />
+
+	</class>	
+</hibernate-mapping>

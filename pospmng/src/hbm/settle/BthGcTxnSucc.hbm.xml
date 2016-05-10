@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="BthGcTxnSucc"
+		table="BTH_CHK_TXN"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="bthGcTxnSuccPK" class="BthGcTxnSuccPK">
+	
+			<key-property
+				name="dateSettlmt8"
+				column="DATE_SETTLMT"
+				type="string"
+			/>
+			<key-property
+				name="keyCup"
+				column="KEY_RSP"
+				type="string"
+			/>
+		</composite-id>
+		
+		
+		
+		<property
+			name="instDate"
+			column="INSERT_DATE"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+		
+		<property
+			name="instTime"
+			column="INSERT_TIME"
+			type="string"
+			not-null="true"
+			length="6"
+		/>
+		
+		<property
+			name="pan"
+			column="PAN"
+			type="string"
+			not-null="false"
+			length="19"
+		/>
+		
+		
+		<property
+			name="cardAccpTermId"
+			column="CARD_ACCP_TERM_ID"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		<property
+			name="cardAccpId"
+			column="CARD_ACCP_ID"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		
+		
+		
+		
+		
+		<property
+			name="txnNum"
+			column="TXN_NUM"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+		
+		
+		
+		
+		
+		
+		<property
+			name="amtTrans"
+			column="AMT_TRANS"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		
+		<property
+			name="termSsn"
+			column="TERM_SSN"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		<property
+			name="sysSeqNum"
+			column="SYS_SEQ_NUM"
+			type="string"
+			not-null="true"
+			length="6"
+		/>
+		
+		
+		<property
+			name="revsalSsn"
+			column="REVSAL_SSN"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		
+		<property
+			name="retrivlRef"
+			column="RETRIVL_REF"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		
+		
+		
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.query">
+	<class
+		name="TblAccInConfirmHis"
+		table="tbl_acc_in_confirm_his"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="dateSettlmt" 
+			type="string" 
+			column="DATE_SETTLMT"
+			length="8"
+		>
+			<generator class="assigned" />
+		</id>
+				
+		<property
+			name="recOprId"
+			column="REC_OPR_ID"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		<property
+			name="createTime"
+			column="CREATE_TIME"
+			type="java.util.Date"
+			not-null="false"
+		/>
+		
+	</class>	
+</hibernate-mapping>

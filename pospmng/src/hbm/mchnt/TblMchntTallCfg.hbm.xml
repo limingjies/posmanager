@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="as.allinfinance.po.management.mer">
+	<class
+		name="TblMchntTallCfg"
+		table="TBL_MCHNT_TALL_CFG"
+	>
+		<id name="mchntId" type="string" column="mchnt_id">
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="mchntNm"
+			column="mchnt_nm"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="couldUpdate"
+			column="could_update"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackCycle"
+			column="feedback_cycle"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackDeadline"
+			column="feedback_deadline"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackState"
+			column="feedback_state"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackTb"
+			column="feedback_tb"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackTbState"
+			column="feedback_tb_state"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="lastUpdTime"
+			column="last_upd_time"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="lastUpdUser"
+			column="last_upd_user"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="reserve1"
+			column="reserve1"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="reserve2"
+			column="reserve2"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="marketing_id"
+			column="marketing_id"
+			type="string"
+			not-null="false"
+		/>
+	</class>	
+</hibernate-mapping>

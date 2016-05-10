@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="TblPaySettleDtl"
+		table="TBL_PAY_SETTLE_DTL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="tblPaySettleDtlPK" class="TblPaySettleDtlPK">
+			<key-property
+				name="instDate"
+				column="INST_DATE"
+				type="string"
+			/>
+			<key-property
+				name="mchtNo"
+				column="MCHT_NO"
+				type="string"
+			/>
+			<key-property
+				name="channelId"
+				column="CHANNEL_ID"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="setDtBeg"
+			column="SET_DT_BEG"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="setDtEnd"
+			column="SET_DT_END"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="batchNo"
+			column="BATCH_NO"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		
+		<property
+			name="amtSettlmt"
+			column="AMT_SETTLMT"
+			type="big_decimal"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="mchtAcctNo"
+			column="MCHT_ACCT_NO"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="mchtAcctNm"
+			column="MCHT_ACCT_NM"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="cnapsId"
+			column="CNAPS_ID"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		<property
+			name="cnapsName"
+			column="CNAPS_NAME"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		
+		<property
+			name="payType"
+			column="PAY_TYPE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="misc"
+			column="MISC"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="misc1"
+			column="MISC1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="risk" extends="system">
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+				<param name="charSet">UTF-8</param>
+				<param name="location">/page/system/emptyLocation.jsp</param>
+			</result>
+		</global-results>
+		<!-- 设置风险模型 -->
+		<action name="T40101Action" 
+			class="com.allinfinance.struts.risk.action.T40101Action" />
+		
+		<!-- 事中风控配置 -->
+		<action name="T40102Action" class="com.allinfinance.struts.risk.action.T40102Action" />
+		<!-- 事中风控控制-->
+		<action name="T40103Action" class="com.allinfinance.struts.risk.action.T40103Action" />
+		<!-- 风控参数定义-->
+		<action name="T40200Action" class="com.allinfinance.struts.risk.action.T40200Action" />
+		<!-- 设置风险模型-->
+		<action name="T40201Action" class="com.allinfinance.struts.risk.action.T40201Action" />
+		<!-- 添加商户黑名单信息-->
+		<action name="T40202Action" class="com.allinfinance.struts.risk.action.T40202Action" />
+		<!-- 卡黑名单历史交易表-->
+		<action name="T40203Action" class="com.allinfinance.struts.risk.action.T40203Action" />
+		<!-- 商户黑名单历史交易表-->
+		<action name="T40204Action" class="com.allinfinance.struts.risk.action.T40204Action" />
+		<!-- 风控明细查询-->
+		<action name="T40205Action" class="com.allinfinance.struts.risk.action.T40205Action" />
+		<!-- 风控级别管理-->
+		<action name="T40206Action" class="com.allinfinance.struts.risk.action.T40206Action" />
+		<!-- 商户白名单管理-->
+		<action name="T40207Action" class="com.allinfinance.struts.risk.action.T40207Action" />
+		<!-- 商户黑名单管理-->
+		<action name="T40208Action" class="com.allinfinance.struts.risk.action.T40208Action" />
+		<!-- MCC风控参数管理 -->
+		<action name="T40209Action_*" class="com.allinfinance.struts.risk.action.T40209Action" method="{1}"/>
+		
+		<!-- 风控警报管理-->
+		<action name="T40211Action" class="com.allinfinance.struts.risk.action.T40211Action" />
+		<!-- 商户事后风控管理-->
+		<action name="T40213Action" class="com.allinfinance.struts.risk.action.T40213Action" />
+		
+		
+		<!-- 商户清算黑名信息报表-->
+		<action name="T4020501Action" class="com.allinfinance.struts.risk.action.T4020501Action" />
+		<!-- 银行卡黑名单管理-->
+		<action name="T40212Action" class="com.allinfinance.struts.risk.action.T40212Action" />
+		
+		<!-- 单户交易监测报表-->
+		<action name="T40301Action" class="com.allinfinance.struts.risk.action.T40301Action" />
+		
+		<!-- 单笔信用卡交易监测-->
+		<action name="T40302Action" class="com.allinfinance.struts.risk.action.T40302Action" />
+
+		<!-- 单月单户信用卡交易监测-->
+		<action name="T40303Action" class="com.allinfinance.struts.risk.action.T40303Action" />
+		
+		<!-- 信用卡整数类交易监测-->
+		<action name="T40304Action" class="com.allinfinance.struts.risk.action.T40304Action" />
+		
+		<!-- 单户同一卡号监控-->
+		<action name="T40305Action" class="com.allinfinance.struts.risk.action.T40305Action" />
+		
+		<!-- 单户同卡号相同金额交易监测-->
+		<action name="T40306Action" class="com.allinfinance.struts.risk.action.T40306Action" />
+		
+		<!-- 预留相同信息监测-->
+		<action name="T40307Action" class="com.allinfinance.struts.risk.action.T40307Action" />
+		
+		<!-- 单户交易被拒情况监测-->
+		<action name="T40308Action" class="com.allinfinance.struts.risk.action.T40308Action" />
+		
+		<!-- 单户退货情况监测-->
+		<action name="T40309Action" class="com.allinfinance.struts.risk.action.T40309Action" />
+		
+		<!-- 财务POS交易监测-->
+		<action name="T40310Action" class="com.allinfinance.struts.risk.action.T40310Action" />
+		
+		<!-- 商户灰名单管理-->
+		<action name="T40400Action" class="com.allinfinance.struts.risk.action.T40400Action" />
+		
+		<!-- 白名单商户初审-->
+		<action name="T40401Action" class="com.allinfinance.struts.risk.action.T40401Action" />
+		
+		<!-- 白名单商户终审-->
+		<action name="T40402Action" class="com.allinfinance.struts.risk.action.T40402Action" />
+		
+		<!-- 商户风险分析汇总表 -->
+		<action name="T40501Action" class="com.allinfinance.struts.risk.action.T40501Action" />	
+		
+		<!-- 商户风险分析明细表 -->
+		<action name="T40502Action" class="com.allinfinance.struts.risk.action.T40502Action" />	 
+		<!-- 商户风险pos签购单 -->
+		<action name="T402111Action" class="com.allinfinance.struts.risk.action.T402111Action" />	
+		<!--商户资金冻结 -->
+		<action name="T40215Action" class="com.allinfinance.struts.risk.action.T40215Action" />	 
+		<!--商户风控参数维护 -->
+		<action name="T40405Action" class="com.allinfinance.struts.risk.action.T40405Action" />	
+		<action name="T40407Action" class="com.allinfinance.struts.risk.action.T40407Action" /> 
+	</package>
+</struts>

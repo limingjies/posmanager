@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.agentpay">
+	<class
+		name="TblBusCodeInfo"
+		table="TBL_BUS_CODE_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<meta attribute="sync-VO">true</meta>
+		<id
+			name="busCode"
+			column="BUS_CODE"
+			type="string"
+			length="5"
+			>
+			<generator class="assigned" />
+		</id>
+		<property
+			name="usage"
+			column="USAGE"
+			type="string"
+			not-null="false"
+			length="1"
+			/>
+			<property
+			name="typeNo"
+			column="TYPE_NO"
+			type="string"
+			not-null="false"
+			length="2"
+			/>
+			<property
+			name="name"
+			column="NAME"
+			type="string"
+			not-null="false"
+			length="120"
+			/>
+			<property
+			name="seq"
+			column="SEQ"
+			type="string"
+			not-null="false"
+			length="2"
+			/>
+	</class>	
+</hibernate-mapping>

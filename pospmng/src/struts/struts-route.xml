@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="route" extends="system">
+		
+		<!-- 系统拦截器 -->
+		<interceptors>
+			<interceptor name="logInter" class="com.allinfinance.interceptor.LogInter"></interceptor>
+			<interceptor-stack name="SystemInterceptor">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="logInter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+				<param name="charSet">UTF-8</param>
+				<param name="location">/page/system/emptyLocation.jsp</param>
+			</result>
+		</global-results>
+	<!-- 路由组维护 -->	
+	<action name="T110111Action_*" class="com.allinfinance.struts.route.action.T110111Action" method="{1}"></action>
+	<action name="T110201Action_*" class="com.allinfinance.struts.route.action.T110201Action" method="{1}"></action>
+	<action name="T110121Action_*" class="com.allinfinance.struts.route.action.T110121Action" method="{1}"></action>
+	
+	<action name="T110301Action_*" class="com.allinfinance.struts.route.action.T110301Action" method="{1}"></action>
+	<action name="T110321Action_*" class="com.allinfinance.struts.route.action.T110321Action" method="{1}"></action>
+	<action name="T110331Action_*" class="com.allinfinance.struts.route.action.T110331Action" method="{1}"></action>
+	<action name="T1103311Action" class="com.allinfinance.struts.route.action.T1103311Action"></action>
+	<action name="T110351Action_*" class="com.allinfinance.struts.route.action.T110351Action" method="{1}"></action>
+	
+	<action name="T110311Action_*" class="com.allinfinance.struts.route.action.T110311Action" method="{1}"></action>
+	
+	<action name="T110101Action" class="com.allinfinance.struts.route.action.T110101Action"></action>
+
+	<action name="T110131Action" class="com.allinfinance.struts.route.action.T110131Action"></action>
+	
+	<action name="T110202Action" class="com.allinfinance.struts.route.action.T110202Action"></action>
+	</package>
+</struts>

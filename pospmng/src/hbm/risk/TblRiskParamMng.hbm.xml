@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.allinfinance.po.risk">
+    <class name="TblRiskParamMng" table="TBL_RISK_PARAM_MNG">
+    	<meta attribute="sync-DAO">false</meta>
+        <composite-id name="id" class="TblRiskParamMngPK">
+            <key-property name="mchtId" type="string">
+                <column name="MCHT_ID" length="15" />
+            </key-property>
+            <key-property name="termId" type="string">
+                <column name="TERM_ID" length="12" />
+            </key-property>
+            <key-property name="riskType" type="string">
+                <column name="RISK_TYPE" length="1" />
+            </key-property>
+        </composite-id>
+        <property name="creditSingleAmt" type="double">
+            <column name="CREDIT_SINGLE_AMT" precision="15">
+                <comment>贷记卡单笔限额</comment>
+            </column>
+        </property>
+        <property name="creditDayAmt" type="double">
+            <column name="CREDIT_DAY_AMT" precision="15">
+                <comment>贷记卡日限额</comment>
+            </column>
+        </property>
+        <property name="creditDayCount" type="integer">
+            <column name="CREDIT_DAY_COUNT" precision="5" scale="0">
+                <comment>贷记卡日限次</comment>
+            </column>
+        </property>
+        <property name="creditMonAmt" type="double">
+            <column name="CREDIT_MON_AMT" precision="15">
+                <comment>贷记卡月限额</comment>
+            </column>
+        </property>
+        <property name="creditMonCount" type="integer">
+            <column name="CREDIT_MON_COUNT" precision="5" scale="0">
+                <comment>贷记卡月限次</comment>
+            </column>
+        </property>
+        <property name="debitSingleAmt" type="double">
+            <column name="DEBIT_SINGLE_AMT" precision="15">
+                <comment>借记卡单笔限额</comment>
+            </column>
+        </property>
+        <property name="debitDayAmt" type="double">
+            <column name="DEBIT_DAY_AMT" precision="15">
+                <comment>借记卡日限额</comment>
+            </column>
+        </property>
+        <property name="debitDayCount" type="integer">
+            <column name="DEBIT_DAY_COUNT" precision="5" scale="0">
+                <comment>借记卡日限次</comment>
+            </column>
+        </property>
+        <property name="debitMonAmt" type="double">
+            <column name="DEBIT_MON_AMT" precision="15">
+                <comment>借记卡月限额</comment>
+            </column>
+        </property>
+        <property name="debitMonCount" type="integer">
+            <column name="DEBIT_MON_COUNT" precision="5" scale="0">
+                <comment>借记卡月限次</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="100">
+                <comment>备注</comment>
+            </column>
+        </property>
+        <property name="regTime" type="string">
+            <column name="REG_TIME" length="14">
+                <comment>新增时间</comment>
+            </column>
+        </property>
+        <property name="regOpr" type="string">
+            <column name="REG_opr" length="14">
+                <comment>新增操作员</comment>
+            </column>
+        </property>
+        <property name="updTime" type="string">
+            <column name="UPD_TIME" length="14">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+        <property name="updOpr" type="string">
+            <column name="UPD_opr" length="14" />
+        </property>
+        <property name="resved" type="string">
+            <column name="RESVED" length="100">
+                <comment>保留</comment>
+            </column>
+        </property>
+        <property name="resved1" type="string">
+            <column name="RESVED1" length="200">
+                <comment>保留</comment>
+            </column>
+        </property>
+        <property name="mchtAmt" type="double">
+            <column name="MCHT_AMT" precision="15">
+                <comment>商户提现单笔限额（终端时为空）</comment>
+            </column>
+        </property>
+        <property name="mchtDayAmt" type="double">
+            <column name="MCHT_DAY_AMT" precision="15">
+                <comment>商户提现日累计限额（终端时为空）</comment>
+            </column>
+        </property>
+        <property name="mchtPosAmt" type="double">
+            <column name="MCHT_POS_AMT" precision="15">
+                <comment>商户刷卡限额（终端时为空）</comment>
+            </column>
+        </property>                
+    </class>
+</hibernate-mapping>

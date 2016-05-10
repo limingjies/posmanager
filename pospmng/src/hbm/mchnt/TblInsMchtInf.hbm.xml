@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblInsMchtInf"
+		table="tbl_ins_mcht_inf"
+	>
+	
+	<meta attribute="sync-DAO">false</meta>
+		<id name="MchtNo" type="string" column="mcht_no">
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="InsIdCd"
+			column="ins_id_cd"
+			type="string"
+			not-null="false"
+			length="11"
+		/><!--  -->
+		
+		<property
+			name="FirstMchtCd"
+			column="first_mcht_cd"
+			type="string"
+			not-null="false"
+			length="15"
+		/><!--  -->
+		
+		<property
+			name="FirstTermId"
+			column="first_term_id"
+			type="string"
+			not-null="false"
+			length="8"
+		/><!--  -->
+		
+		<property
+			name="AcqInstId"
+			column="acq_inst_id"
+			type="string"
+			not-null="false"
+			length="11"
+		/><!--  -->
+		
+		<property
+			name="Misc"
+			column="misc"
+			type="string"
+			not-null="false"
+			length="128"
+		/><!--  -->
+		
+		<property
+			name="InsertTime"
+			column="insert_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!--  -->
+		
+		<property
+			name="UpdateTime"
+			column="update_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!--  -->
+		
+	</class>	
+</hibernate-mapping>

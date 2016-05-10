@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="as.allinfinance.po.management.mer">
+	<class
+		name="TblMchntTallCom"
+		table="TBL_MCHNT_TALL_COM"
+	>
+		<composite-id name="Id" class="TblMchntTallComPK">
+			<key-property name="mchntId" column="mchnt_id" type="string" />
+			<key-property name="feedbackTb" column="FEEDBACK_TB" type="string" />
+			<key-property name="feedbackTime" column="FEEDBACK_TIME" type="string" />
+		</composite-id>
+		
+		<property
+			name="tbTradeVolume"
+			column="tb_trade_volume"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="tbTradeCount"
+			column="tb_trade_count"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="tbTradeRank"
+			column="tb_trade_rank"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="tbTradeMccRank"
+			column="tb_trade_mcc_rank"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackWay"
+			column="FEEDBACK_WAY"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackContent"
+			column="FEEDBACK_CONTENT"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="feedbackResult"
+			column="FEEDBACK_RESULT"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="situation"
+			column="SITUATION"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="desr"
+			column="DESR"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="lastUpdTime"
+			column="last_upd_time"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="lastUpdUser"
+			column="last_upd_user"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="reserve1"
+			column="reserve1"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="reserve2"
+			column="reserve2"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="brhId"
+			column="brh_id"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="mchntNm"
+			column="mchnt_nm"
+			type="string"
+			not-null="false"
+		/>
+	</class>	
+</hibernate-mapping>

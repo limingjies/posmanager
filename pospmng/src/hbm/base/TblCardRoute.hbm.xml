@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblCardRoute"
+		table="TBL_CARD_ROUTE"
+	>
+        <composite-id name="Id" class="TblCardRoutePK">
+			<key-property name="UsageKey" column="USAGE_KEY" type="string" />
+			<key-property name="CardId" column="CARD_ID" type="string" />
+		</composite-id>
+		<property
+			name="CardIdOffset"
+			column="CARD_ID_OFFSET"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="CardIdLen"
+			column="CARD_ID_LEN"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="BranchNo"
+			column="BRANCH_NO"
+			type="string"
+			length="16"
+		/>
+		<property
+			name="BranchNoOffset"
+			column="BRANCH_NO_OFFSET"
+			type="string"
+			length="10"
+		/>
+		<property
+			name="BranchNoLen"
+			column="BRANCH_NO_LEN"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="InstCode"
+			column="INST_CODE"
+			type="string"
+			not-null="true"
+			length="13"
+		/>
+		<property
+			name="CardName"
+			column="CARD_NAME"
+			type="string"
+			length="40"
+		/>
+		<property
+			name="DestSrvId"
+			column="DEST_SRV_ID"
+			type="string"
+			length="4"
+		/>
+		<property
+			name="TxnNum"
+			column="TXN_NUM"
+			type="string"
+			length="4"
+		/>
+		<property
+			name="CardType"
+			column="CARD_TYPE"
+			type="string"
+			length="2"
+		/>
+		<property
+			name="InitOprId"
+			column="INIT_OPR_ID"
+			type="string"
+			length="4"
+		/>
+		<property
+			name="ModiOprId"
+			column="MODI_OPR_ID"
+			type="string"
+			length="4"
+		/>
+		<property
+			name="InitTime"
+			column="INIT_TIME"
+			type="string"
+			length="14"
+		/>
+		<property
+			name="ModiTime"
+			column="MODI_TIME"
+			type="string"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

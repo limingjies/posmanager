@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblTermManagementAppMain"
+		table="tbl_term_management_app_main"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="appId"
+			type="string"
+			column="app_id"
+		>
+			<generator class="assigned"/>
+		</id>
+
+		<property
+			name="stat"
+			column="stat"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="brhId"
+			column="brh_id"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="misc"
+			column="misc"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="appOprId"
+			column="app_opr_id"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="appDate"
+			column="app_date"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="backOprId"
+			column="back_opr_id"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="backDate"
+			column="back_date"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+	</class>	
+</hibernate-mapping>

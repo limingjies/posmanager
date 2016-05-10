@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="TblCnapsInfo"
+		table="TBL_CNAPS_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="cnapsId"
+			column="CNAPS_ID"
+			type="string"
+			length="12"
+		/>
+		<property name="cnapsFlag" column="CNAPS_FLAG" type="string" not-null="false" length="1" />
+		<property name="cnapsName" column="CNAPS_NAME" type="string" not-null="false" length="256" />
+		<property name="parentCnapsId" column="PARENT_CNAPS_ID" type="string" not-null="false" length="12" />
+		<property name="addr" column="ADDR" type="string" not-null="false" length="1024" />
+		<property name="misc" column="MISC" type="string" not-null="false" length="100" />
+		<property name="misc1" column="MISC1" type="string" not-null="false" length="200" />
+
+	</class>	
+</hibernate-mapping>

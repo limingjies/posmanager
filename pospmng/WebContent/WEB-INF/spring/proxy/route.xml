@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 路由商户组 -->
+	 <bean id="TblRouteMchtgBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblRouteMchtgBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteMchtgBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblRouteMchtgBORoute" class="com.allinfinance.bo.impl.route.TblRouteMchtgBORoute">
+        <property name="tblRouteMchtgDAO">
+            <ref bean="TblRouteMchtgDAO" />
+        </property>
+    </bean>
+     <bean id="TblRouteMchtgDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteMchtgDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteMchtgDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteMchtgDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteMchtgDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    <bean id="TblRouteMchtgDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteMchtgDetailDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteMchtgDetailDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteMchtgDetailDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteMchtgDetailDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    
+     <bean id="TblRouteRuleMapDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteRuleMapDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteRuleMapDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteRuleMapDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteRuleMapDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    
+	<!-- 渠道商户 -->
+	 <bean id="TblUpbrhMchtBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblUpbrhMchtBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblUpbrhMchtBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblUpbrhMchtBORoute" class="com.allinfinance.bo.impl.route.TblUpbrhMchtBORoute">
+        <property name="tblUpbrhMchtDAO">
+            <ref bean="TblUpbrhMchtDAO" />
+        </property>
+		<property name="commGWQueryDAO">
+			<ref bean="commGWQueryDAO" />
+		</property>	
+    </bean>
+     <bean id="TblUpbrhMchtDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblUpbrhMchtDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblUpbrhMchtDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblUpbrhMchtDAOImpl" class="com.allinfinance.dao.impl.route.TblUpbrhMchtDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    
+	<!--  业务成本扣率主表Tbl_Upbrh_Fee -->
+	 <bean id="TblUpbrhFeeBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblUpbrhFeeBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblUpbrhFeeBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblUpbrhFeeBORoute" class="com.allinfinance.bo.impl.route.TblUpbrhFeeBORoute">
+        <property name="tblUpbrhFeeDAO">
+            <ref bean="TblUpbrhFeeDAO" />
+        </property>
+		<property name="commGWQueryDAO">
+			<ref bean="commGWQueryDAO" />
+		</property>	
+    </bean>
+    <bean id="TblUpbrhFeeDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblUpbrhFeeDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblUpbrhFeeDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblUpbrhFeeDAOImpl" class="com.allinfinance.dao.impl.route.TblUpbrhFeeDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+
+	<!-- 业务成本扣率明细表Tbl_Upbrh_Fee_detail -->
+	 <bean id="TblUpbrhFeeDetailBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblUpbrhFeeDetailBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblUpbrhFeeDetailBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblUpbrhFeeDetailBORoute" class="com.allinfinance.bo.impl.route.TblUpbrhFeeDetailBORoute">
+        <property name="tblUpbrhFeeDetailDAO">
+            <ref bean="TblUpbrhFeeDetailDAO" />
+        </property>
+    </bean>
+    <bean id="TblUpbrhFeeDetailDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblUpbrhFeeDetailDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblUpbrhFeeDetailDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblUpbrhFeeDetailDAOImpl" class="com.allinfinance.dao.impl.route.TblUpbrhFeeDetailDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+
+	<!-- 路由规则配置服务-->
+	 <bean id="TblRouteRuleInfoBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblRouteRuleInfoBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteRuleInfoBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblRouteRuleInfoBORoute" class="com.allinfinance.bo.impl.route.TblRouteRuleInfoBORoute">
+        <property name="tblRouteRuleInfoDAO">
+            <ref bean="TblRouteRuleInfoDAO" />
+        </property>
+    </bean>
+    <!-- 路由规则配置DAO-->
+     <bean id="TblRouteRuleInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteRuleInfoDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteRuleInfoDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteRuleInfoDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteRuleInfoDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+
+    <!--  渠道业务类型管理表主表Tbl_Route_Upbrh -->
+	 <bean id="TblRouteUpbrhDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteUpbrhDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteUpbrhDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteUpbrhDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteUpbrhDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    
+    <bean id="TblRouteUpbrhBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblRouteUpbrhBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteUpbrhBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblRouteUpbrhBORoute" class="com.allinfinance.bo.impl.route.TblRouteUpbrhBORoute">
+        <property name="tblRouteUpbrhDAO">
+            <ref bean="TblRouteUpbrhDAO" />
+        </property>
+        <property name="commGWQueryDAO">
+            <ref bean="commGWQueryDAO" />
+        </property>
+    </bean>
+
+	<!-- 映射关系表Tbl_Route_Rule_Map -->
+	 <bean id="TblRouteRuleMapBO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblRouteRuleMapBO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteRuleMapBORoute</value>
+        </property>
+    </bean>
+    <bean id="TblRouteRuleMapBORoute" class="com.allinfinance.bo.impl.route.TblRouteRuleMapBORoute">
+        <property name="tblRouteRuleMapDAO">
+            <ref bean="TblRouteRuleMapDAO" />
+        </property>
+		<property name="commGWQueryDAO">
+			<ref bean="commGWQueryDAO" />
+		</property>	
+    </bean>
+    
+    <!-- <bean id="TblRouteRuleMapDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteRuleMapDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteRuleMapDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteRuleMapDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteRuleMapDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean> -->
+
+
+	<!-- 业务表Tbl_Route_Upbrh2 -->
+	 <bean id="TblRouteUpbrh2DAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteUpbrh2DAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteUpbrh2DAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteUpbrh2DAOImpl" class="com.allinfinance.dao.impl.route.TblRouteUpbrh2DAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    
+    <bean id="TblRouteUpbrh2BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.TblRouteUpbrh2BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteUpbrh2BORoute</value>
+        </property>
+    </bean>
+    <bean id="TblRouteUpbrh2BORoute" class="com.allinfinance.bo.impl.route.TblRouteUpbrh2BORoute">
+        <property name="tblRouteUpbrh2DAO">
+            <ref bean="TblRouteUpbrh2DAO" />
+        </property>
+    </bean>
+	
+	 <!--  映射关系历史记录 -->
+	 <bean id="TblRouteRuleMapHistDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.dao.iface.route.TblRouteRuleMapHistDAO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>TblRouteRuleMapHistDAOImpl</value>
+        </property>
+    </bean>
+    <bean id="TblRouteRuleMapHistDAOImpl" class="com.allinfinance.dao.impl.route.TblRouteRuleMapHistDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory_gw" />
+        </property>
+    </bean>
+    <!--  T110301BORoute-->
+	 <bean id="T110301BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.T110301BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>T110301BORoute</value>
+        </property>
+    </bean>
+    <bean id="T110301BORoute" class="com.allinfinance.bo.impl.route.T110301BORoute">
+         <property name="tblRouteMchtgDetailDAO">
+            <ref bean="TblRouteMchtgDetailDAO" />
+        </property>
+         <property name="tblMchtBaseInfDAO">
+            <ref bean="tblMchtBaseInfDAO" />
+        </property>
+         <property name="tblRouteRuleMapDAO">
+            <ref bean="TblRouteRuleMapDAO" />
+        </property>
+         <property name="tblRouteRuleMapHistDAO">
+            <ref bean="TblRouteRuleMapHistDAO" />
+        </property>
+       
+    </bean>
+     <!--  T110321BORoute-->
+	 <bean id="T110321BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.T110321BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>T110321BORoute</value>
+        </property>
+    </bean>
+    <bean id="T110321BORoute" class="com.allinfinance.bo.impl.route.T110321BORoute">
+        <property name="tblRouteMchtgBO">
+            <ref bean="TblRouteMchtgBO" />
+        </property>
+         <property name="tblRouteMchtgDetailDAO">
+            <ref bean="TblRouteMchtgDetailDAO" />
+        </property>
+         <property name="tblMchtBaseInfDAO">
+            <ref bean="tblMchtBaseInfDAO" />
+        </property>
+         <property name="tblRouteRuleMapDAO">
+            <ref bean="TblRouteRuleMapDAO" />
+        </property>
+         <property name="tblRouteRuleMapHistDAO">
+            <ref bean="TblRouteRuleMapHistDAO" />
+        </property>
+    </bean>
+     <!--  T110331BORoute-->
+	 <bean id="T110331BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.allinfinance.bo.route.T110331BO</value>
+        </property>
+        <property name="interceptorNames">
+            <value>T110331BORoute</value>
+        </property>
+    </bean>
+    <bean id="T110331BORoute" class="com.allinfinance.bo.impl.route.T110331BORoute">
+         <property name="tblRouteMchtgDetailDAO">
+            <ref bean="TblRouteMchtgDetailDAO" />
+        </property>
+         <property name="tblMchtBaseInfDAO">
+            <ref bean="tblMchtBaseInfDAO" />
+        </property>
+         <property name="tblMchtSettleInfDao">
+            <ref bean="tblMchtSettleInfDAO" />
+        </property>
+         <property name="tblRouteRuleMapDAO">
+            <ref bean="TblRouteRuleMapDAO" />
+        </property>
+         <property name="tblRouteRuleMapHistDAO">
+            <ref bean="TblRouteRuleMapHistDAO" />
+        </property>
+    </bean>
+   
+</beans>

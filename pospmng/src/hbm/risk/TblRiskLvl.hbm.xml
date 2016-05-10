@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRiskLvl"
+		table="TBL_RISK_LVL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblRiskLvlPK">
+			<key-property
+				name="riskLvl"
+				column="risk_lvl"
+				type="string"
+			/>
+	
+			<key-property
+				name="riskId"
+				column="risk_id"
+				type="string"
+			/>
+		</composite-id>
+		
+		
+		<property
+			name="resved"
+			column="resved"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="resved1"
+			column="resved1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		
+	</class>	
+</hibernate-mapping>

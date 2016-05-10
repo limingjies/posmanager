@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.allinfinance.po.base.TblBrhSettleInfHis" table="tbl_brh_settle_inf_his" >
+        <composite-id name="Id" class="com.allinfinance.po.base.TblBrhSettleInfHisPK">
+			<key-property
+				name="brhId"
+				column="BRH_ID"
+				type="string"
+			/>
+			<key-property
+				name="seqId"
+				column="SEQ_ID"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="settleFlag"
+			column="settle_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="settleBankNo"
+			column="settle_bank_no"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		<property
+			name="settleBankNm"
+			column="settle_bank_nm"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="settleAcctNm"
+			column="SETTLE_ACCT_NM"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="settleAcct"
+			column="SETTLE_ACCT"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="settleAcctMid"
+			column="SETTLE_ACCT_MID"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="settleAcctMidNm"
+			column="SETTLE_ACCT_MID_NM"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="crtOpr"
+			column="CRT_OPR"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="crtTs"
+			column="CRT_TS"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="updOpr"
+			column="UPD_OPR"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="updTs"
+			column="UPD_TS"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="misc"
+			column="MISC"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="misc1"
+			column="MISC1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

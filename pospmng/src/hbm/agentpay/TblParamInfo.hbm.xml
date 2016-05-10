@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.agentpay">
+	<class
+		name="TblParamInfo"
+		table="TBL_PARAM_INFO"
+		>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="TblParamInfoPK">
+			<key-property
+				name="paramMark"
+				column="PARAM_MARK"
+				type="string"
+				/>
+			<key-property
+				name="paramCode"
+				column="PARAM_CODE"
+				type="string"
+				/>
+		</composite-id>
+		<property 
+			name="paramType" 
+			column="PARAM_TYPE" 
+			type="string" 
+			not-null="false" 
+			length="1" 
+			/>
+		<property 
+			name="paramPro" 
+			column="PARAM_PRO" 
+			type="string" 
+			not-null="false" 
+			length="1" 
+			/>
+		<property 
+			name="paramValue" 
+			column="PARAM_VALUE" 
+			type="string" 
+			not-null="false" 
+			length="100"
+			/>
+		<property 
+			name="descr" 
+			column="DESCR" 
+			type="string" 
+			not-null="false" 
+			length="100" 
+			/>
+		<property 
+			name="lstUpdTlr" 
+			column="LST_UPD_TLR" 
+			type="string" 
+			not-null="false" 
+			length="11" 
+			/>
+		<property 
+			name="lstUpdTime" 
+			column="LST_UPD_TIME" 
+			type="string" 
+			not-null="false" 
+			length="14" 
+			/>
+		<property 
+			name="createTime" 
+			column="CREATE_TIME" 
+			type="string" 
+			not-null="false" 
+			length="14" 
+			/>
+	</class>	
+</hibernate-mapping>

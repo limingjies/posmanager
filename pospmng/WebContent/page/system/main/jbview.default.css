@@ -1,0 +1,346 @@
+/*
+ * default.css
+ * modico.net (lihw@jbbis.com.cn), 2005-08-23, 2008-06-25
+ *
+ * Revisions:
+ *	2010-09-01, modico:
+ *		Add rotation-* rules;
+ */
+
+* {
+	font-size: 12px;
+	font-family: 微软雅黑,Tahoma,serif;
+	margin: 0;
+	padding: 0;
+/*
+ * https://developer.mozilla.org/en/CSS/box-sizing
+ *
+ * Browser compatibility
+ * ----------------------------------------------------
+ * Browser        | Lowest Version | Support of
+ * IE               8.0              box-sizing
+ * Firefox (Gecko)  1.0 (1.0)        -moz-box-sizing
+ * Opera            7.0              box-sizing
+ * Safari (WebKit)  3.0 (522)        -webkit-box-sizing
+ * -----------------------------------------------------
+ * Firefox Notes:
+ * 		-moz-box-sizing doesn't apply to table cells
+ * 		min-height/max-height does not work for -moz-box-sizing: border-box
+ */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+BODY {
+	overflow: hidden;
+}
+
+/** Desktop **/
+.desktop {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.desksidebar {
+	position: absolute;
+	width: 100%;
+	height: 28px;
+	bottom: 0;
+	overflow: hidden;
+	background-image: url(afx.layout.desksidebar_background.gif);
+	display: none;
+}
+
+.desksidebar-button {
+	float: left;
+	padding-left: 8px;
+	cursor: pointer;
+	color: #0560A6;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+.desksidebar-button .button-content {
+	padding: 6px 8px 6px 0;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+
+.dsb-active {
+	border-top: 1px solid white;
+	background-image: url(afx.layout.dsb_left_active.gif);
+}
+
+.dsb-active .button-content {
+	padding-top: 4px;
+	background-image: url(afx.layout.dsb_right_active.gif);
+}
+
+/** Modal */
+.modal, .modal-mask, .modal-canvas {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.modal-mask-transparent {
+	background: #999;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.modal-mask-light {
+	background: #999;
+	opacity: .60;
+	filter: alpha(opacity=60);
+}
+
+.modal-canvas {
+	overflow: auto;
+}
+
+/** Loading Indicator */
+.loading-indicator {
+	right: 450px;
+	top: 4px;
+	position: absolute;
+	border: 1px solid #cccccc;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#FFCCCCFF, endColorStr=#99FFFFFF, GradientType=0);
+	color: #ff3300;
+	padding: 2px;
+}
+
+.loading-indicator .spinner {
+	margin: 0 4px;
+}
+
+/** dialog frame */
+.dialog-window {
+	background-color: #ECE9D8;
+	position: absolute;
+}
+
+.df-border {
+	border-width: 1px;
+	border-style: solid;
+}
+
+.df-b1 {
+	border-color: #D4D0C8 #404040 #404040 #D4D0C8;
+}
+
+.df-b2 {
+	border-color: #FFFFFF #808080 #808080 #FFFFFF;
+}
+
+.df-b3 {
+	border-color: #D4D0C8;
+}
+
+.df-layout {
+	height: 100%;
+}
+
+.dialog-window .df-layout {
+	width: 100%;
+}
+
+.df-titlebar {
+	width: 100%;
+	border-bottom: 1px solid #D4D0C8;
+	background-color: #0A246A;
+	cursor: default;
+	padding-right: 24px;
+	position: relative;
+	overflow: hidden;
+}
+
+.ie .df-titlebar {
+	filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=1,startColorStr=#0A246A,endColorStr=#A6CAF0);
+}
+
+/** firefox 3.6+ */
+.firefox .df-titlebar {
+	background-image: -moz-linear-gradient(left, #0A246A, #A6CAF0);
+}
+
+.safari .df-titlebar {
+	background-image: -webkit-gradient(linear, left top, right top, from(#0A246A), to(#A6CAF0));
+}
+
+.df-close-button {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 2px;
+	top: 1px;
+}
+
+.df-close-button-normal {
+	background-image: url(afx.layout.dw_close_normal.gif);
+}
+
+.df-close-button-active {
+	background-image: url(afx.layout.dw_close_active.gif);
+}
+
+.df-titlebar .layout {
+	height: 19px;
+}
+
+.df-titlebar .title {
+	color: white;
+	padding-left: 8px;
+	font-weight: bold;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.df-client {
+	width: 100%;
+	background-color: #ECE9D8;
+	overflow: auto;
+	position: relative;
+}
+
+.backstage {
+	position: absolute;
+	left: -10px;
+	top: -10px;
+	width: 10px;
+	height: 10px;
+	overflow: hidden;
+}
+
+.float-window {
+	position: absolute;
+	display:  inline;
+}
+
+.windowless-shim {
+	position: absolute;
+	left: -10000px;
+}
+
+BUTTON {
+	overflow: visible;  /* default: hidden; */
+	padding: 0px 3px;  /* default: 0; */
+}
+
+.expand {
+	width: 100%;
+	height: 100%;
+}
+
+.scrollbox {
+	overflow: auto;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.fixed-table {
+	table-layout: fixed;
+}
+
+.inline-table {
+	display: inline;
+}
+
+.stdc .inline-table {
+	display: inline-block;
+}
+
+.shadow {
+	position: absolute;
+}
+
+.hidden {
+	display: none;
+}
+
+.link {
+	text-decoration: underline;
+	color: blue;
+	cursor: pointer;
+}
+
+.shadow-frame-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.shadow-frame {
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	filter: alpha(opacity=5);
+	opacity: .05;
+}
+
+.console {
+	position: absolute;
+	z-index: 50000;
+	width: 300px;
+	height: 50%;
+	overflow: auto;
+	border: 2px solid red;
+	padding: 3px;
+	background: white;
+	right: 0;
+	bottom: 0;
+}
+
+.console SPAN {
+	font-family: "Courier New";
+	white-space: nowrap;
+}
+
+.rotation-0 {
+}
+
+.rotation-90 {
+	/* IE-6,7 */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+	/* IE-8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+	/* Firefox */
+	-moz-transform: rotate(90deg);
+	/* WebKit */
+	-webkit-transform: rotate(90deg);
+	/* Opera (Presto 2.4+) */
+	-o-transform: rotate(90deg);
+	/* Standard */
+	transform: rotate(90deg);
+}
+
+.rotation-180 {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.rotation-270 {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+	-moz-transform: rotate(270deg);
+	-webkit-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+.safari TEXTAREA {
+	resize: none;
+}

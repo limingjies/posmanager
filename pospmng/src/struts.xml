@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.multipart.saveDir" value="/app/newposp/domain/tmp/"></constant>  
+	<constant name="struts.action.extension" value="asp"></constant>
+	<package name="system" extends="json-default">
+		<!--定义一个拦截器-->
+		<interceptors>
+			<interceptor name="sessionout" class="com.allinfinance.interceptor.SessionOutInterceptor">
+			</interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="sessionout" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!--默认调用拦截器-->
+		<default-interceptor-ref name="myStack"/>
+		
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+				<param name="charSet">UTF-8</param>
+				<param name="location">/page/system/emptyLocation.jsp</param>
+			</result>
+		</global-results>
+		
+		<!-- 系统登录 -->
+		<action name="login" class="com.allinfinance.struts.system.action.LoginAction" />
+		
+		<!-- 登录成功跳转 -->
+		<action name="redirect" class="com.allinfinance.struts.system.action.LoginRedirectAction">
+			<result name="success">/page/system/main.jsp</result>
+			<!-- <result name="login">/page/system/errorNoLogin.jsp</result> -->
+			<result type="redirectAction" name="login">logout</result>
+		</action>
+		
+		<!-- 初始化菜单树 -->
+		<action name="tree" class="com.allinfinance.struts.system.action.TreeDataAction" />
+		
+		<!-- 获取列表数据 -->
+		<action name="gridPanelStoreAction" 
+		class="com.allinfinance.struts.system.action.GridPanelStoreAction" />
+		
+		<!-- 签购单打印管理 -->
+		<!-- <action name="modelInfoAction" class="com.allinfinance.struts.model.action.ModelInfoAction"/> -->
+		
+		<!-- 修改操作员密码 -->
+		<action name="resetPwd" 
+		class="com.allinfinance.struts.system.action.ResetPwdAction" />
+		<!--重置其他操作员密码-->
+		<action name="clearPwd"
+		class="com.allinfinance.struts.system.action.ClearPwdAction"/>
+		<!-- 屏幕锁定解锁 -->
+		<action name="unlockScreen" 
+		class="com.allinfinance.struts.system.action.UnLockScreenAction" />
+		<!--修改预留信息-->
+		<action name="UpdResvInfo"
+		class="com.allinfinance.struts.system.action.UpdResvInfoAction"/>
+		<!-- 退出系统 -->
+		<action name="logout" 
+		class="com.allinfinance.struts.system.action.LogoutAction" >
+			<!--<result>/page/system/errorNoLogin.jsp</result>-->
+			<result type="redirect">/</result>
+		</action>
+		
+		<!-- 上传文件 -->
+		<action name="uploadFile" 
+			class="com.allinfinance.struts.system.action.FileUploadAction" />
+		
+		<!-- 数据获取 -->
+		<action name="baseSelect" 
+			class="com.allinfinance.common.select.SelectOptionStruts" method='loadComboStruts'/>
+			
+		<!-- 带匹配的数据获取 -->
+		<action name="dynamicSelect" 
+			class="com.allinfinance.common.select.DynamicOptionStruts" method='loadComboStruts'/>
+		
+		<!-- 数据获取 -->
+		<action name="loadRecordAction" 
+			class="com.allinfinance.common.select.LoadRecordAction" method='loadRecord'/>
+	</package>
+    <!-- 基本信息管理 -->
+    <include file="struts/struts-base.xml" />
+    <!-- 商户管理 -->
+    <include file="struts/struts-mchnt.xml" />
+    <!-- 终端管理 -->
+    <include file="struts/struts-pos.xml" />
+    <!-- 签购单打印管理 -->
+    <include file="struts/struts-model.xml" />
+    <include file="struts/struts-modelParameter.xml" />
+    
+    <!-- 风险控制 -->
+    <include file="struts/struts-risk.xml" />
+    <!-- 查询统计 -->
+    <include file="struts/struts-query.xml" />
+    <!-- 清算对账 -->
+    <include file="struts/struts-settle.xml" />
+    <!-- T+0管理 -->
+    <include file="struts/struts-daytrade.xml" />
+    <!-- 新清算对账 -->
+    <include file="struts/struts-settleNew.xml" />
+    
+    
+    <!-- 代收付
+    <include file="struts/struts-agentpay.xml" /> -->
+    <!-- 商户路由 -->
+    <include file="struts/struts-route.xml" />
+</struts>

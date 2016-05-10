@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.daytrade">
+	<class
+		name="WebFrontTxnLog"
+		table="WEB_FRONT_TXN_LOG"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<composite-id name="id" class="WebFrontTxnLogPK">
+	
+			<key-property
+				name="webTime"
+				column="WEB_TIME"
+				type="string"
+			/>
+			<key-property
+				name="webSeqNum"
+				column="WEB_SEQ_NUM"
+				type="string"
+			/>
+		</composite-id>
+
+		<property name="txnCode" column="TXN_CODE" type="string" not-null="true" length="6" />
+		<property 
+			name="txnLog" 
+			column="TXN_LOG" 
+			type="org.springframework.orm.hibernate3.support.ClobStringType" 
+			not-null="false" 
+		/>
+	</class>	
+</hibernate-mapping>

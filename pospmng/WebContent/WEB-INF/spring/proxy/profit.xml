@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 分润信息 -->
+	<bean id="tblAgentFeeCfgDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblAgentFeeCfgDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblAgentFeeCfgDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblAgentFeeCfgDAOTarget" class="com.allinfinance.dao.impl.profit.TblAgentFeeCfgDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 分润历史信息 -->
+	<bean id="tblAgentFeeCfgHisDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblAgentFeeCfgHisDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblAgentFeeCfgHisDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblAgentFeeCfgHisDAOTarget" class="com.allinfinance.dao.impl.profit.TblAgentFeeCfgHisDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblAgentRateInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblAgentRateInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblAgentRateInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblAgentRateInfoDAOTarget" class="com.allinfinance.dao.impl.profit.TblAgentRateInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<bean id="tblAgentRateInfoHisDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblAgentRateInfoHisDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblAgentRateInfoHisDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblAgentRateInfoHisDAOTarget" class="com.allinfinance.dao.impl.profit.TblAgentRateInfoHisDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblProfitRateInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblProfitRateInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblProfitRateInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblProfitRateInfoDAOTarget" class="com.allinfinance.dao.impl.profit.TblProfitRateInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tblBrhCashInfoDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblBrhCashInfoDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblBrhCashInfoDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblBrhCashInfoDAOTarget" class="com.allinfinance.dao.impl.profit.TblBrhCashInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<bean id="tblBrhCashInfoHisDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.profit.TblBrhCashInfoHisDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblBrhCashInfoHisDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblBrhCashInfoHisDAOTarget" class="com.allinfinance.dao.impl.profit.TblBrhCashInfoHisDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="T10105BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.base.T10105BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T10105BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T10105BOTarget" class="com.allinfinance.bo.impl.base.T10105BOTarget">
+		<property name="tblAgentFeeCfgDAO">
+			<ref bean="tblAgentFeeCfgDAO"/>
+		</property>
+		<property name="tblAgentFeeCfgHisDAO">
+			<ref bean="tblAgentFeeCfgHisDAO"/>
+		</property>
+		<property name="tblAgentRateInfoDAO">
+			<ref bean="tblAgentRateInfoDAO"/>
+		</property>
+		<property name="tblAgentRateInfoHisDAO">
+			<ref bean="tblAgentRateInfoHisDAO"/>
+		</property>
+		<property name="tblProfitRateInfoDAO">
+			<ref bean="tblProfitRateInfoDAO"/>
+		</property>
+		<property name="tblBrhInfoDAO">
+			<ref bean="BrhInfoDAO"/>
+		</property>
+		<property name="tblBrhSettleInfDAO">
+			<ref bean="TblBrhSettleInfDAO"/>
+		</property>
+		<property name="tblBrhInfoHisDAO">
+			<ref bean="TblBrhInfoHisDAO" />
+		</property>
+		<property name="tblBrhSettleInfHisDAO">
+			<ref bean="TblBrhSettleInfHisDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+		<property name="shTblOprInfoDAO">
+			<ref bean="shTblOprInfoDAO"/>
+		</property>
+		<property name="tblBrhCashInfoDAO">
+			<ref bean="tblBrhCashInfoDAO"/>
+		</property>
+		<property name="tblBrhCashInfoHisDAO">
+			<ref bean="tblBrhCashInfoHisDAO"/>
+		</property>		
+	</bean>
+</beans>

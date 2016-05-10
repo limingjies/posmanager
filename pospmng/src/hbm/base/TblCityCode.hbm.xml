@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblCityCode"
+		table="cst_city_code"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="CupCityCode" type="string" column="CUP_CITY_CODE">
+            <generator class="assigned" />
+   		</id>
+   		<property
+            name="IntCityCode"
+            column="INT_CITY_CODE"
+            type="string"
+            not-null="true"
+     />
+    
+    <property
+            name="MchtCityCode"
+            column="MCHT_CITY_CODE"
+            type="string"
+            not-null="true"
+     />
+     <property
+            name="CityFlag"
+            column="CITY_FLAG"
+            type="string"
+            not-null="true"
+            length="1"
+     />
+     <property
+            name="MchtAddr"
+            column="MCHT_ADDR"
+            type="string"
+            not-null="true"
+            length="8"
+     />
+     <property
+            name="CityName"
+            column="CITY_NAME"
+            type="string"
+            not-null="true"
+            length="20"
+     />
+     <property
+            name="InitOprId"
+            column="INIT_OPR_ID"
+            type="string"
+            not-null="true"
+            length="40"
+     />
+     <property
+            name="ModiOprId"
+            column="MODI_OPR_ID"
+            type="string"
+            not-null="true"
+            length="40"
+     />
+     <property
+            name="InitTime"
+            column="INIT_TIME"
+            type="string"
+            not-null="true"
+            length="14"
+     />
+     <property
+            name="ModiTime"
+            column="MODI_TIME"
+            type="string"
+            not-null="true"
+            length="14"
+     />
+	</class>	
+</hibernate-mapping>

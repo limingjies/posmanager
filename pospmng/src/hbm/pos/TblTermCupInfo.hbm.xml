@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblTermCupInfo"
+		table="tbl_term_cup_info"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="term_id" 
+			type="string" 
+			column="term_id"
+			length="8"
+		>
+			<generator class="assigned" />
+		</id>
+		
+		
+		<property
+			name="mcht_no"
+			column="mcht_no"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		
+		<property
+			name="in_inst_id"
+			column="in_inst_id"
+			type="string"
+			not-null="false"
+			length="11"
+		/>
+		
+		<property
+			name="inst_id"
+			column="inst_id"
+			type="string"
+			not-null="false"
+			length="11"
+		/>
+		
+		
+		<property
+			name="term_type"
+			column="term_type"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		
+		<property
+			name="term_state"
+			column="term_state"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		
+		<property
+			name="out_flag"
+			column="out_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="IC_flag"
+			column="IC_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="call_type"
+			column="call_type"
+			type="string"
+			not-null="false"
+			length="3"
+		/>
+		
+		<property
+			name="currcy_code_trans"
+			column="currcy_code_trans"
+			type="string"
+			not-null="false"
+			length="3"
+		/>
+		
+		<property
+			name="key_index"
+			column="key_index"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="enc_key_mode"
+			column="enc_key_mode"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="trans_key_mode"
+			column="trans_key_mode"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		
+		<property
+			name="term_enc_type"
+			column="term_enc_type"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="term_enc_key_1"
+			column="term_enc_key_1"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		
+		<property
+			name="term_trans_key_1"
+			column="term_trans_key_1"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		
+		<property
+			name="open_time"
+			column="open_time"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		<property
+			name="close_time"
+			column="close_time"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		
+		<property
+			name="para_down_flag"
+			column="para_down_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="tms_down_flag"
+			column="tms_down_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="pub_key_flag"
+			column="pub_key_flag"
+			type="string"
+			not-null="false"
+			length="3"
+		/>
+		
+		<property
+			name="IC_para_flag"
+			column="IC_para_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="emv_flag"
+			column="emv_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		<property
+			name="key_length"
+			column="key_length"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		
+		<property
+			name="pik_length"
+			column="pik_length"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="mak_length"
+			column="mak_length"
+			type="string"
+			not-null="false"
+			length="2"
+		/><!--  -->
+		<property
+			name="mac_alg"
+			column="mac_alg"
+			type="string"
+			not-null="false"
+			length="2"
+		/><!--  -->
+		<property
+			name="country_code"
+			column="country_code"
+			type="string"
+			not-null="false"
+			length="3"
+		/><!--  -->
+		
+		<property
+			name="connect_mode"
+			column="connect_mode"
+			type="string"
+			not-null="false"
+			length="1"
+		/><!--  -->
+		
+		<property
+			name="track_key_len"
+			column="track_key_len"
+			type="string"
+			not-null="false"
+			length="2"
+		/><!--  -->
+		
+		<property
+			name="term_share"
+			column="term_share"
+			type="string"
+			not-null="false"
+			length="32"
+		/><!--  -->
+		<property
+			name="term_call_num"
+			column="term_call_num"
+			type="string"
+			not-null="false"
+			length="32"
+		/><!--  -->
+		<property
+			name="address"
+			column="address"
+			type="string"
+			not-null="false"
+			length="128"
+		/><!--  -->
+		<property
+			name="name"
+			column="name"
+			type="string"
+			not-null="false"
+			length="16"
+		/><!--  -->
+		<property
+			name="tel_phone"
+			column="tel_phone"
+			type="string"
+			not-null="false"
+			length="32"
+		/><!--  -->
+		<property
+			name="anhui_reserved"
+			column="anhui_reserved"
+			type="string"
+			not-null="false"
+			length="100"
+		/><!-- -->
+		<property
+			name="crt_opr"
+			column="crt_opr"
+			type="string"
+			not-null="false"
+			length="16"
+		/><!--  -->
+		<property
+			name="crt_date"
+			column="crt_date"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!--  -->
+		<property
+			name="upd_opr"
+			column="upd_opr"
+			type="string"
+			not-null="false"
+			length="16"
+		/><!--  -->
+		
+		<property
+			name="upd_date"
+			column="upd_date"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!--  -->
+		
+		
+	</class>	
+</hibernate-mapping>

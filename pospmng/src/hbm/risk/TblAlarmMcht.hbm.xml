@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblAlarmMcht"
+		table="tbl_alarm_mcht"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="tblAlarmMchtPk" class="TblAlarmMchtPK">
+			<key-property
+				name="alarmId"
+				column="alarm_id"
+				type="string"
+			/>
+			
+			<key-property
+				name="alarmSeq"
+				column="alarm_seq"
+				type="integer"
+			/>
+	
+			<key-property
+				name="cardAccpId"
+				column="card_accp_id"
+				type="string"
+			/>
+			
+		</composite-id>
+		<property
+			name="alarmNum"
+			column="alarm_num"
+			type="integer"
+			not-null="true"
+		/>
+		
+		<property
+			name="cautionFlag"
+			column="caution_flag"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		
+		<property
+			name="blockSettleFlag"
+			column="block_settle_flag"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="blockMchtFlag"
+			column="block_mcht_flag"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="misc"
+			column="misc"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="misc1"
+			column="misc1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+	</class>	
+</hibernate-mapping>

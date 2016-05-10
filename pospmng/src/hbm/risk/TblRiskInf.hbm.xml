@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRiskInf"
+		table="tbl_risk_inf"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="sa_model_kind"
+			length="3"
+		>
+			<generator class="assigned"/>
+		</id><!-- 模型 -->
+		<property
+			name="saBeUse"
+			column="sa_be_use"
+			type="string"
+			not-null="true"
+			length="1"
+		/><!-- 是否启用 -->
+		<property
+			name="saModelGroup"
+			column="sa_model_group"
+			type="string"
+			not-null="true"
+			length="3"
+		/>
+		<property
+			name="saModelDesc"
+			column="sa_model_desc"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="misc"
+			column="misc"
+			type="string"
+			not-null="false"
+			length="400"
+		/>
+	</class>	
+</hibernate-mapping>

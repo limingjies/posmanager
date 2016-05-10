@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.risk">
+	<class
+		name="TblWhiteMchtCheck"
+		table="TBL_WHITE_MCHT_CHECK"
+	>
+	<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblWhiteMchtCheckPK">
+			<key-property
+				name="mchtNo"
+				column="MCHT_NO"
+				type="string"
+			/>
+			<key-property
+				name="checkTime"
+				column="CHECK_TIME"
+				type="string"
+			/>
+		</composite-id>
+
+		<property name="checkOpr" column="CHECK_OPR" type="string" not-null="false" length="15" />
+		<property name="checkStatus" column="CHECK_STATUS" type="string" not-null="false" length="1" />
+		<property name="mchtCaseDesp" column="MCHT_CASE_DESP" type="string" not-null="false" length="240" />
+		<property name="refuseReason" column="REFUSE_REASON" type="string" not-null="false" length="240" />
+		<property name="dayAveAmt" column="DAY_AVE_AMT" type="string" not-null="false" length="40" />
+		<property name="monAveAmt" column="MON_AVE_AMT" type="string" not-null="false" length="40" />
+		<property name="sigMinAmt" column="SIG_MIN_AMT" type="string" not-null="false" length="40" />
+		<property name="sigMaxAmt" column="SIG_MAX_AMT" type="string" not-null="false" length="40" />
+		<property name="servDisp" column="SERV_DISP" type="string" not-null="false" length="200" />
+		<property name="applyReason" column="APPLY_REASON" type="string" not-null="false" length="200" />
+		<property name="applyOpr" column="APPLY_OPR" type="string" not-null="false" length="15" />
+		<property name="applyTime" column="APPLY_TIME" type="string" not-null="false" length="14" />
+		<property name="misc" column="MISC" type="string" not-null="false" length="100" />
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblHoldMchtParticipat"
+		table="TBL_HOLD_MCHT_PARTICIPAT"
+	>
+	<composite-id name="Id" class="TblHoldMchtParticipatPK">
+		<key-property
+			name="MCHT_NO"
+			column="MCHT_NO"
+			type="string"
+		/>
+		<key-property
+			name="ACT_NO"
+			column="ACT_NO"
+			type="string"
+		/>
+	</composite-id>
+
+		<property
+			name="start_date"
+			column="START_DATE"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="end_date"
+			column="END_DATE"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="ACT_CONTENT"
+			column="ACT_CONTENT"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="ACT_FEE"
+			column="ACT_FEE"
+			type="big_decimal"
+			not-null="false"
+			length="6"
+		/>
+		<property
+			name="DEV_NUM"
+			column="DEV_NUM"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="DEV_PROD"
+			column="DEV_PROD"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		
+	</class>
+</hibernate-mapping>

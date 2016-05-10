@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="TblChannelCnapsMap"
+		table="TBL_CHANNEL_CNAPS_MAP"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="cnapsId"
+			column="CNAPS_ID"
+			type="string"
+			length="12"
+		/>
+		<property name="channelId" column="CHANNEL_ID" type="string" not-null="false" length="4" />
+		<property name="status" column="STATUS" type="string" not-null="false" length="1" />
+		<property name="misc" column="MISC" type="string" not-null="false" length="100" />
+		<property name="misc1" column="MISC1" type="string" not-null="false" length="200" />
+
+	</class>	
+</hibernate-mapping>

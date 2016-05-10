@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRiskParamInf"
+		table="tbl_risk_param_inf"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblRiskParamInfPK">
+			<key-property
+				name="modelKind"
+				column="model_kind"
+				type="string"
+			/>
+	
+			<key-property
+				name="modelSeq"
+				column="model_seq"
+				type="string"
+			/>
+			<key-property
+				name="riskLvl"
+				column="risk_lvl"
+				type="string"
+			/>
+		</composite-id>
+		
+		
+		
+		<property
+			name="paramLen"
+			column="param_len"
+			type="string"
+			not-null="false"
+			length="3"
+		/>
+		
+		<property
+			name="paramValue"
+			column="param_value"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="paramName"
+			column="param_name"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		
+		
+		<property
+			name="resved"
+			column="resved"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="resved1"
+			column="resved1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		
+		
+	</class>	
+</hibernate-mapping>

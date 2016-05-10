@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.daytrade">
+	<class
+		name="SysParamsConfig"
+		table="SYS_PARAMS_CONFIG"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<composite-id name="id" class="SysParamsConfigPK">
+			<key-property
+				name="brhId"
+				column="BRH_ID"
+				type="string"
+			/>
+			<key-property
+				name="merchantId"
+				column="MERCHANT_ID"
+				type="string"
+			/>
+			<key-property
+				name="paramCode"
+				column="PARAM_CODE"
+				type="string"
+			/>
+		</composite-id>
+
+		<property name="paramValue" column="PARAM_VALUE" type="string" not-null="false" length="64" />
+		<property name="status" column="STATUS" type="string" not-null="false" length="1" />
+		<property name="createDate" column="CREATE_DATE" type="java.util.Date" not-null="false" />
+		<property name="createBy" column="CREATE_BY" type="string" not-null="false" length="15" />
+		<property name="updateDate" column="UPDATE_DATE" type="java.util.Date" not-null="false" />
+		<property name="updateBy" column="UPDATE_BY" type="string" not-null="false" length="15" />
+
+	</class>	
+</hibernate-mapping>

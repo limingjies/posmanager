@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="tblPaySettleMchtError"
+		table="TBL_PAY_SETTLE_MCHT_ERROR"
+	>
+		<meta attribute="sync-DAO">false</meta>
+			<id name="mchtNo"
+				column="mcht_no"
+				type="integer"
+			>
+			<generator class="assigned" />
+		</id>
+
+		<property
+			name="mchtNm"
+			column="mcht_no"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="amt"
+			column="amt"
+			type="big_decimal"
+			not-null="false"
+			length="16"
+		/>
+		<property
+			name="bal"
+			column="bal"
+			type="big_decimal"
+			not-null="false"
+			length="16"
+		/>
+		
+
+	</class>	
+</hibernate-mapping>

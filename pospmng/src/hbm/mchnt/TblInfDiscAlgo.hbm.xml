@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblInfDiscAlgo"
+		table="TBL_INF_DISC_ALGO"
+	>
+        <composite-id name="Id" class="TblInfDiscAlgoPK">
+	       <key-property
+				name="discId"
+				column="DISC_ID"
+				type="string"
+			/>
+			<key-property
+				name="indexNum"
+				column="INDEX_NUM"
+				type="integer"
+			/>
+	    </composite-id>
+		<property
+			name="OperRslt"
+			column="OPER_RSLT"
+			type="integer"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="Operand1"
+			column="OPERAND1"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="Operator1"
+			column="OPERATOR1"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="Operand2"
+			column="OPERAND2"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="Operator2"
+			column="OPERATOR2"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="Operand3"
+			column="OPERAND3"
+			type="big_decimal"
+			not-null="true"
+			length="16"
+		/>
+		<property
+			name="RecUpdUsrId"
+			column="REC_UPD_USR_ID"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="RecUpdTs"
+			column="REC_UPD_TS"
+			type="string"
+			not-null="true"
+			length="14"
+		/>
+		<property
+			name="RecCrtTs"
+			column="REC_CRT_TS"
+			type="string"
+			not-null="true"
+			length="14"
+		/>
+		
+		<property
+			name="stxnNum"
+			column="STXN_NUM"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+
+	</class>	
+	<query name="getAlByCd">
+	<![CDATA[
+from TblInfDiscAlgo tblInfDiscAlgo where tblInfDiscAlgo.Id.DiscCd= :DiscCd
+	]]>
+	</query>
+</hibernate-mapping>

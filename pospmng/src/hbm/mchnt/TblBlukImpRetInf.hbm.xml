@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblBlukImpRetInf"
+		table="TBL_BLUK_IMP_RET_INF"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="batchNo" type="string" column="BATCH_NO">
+			<generator class="assigned" />
+		</id>
+		<property 
+			name="blukDate" 
+			column="BLUK_DATE" 
+			type="string" 
+			not-null="false" 
+			length="14" />
+		<property 
+			name="brhId" 
+			column="BRH_ID" 
+			type="string" 
+			not-null="false" 
+			length="10" />
+		<property 
+			name="oprId" 
+			column="OPR_ID" 
+			type="string" 
+			not-null="false" 
+			length="40" />
+		<property 
+			name="blukFileName" 
+			column="BLUK_FILE_NAME" 
+			type="string" 
+			not-null="false" 
+			length="32" />
+		<property 
+			name="blukMchnNum" 
+			column="BLUK_MCHN_NUM" 
+			type="string" 
+			not-null="false" 
+			length="4" />
+		<property 
+			name="misc1" 
+			column="MISC1" 
+			type="string" 
+			not-null="false" 
+			length="32" />
+		<property 
+			name="misc2" 
+			column="MISC2" 
+			type="string" 
+			not-null="false" 
+			length="64" />
+		<property 
+			name="misc3" 
+			column="MISC3" 
+			type="string" 
+			not-null="false" 
+			length="128" />
+
+	</class>	
+</hibernate-mapping>

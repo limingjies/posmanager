@@ -1,0 +1,126 @@
+/* 婢э拷*/
+.add {
+	background-image:url(../images/add.png) !important;
+}
+/* 閸掞拷*/
+.delete {
+	background-image:url(../images/delete.png) !important;
+}
+/* 缂傛牞绶�*/
+.edit {
+	background-image:url(../images/edit_16.png) !important;
+}
+/* 娣囨繂鐡�*/
+.save {
+	background-image:url(../images/save.png) !important;
+}
+/* 閺屻儴顕�*/
+.query {
+	background-image:url(../images/query_16.png) !important;
+}
+/* 閹兼粎鍌�*/
+.search {
+	background-image:url(../images/seacher.gif) !important;
+}
+/* 閸嬫粎鏁�*/
+.stop {
+	background-image:url(../images/stop_16.png) !important;
+}
+/* 閸氼垳鏁�*/
+.recover {
+	background-image:url(../images/reset_16.png) !important;
+}
+/* 闁插秶鐤�*/
+.reset {
+	background-image:url(../images/reset_16.png) !important;
+}
+/* 娑撳娴囬妴浣割嚤閸忥拷*/
+.download {
+	background-image: url(../images/download_16.png) !important;
+}
+/* 娑撳﹣绱�*/
+.upload {
+	background-image: url(../images/upload_16.png) !important;
+}
+/* 鐠囷妇绮忔穱鈩冧紖 */
+.detail {
+	background-image:url(../images/detail_16.png) !important;
+}
+/* 鐟欙綁鏀�*/
+.unlock {
+	background-image:url(../images/unlock.gif) !important;
+}
+/* 闁夸礁鐣�*/
+.lock {
+	background-image:url(../images/lock.gif) !important;
+}
+/* 閹哄牊娼�*/
+.auth {
+	background-image:url(../images/law_edit.gif) !important;
+}
+/**閹恒儱褰堥柅姘崇箖閹稿鎸抽崶鐐垼*/
+.accept {
+	background-image:url(../images/accept_16.png) !important;
+}
+/**鐎光剝鐗抽柅锟芥礀閹稿鎸抽崶鐐垼*/
+.back {
+	background-image:url(../images/back_16.png) !important;
+}
+/**鐎光剝鐗抽幏鎺旂卜閹稿鎸抽崶鐐垼*/
+.refuse {
+	background-image:url(../images/refuse_16.png) !important;
+}
+.mchnt {
+	background-image:url(../images/mchnt_16.png) !important;
+}
+.money_query {
+	background-image:url(../images/money_query.png) !important;
+}
+.lock_edit {
+	background-image:url(../images/gif_57_034.gif) !important;
+}
+.add_max {
+	background-image:url(../images/maximize.png) !important;
+}
+.del_min {
+	background-image:url(../images/minimize.png) !important;
+}
+.query_2 {
+	background-image:url(../images/query_2.gif) !important;
+}
+.script_16x16 {
+	background-image:url(../images/script_16x16.gif) !important;
+}
+.application_16x16 {
+	background-image:url(../images/application_16x16.gif) !important;
+}
+.recycle {
+	background-image:url(../images/recycle.png) !important;
+}
+.print {
+	background-image:url(../images/print.png) !important;
+}
+.icon_download {
+	background-image:url(../images/icon_download.gif) !important;
+}
+.remote_16 {
+	background-image:url(../images/remote_16.png) !important;
+}
+.pause {
+	background-image:url(../images/pause.gif) !important;
+}
+.switch {
+	background-image:url(../images/switch.png) !important;
+}
+.del {
+	background-image:url(../images/del.gif) !important;
+}
+.ajust {
+	background-image:url(../images/ajust.gif) !important;
+}
+.confirmIn {
+	background-image:url(../images/confirmIn.gif) !important;
+}
+.downloadRediscFile {
+	background-image:url(../images/downloadRediscFile.gif) !important;
+}

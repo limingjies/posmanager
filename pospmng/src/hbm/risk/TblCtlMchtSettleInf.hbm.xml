@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblCtlMchtSettleInf"
+		table="tbl_ctl_mcht_settle_inf"
+	>
+		
+		<composite-id name="Id" class="TblCtlMchtSettleInfPK">
+			<key-property name="CtlSettleNo" column="CTL_SETTLE_NO" type="string" />
+			<key-property name="CtlSettleType" column="CTL_SETTLE_TYPE" type="string" />
+		</composite-id>
+		<!-- 清算黑名单编号 -->
+		<!-- 清算类型 -->
+		<property
+			name="SaMchtNo"
+			column="SA_MCHT_NO"
+			type="string"
+			not-null="true"
+			length="15"
+		/><!-- 商户编号 -->
+		<property
+			name="SaActionDate"
+			column="SA_ACTION_DATE"
+			type="string"
+			not-null="false"
+			length="2"
+		/><!-- 冻结时间 -->
+		<property
+			name="SaActionAmt"
+			column="SA_ACTION_AMT"
+			type="string"
+			not-null="false"
+			length="12"
+		/><!-- 目标冻结金额 -->
+		<property
+			name="ActionDoneAmt"
+			column="ACTION_DONE_AMT"
+			type="string"
+			not-null="false"
+			length="12"
+		/><!-- 已冻结金额 -->
+		<property
+			name="OriSettleDate"
+			column="ORI_SETTLE_DATE"
+			type="string"
+			not-null="false"
+			length="8"
+		/><!-- 受控清算日期-->
+		<property
+			name="ActionFlag"
+			column="ACTION_FLAG"
+			type="string"
+			not-null="false"
+			length="1"
+		/><!-- 受控状态 -->
+		<property
+			name="Reserved1"
+			column="RESERVED1"
+			type="string"
+			not-null="false"
+			length="30"
+		/><!-- 保留域1 -->
+		<property
+			name="Reserved2"
+			column="RESERVED2"
+			type="string"
+			not-null="false"
+			length="30"
+		/><!-- 保留域2-->
+		<property
+			name="SaInitOprId"
+			column="SA_INIT_OPR_ID"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!-- 创建柜员 -->
+		<property
+			name="SaPriviOprId"
+			column="SA_PRIVI_OPR_ID"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!-- 授权柜员-->
+		<property
+			name="SaInitTime"
+			column="SA_INIT_TIME"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!-- 创建时间 -->
+	</class>	
+</hibernate-mapping>

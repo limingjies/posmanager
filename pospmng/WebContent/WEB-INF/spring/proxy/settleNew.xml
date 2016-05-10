@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	
+	<!--批量处理_new-->
+	<bean id="T100103BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settleNew.T100103BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T100103BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T100103BOTarget" class="com.allinfinance.bo.impl.settleNew.T100103BOTarget">
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	
+	
+	<!-- 准退货批量任务 -->
+	<bean id="T100104BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settleNew.T100104BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T100104BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T100104BOTarget" class="com.allinfinance.bo.impl.settleNew.T100104BOTarget">
+		<property name="tblZthDtlNewDAO">
+			<ref bean="TblZthDtlNewDAO" />
+		</property>
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+	</bean>
+	<bean id="TblZthDtlNewDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.settleNew.TblZthDtlNewDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblZthDtlNewDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblZthDtlNewDAOTarget" class="com.allinfinance.dao.impl.settleNew.TblZthDtlNewDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 前置批量任务 -->
+	<bean id="T100201BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settleNew.T100201BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T100201BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T100201BOTarget" class="com.allinfinance.bo.impl.settleNew.T100201BOTarget">
+		<property name="webFrontTxnLogDAO">
+			<ref bean="WebFrontTxnLogDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	<!-- 划付文件下载 -->
+	<bean id="T100304BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.settleNew.T100304BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T100304BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T100304BOTarget" class="com.allinfinance.bo.impl.settleNew.T100304BOTarget">
+		
+		<property name="commQueryDAO">
+			<ref bean="CommQueryDAO"/>
+		</property>
+		<property name="tblPayChannelInfoDAO">
+			<ref bean="TblPayChannelInfoDAO" />
+		</property>
+	</bean>
+	
+	
+</beans>

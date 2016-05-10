@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.settle">
+	<class
+		name="TblPayTypeSmall"
+		table="TBL_PAY_TYPE_SMALL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="acctNo"
+			type="string"
+			column="ACCT_NO"
+		>
+			<generator class="assigned"/>
+		</id>
+
+		<property name="acctNm" column="ACCT_NM" type="string" not-null="false" length="80" />
+		<property name="cnapsId" column="CNAPS_ID" type="string" not-null="false" length="12" />
+		<property name="cnapsName" column="CNAPS_NAME" type="string" not-null="false" length="256" />
+		<property name="reserved" column="RESERVED" type="string" not-null="false" length="256" />
+		<property name="crtOpr" column="CRT_OPR" type="string" not-null="false" length="40" />
+		<property name="crtTime" column="CRT_TIME" type="string" not-null="false" length="14" />
+		<property name="misc" column="MISC" type="string" not-null="false" length="128" />
+		<property name="misc1" column="MISC1" type="string" not-null="false" length="256" />
+
+	</class>	
+</hibernate-mapping>

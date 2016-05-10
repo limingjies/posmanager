@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblTxnName"
+		table="TBL_TXN_NAME"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="string"
+			column="TXN_NUM"
+		>
+			<generator class="assigned"/>
+		</id>
+		<property
+			name="TxnName"
+			column="TXN_NAME"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="TxnDsp"
+			column="TXN_DSP"
+			type="string"
+			not-null="false"
+			length="60"
+		/>
+		<property
+			name="DcFlag"
+			column="DC_FLAG"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+	</class>	
+</hibernate-mapping>

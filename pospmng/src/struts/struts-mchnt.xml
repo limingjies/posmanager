@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mchnt" extends="system">
+		
+		<!-- 系统拦截器 -->
+		<interceptors>
+			<interceptor name="logInter" class="com.allinfinance.interceptor.LogInter"></interceptor>
+			<interceptor-stack name="SystemInterceptor">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="logInter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 公用返回类型 -->
+		<global-results>
+			<result type="plainText" >
+                <param name="charSet">UTF-8</param>
+                <param name="location">/page/system/emptyLocation.jsp</param>
+            </result>
+		</global-results> 
+		
+		
+		<!-- 商户 -->
+		<action name="T2*_*" 
+			class="com.allinfinance.struts.mchnt.action.T2{1}" method="{2}">
+			<interceptor-ref name="SystemInterceptor"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+			<result name="error" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+		</action>
+		
+		<!-- 授权验证 -->
+		<action name="AuthoriseAction" class="com.allinfinance.struts.system.action.AuthoriseAction" method="authorise">
+			<result name="success" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+			<result name="error" type="json">
+				<param name="includeProperties">success,msg</param>
+			</result>
+		</action>
+		<!-- 商户组别维护 -->
+		<action name="T20302Action" 
+			class="com.allinfinance.struts.mchnt.action.T20302Action" />
+		<!-- 商户MCC维护 -->
+		<action name="T20303Action" 
+			class="com.allinfinance.struts.mchnt.action.T20303Action" />
+		<!-- 商户入网信息维护 -->
+		<action name="T20401Action" 
+			class="com.allinfinance.struts.mchnt.action.T20401Action" />
+	
+		
+		<!-- 直联商户信息-->
+		<action name="T20108Action" class="com.allinfinance.struts.mchnt.action.T20108Action" />
+		
+		<!-- 直联商户信息-->
+		<action name="T20105Action" class="com.allinfinance.struts.mchnt.action.T20105Action" />
+		<!-- 商户别名维护 -->	
+		<action name="T20106Action" class="com.allinfinance.struts.mchnt.action.T20106Action" />
+		<!-- 商户权限信息维护 -->
+	    <action name="T20301Action" class="com.allinfinance.struts.mchnt.action.T20301Action" />
+		<!-- 商户限额维护 -->
+	    <action name="T20304Action" class="com.allinfinance.struts.mchnt.action.T20304Action" />
+	    <!-- 直联商户新增 -->
+	    <!-- <action name="T20401Action" class="com.allinfinance.struts.mchnt.action.T20401Action" /> -->
+	    <!-- 直联商户维护 -->
+	    <action name="T20402Action" class="com.allinfinance.struts.mchnt.action.T20402Action" />
+	    <!-- 直联商户导出 -->
+	    <action name="T2040202Action" class="com.allinfinance.struts.mchnt.action.T2040202Action" />
+	    <!-- 直联商户审核 -->
+	    <action name="T20403Action" class="com.allinfinance.struts.mchnt.action.T20403Action" />
+	    
+	    <!-- 一级商户信息维护 -->
+	    <action name="T20503Action" class="com.allinfinance.struts.mchnt.action.T20503Action" />
+	    <action name="T20505Action" class="com.allinfinance.struts.mchnt.action.T20505Action" />
+		
+		<!-- 商户初审审核 -->
+		<action name="T20200Action" 
+			class="com.allinfinance.struts.mchnt.action.T20200Action" />
+		<!-- 商户信息审核 -->
+		<action name="T20201Action" 
+			class="com.allinfinance.struts.mchnt.action.T20201Action" />
+		<!-- 入网漏补修改 -->
+		<action name="T20202Action" 
+			class="com.allinfinance.struts.mchnt.action.T20202Action"/>
+		<!-- 商户信息批量录入 -->
+		<action name="T20107Action" 
+			class="com.allinfinance.struts.mchnt.action.T20107Action" />
+		<!-- 商户批量模板下载-->
+		<action name="T2010701Action" class="com.allinfinance.struts.mchnt.action.T2010701Action" />
+		
+		<!-- 查看商户详细信息 -->
+		<action name="MchntDetailAction" class="com.allinfinance.struts.mchnt.action.MchntDetailAction">
+			<result type="redirect">/page/mchnt/MchntDetail.jsp</result>
+		</action>
+		
+		<!-- 渠道商户入网审核 -->
+		<action name="T20904Action" 
+			class="com.allinfinance.struts.mchnt.action.T20904Action" />
+			
+		<action name="T2090401Action" 
+			class="com.allinfinance.struts.mchnt.action.T2090401Action" />
+		
+		<!-- 查看商户入网详细信息 -->
+		<action name="MchntNetDetailAction" class="com.allinfinance.struts.mchnt.action.MchntNetDetailAction">
+			<result type="redirect">/page/mchnt/MchntNetDetail.jsp</result>
+		</action>
+		
+		<!-- 下载指定文件 -->
+		<action name="ajaxDownLoad" class="com.allinfinance.system.util.AjaxDownLoad">
+		</action>
+		
+		<!-- 下载指定文件 -->
+		<action name="ajaxDownLoadFile" class="com.allinfinance.system.util.AjaxDownLoadFile">
+		</action>
+		
+		<!-- MCC-费率关联关系 -->
+		<action name="T20702Action" class="com.allinfinance.struts.mchnt.action.T20702Action" />
+		<!-- 渠道商户信息新增 -->	
+		<action name="T20901Action" class="com.allinfinance.struts.mchnt.action.T20901Action" />
+		
+		<!-- 渠道商户信息修改、删除 -->	
+		<action name="T20903Action" class="com.allinfinance.struts.mchnt.action.T20903Action" />
+		<action name="T20905Action" class="com.allinfinance.struts.mchnt.action.T20905Action" />
+		
+		<!-- 商户信息维护日志 -->
+		<action name="T2010101Action" class="com.allinfinance.struts.mchnt.action.T2010101Action"/>
+		
+	</package>
+</struts>

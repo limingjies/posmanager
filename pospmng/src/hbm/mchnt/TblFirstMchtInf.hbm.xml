@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po.mchnt">
+	<class
+		name="TblFirstMchtInf"
+		table="tbl_first_mcht_inf"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="FirstMchtCd" type="string" column="first_mcht_cd">
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="FirstMchtNm"
+			column="first_mcht_nm"
+			type="string"
+			not-null="false"
+			length="60"
+		/><!--  -->
+		
+		<property
+			name="FirstTermId"
+			column="first_term_id"
+			type="string"
+			not-null="false"
+			length="8"
+		/><!--  -->
+		
+		<property
+			name="AcqInstId"
+			column="acq_inst_id"
+			type="string"
+			not-null="false"
+			length="11"
+		/><!--  -->
+		
+		<property
+			name="MchtTp"
+			column="mcht_tp"
+			type="string"
+			not-null="false"
+			length="5"
+		/><!--  -->
+		
+		<property
+			name="FeeValue"
+			column="fee_value"
+			type="double"
+			not-null="false"
+			length="22"
+		/><!--  -->
+		
+		<property
+			name="Reserved"
+			column="reserved"
+			type="string"
+			not-null="false"
+			length="20"
+		/><!--  -->
+		
+		<property
+			name="Reserved1"
+			column="reserved1"
+			type="string"
+			not-null="false"
+			length="40"
+		/><!--  -->
+		
+		<property
+			name="Reserved2"
+			column="reserved2"
+			type="string"
+			not-null="false"
+			length="60"
+		/><!--  -->
+		
+		<property
+			name="UpdtTime"
+			column="updt_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!--  -->
+		
+		<property
+			name="CrtTime"
+			column="crt_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/><!--  -->
+		
+	</class>	
+</hibernate-mapping>

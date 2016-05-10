@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-19 10:52:53 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.allinfinance.po.daytrade">
+	<class name="TblWithdrawInf" table="TBL_WITHDRAW_INF">
+		<id name="batchNo" type="string">
+			<column name="BATCH_NO" length="28" />
+			<generator class="assigned" />
+		</id>
+		<property name="wdTime" type="string">
+			<column name="WD_TIME" length="14" />
+		</property>
+		<property name="wdSeqNum" type="string">
+			<column name="WD_SEQ_NUM" length="6" />
+		</property>
+		<property name="mchtNo" type="string">
+			<column name="MCHT_NO" length="15" />
+		</property>
+		<property name="wdNum" type="string">
+			<column name="WD_NUM" length="6" />
+		</property>
+		<property name="sumAmtTrans" type="java.math.BigDecimal">
+			<column name="SUM_AMT_TRANS" precision="5" scale="0" />
+		</property>
+		<property name="wdAmtFee" type="java.math.BigDecimal">
+			<column name="WD_AMT_FEE" precision="5" scale="0" />
+		</property>
+		<property name="amtSettlmt" type="java.math.BigDecimal">
+			<column name="AMT_SETTLMT" precision="5" scale="0" />
+		</property>
+		<property name="wdStatus" type="java.lang.Character">
+			<column name="WD_STATUS" length="1" />
+		</property>
+		<property name="applyOpr" type="string">
+			<column name="APPLY_OPR" length="15" />
+		</property>
+		<property name="applyTime" type="string">
+			<column name="APPLY_TIME" length="14" />
+		</property>
+		<property name="checkOpr" type="string">
+			<column name="CHECK_OPR" length="15" />
+		</property>
+		<property name="checkTime" type="string">
+			<column name="CHECK_TIME" length="14" />
+		</property>
+		<property name="refuseReason" type="string">
+			<column name="REFUSE_REASON" length="128" />
+		</property>
+		
+		<property name="limitAmt" type="string">
+			<column name="limit_amt" length="64" />
+		</property>
+	</class>
+</hibernate-mapping>

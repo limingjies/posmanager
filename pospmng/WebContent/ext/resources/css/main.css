@@ -1,0 +1,88 @@
+#main {
+	position: absolute;
+	left: 15%;
+	top: 5%;
+	width: 600px;
+}
+
+/**列表菜单同步按钮图标*/
+.reload {
+	background-image:url(../images/save_16.png) !important;
+}
+.logo {
+	background-image:url(../images/logo.png) !important;
+}
+.message-success {
+	background-image:url(../images/OK.png) !important;
+	background-repeat: no-repeat;
+}
+
+.branch {
+	background-image:url(../images/branch.png) !important;
+	background-repeat: no-repeat;
+}
+.opr {
+	background-image:url(../images/user.png) !important;
+	background-repeat: no-repeat;
+}
+
+.opr {
+	background-image:url(../images/user.png) !important;
+	background-repeat: no-repeat;
+}
+
+.operator {
+		background-image: url(<%= request.getContextPath()%>/ext/resources/images/user.png) !important;
+	}
+.reset {
+	background-image: url(<%= request.getContextPath()%>/ext/resources/images/reset_16.png) !important;
+}
+
+.msg .x-box-mc {
+    font-size:14px;
+}
+#msg-div {
+    position:absolute;
+    left:35%;
+    top:10px;
+    width:250px;
+    z-index:20000;
+}
+
+.x-grid-record-red table{  
+    color: #FF0000;  
+}
+.x-form-display-field{
+	padding-top: 5px;
+}
+.x-form-display-field-self{
+	padding-top: 1px;
+}
+
+.nav {
+	position: absolute;
+	z-index: 100;
+	top: 10px;
+	left: 10px
+}
+.nav div {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+}
+.in {
+	background: url(../images/imgview/in.gif);
+	left: 21px;
+}
+.out {
+	background: url(../images/imgview/out.gif);
+	top: 42px;
+	left: 21px;
+}
+.zoom {
+	background: url(../images/imgview/zoom.gif);
+	top: 21px;;
+	left: 21px;
+}

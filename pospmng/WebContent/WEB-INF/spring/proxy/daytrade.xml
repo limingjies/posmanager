@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 与前置系统联机交易 -->
+	<!-- <bean id="frontServiceClient" class="com.allinfinance.system.util.NewHessianProxyFactoryBean"> -->
+		<!-- hessian的地址和名称请求转发的名称 -->
+<!-- 		<property name="serviceUrl">
+			<value>${front_hessian.serviceUrl}</value>
+		</property> -->
+		<!-- hessian所要调用的接口 -->                        
+<!-- 		<property name="serviceInterface">
+			<value>${front_hessian.serviceInterface}</value>
+		</property> -->
+		<!-- hessian连接前置系统超时时间 -->                        
+<!-- 		<property name="connectTimeOut">
+			<value>${front_hessian.connectTimeOut}</value>
+		</property> -->
+		<!-- hessian接收前置数据超时时间 -->                        
+<!-- 		<property name="readTimeOut">
+			<value>${front_hessian.readTimeOut}</value>
+		</property>
+	</bean> -->
+	
+	
+	<!-- 与前置系统批量交易 -->
+	<!-- <bean id="batchServiceClient" class="com.allinfinance.system.util.NewHessianProxyFactoryBean"> -->
+		<!-- hessian的地址和名称请求转发的名称 -->
+<!-- 		<property name="serviceUrl">
+			<value>${batch_hessian.serviceUrl}</value>
+		</property> -->
+		<!-- hessian所要调用的接口 -->                        
+<!-- 		<property name="serviceInterface">
+			<value>${front_hessian.serviceInterface}</value>
+		</property> -->
+		<!-- hessian连接前置系统超时时间 -->                        
+<!-- 		<property name="connectTimeOut">
+			<value>${front_hessian.connectTimeOut}</value>
+		</property> -->
+		<!-- hessian接收前置数据超时时间 -->                        
+<!-- 		<property name="readTimeOut">
+			<value>${front_hessian.readTimeOut}</value>
+		</property>
+	</bean> -->
+		
+	<!-- T+0系统参数维护 -->
+	<!-- <bean id="T70100BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.daytrade.T70100BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T70100BOTarget</value>
+		</property>
+	</bean> -->
+	
+<!-- 	<bean id="T70100BOTarget" class="com.allinfinance.bo.impl.daytrade.T70100BOTarget">
+		<property name="sysParamsConfigDAO">
+			<ref bean="SysParamsConfigDAO" />
+		</property>
+		<property name="commQuery_frontDAO">
+			<ref bean="commQuery_frontDAO" />
+		</property>
+	</bean> -->
+	
+	<!-- <bean id="SysParamsConfigDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.daytrade.SysParamsConfigDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>SysParamsConfigDAOTarget</value>
+		</property>
+	</bean> -->
+	
+	<!-- <bean id="SysParamsConfigDAOTarget" class="com.allinfinance.dao.impl.daytrade.SysParamsConfigDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_front" />
+		</property>
+	</bean> -->
+		
+	<!-- T+0商户提现计费维护 -->
+<!-- 	<bean id="T70101BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.daytrade.T70101BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T70101BOTarget</value>
+		</property>
+	</bean> -->
+	
+<!-- 	<bean id="T70101BOTarget" class="com.allinfinance.bo.impl.daytrade.T70101BOTarget">
+		<property name="mbWithdrawFeeDAO">
+			<ref bean="MbWithdrawFeeDAO" />
+		</property>
+		<property name="commQuery_frontDAO">
+			<ref bean="commQuery_frontDAO" />
+		</property>
+	</bean> -->
+	
+<!-- 	<bean id="MbWithdrawFeeDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.daytrade.MbWithdrawFeeDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>MbWithdrawFeeDAOTarget</value>
+		</property>
+	</bean> -->
+	
+<!-- 	<bean id="MbWithdrawFeeDAOTarget" class="com.allinfinance.dao.impl.daytrade.MbWithdrawFeeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_front" />
+		</property>
+	</bean> -->
+	
+	<bean id="WebFrontTxnLogDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.daytrade.WebFrontTxnLogDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>WebFrontTxnLogDAOTarget</value>
+		</property>
+	</bean>
+	
+	<bean id="WebFrontTxnLogDAOTarget" class="com.allinfinance.dao.impl.daytrade.WebFrontTxnLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!--T+0提现审核-->
+	<bean id="T70202BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.daytrade.T70202BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T70202BOTarget</value>
+		</property>
+	</bean>
+	
+	<bean id="T70202BOTarget" class="com.allinfinance.bo.impl.daytrade.T70202BOTarget">
+		<property name="tblWithdrawInfDAO">
+			<ref bean="TblWithdrawInfDAO" />
+		</property>
+		<property name="webFrontTxnLogDAO">
+			<ref bean="WebFrontTxnLogDAO" />
+		</property>
+	</bean>
+	<bean id="TblWithdrawInfDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.dao.iface.daytrade.TblWithdrawInfDAO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>TblWithdrawInfDAOTarget</value>
+		</property>
+	</bean>
+	<bean id="TblWithdrawInfDAOTarget" class="com.allinfinance.dao.impl.daytrade.TblWithdrawInfDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 消费调账 -->
+	<bean id="T73001BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.daytrade.T73001BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T73001BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T73001BOTarget" class="com.allinfinance.bo.impl.daytrade.T73001BOTarget">
+		<property name="webFrontTxnLogDAO">
+			<ref bean="WebFrontTxnLogDAO" />
+		</property>
+	</bean>
+	<!-- 提现调账调账 -->
+	<bean id="T74005BO" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.allinfinance.bo.daytrade.T74005BO</value>
+		</property>
+		<property name="interceptorNames">
+			<value>T74005BOTarget</value>
+		</property>
+	</bean>
+	<bean id="T74005BOTarget" class="com.allinfinance.bo.impl.daytrade.T74005BOTarget">
+		<property name="webFrontTxnLogDAO">
+			<ref bean="WebFrontTxnLogDAO" />
+		</property>
+	</bean>
+	
+
+</beans>

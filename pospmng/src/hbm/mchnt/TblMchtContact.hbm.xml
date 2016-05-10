@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="as.allinfinance.po.management.mer">
+	<class
+		name="TblMchtContact"
+		table="TBL_MCHT_CONTACT"
+	>
+		<id name="contactid" type="string" column="contact_id">
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="mchtNo"
+			column="mcht_no"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="staffName"
+			column="staff_nm"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="postName"
+			column="post_nm"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="statu"
+			column="statu"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="telNo"
+			column="tel_no"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="phoneNo"
+			column="phone_no"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="bitthDay"
+			column="bitth_day"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="chineseZodiac"
+			column="chinese_zodiac"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="constellations"
+			column="constellations"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="hobb"
+			column="hobb"
+			type="string"
+			not-null="false"
+		/>
+		
+		<property
+			name="remark"
+			column="remark"
+			type="string"
+			not-null="false"
+		/>
+	</class>	
+</hibernate-mapping>

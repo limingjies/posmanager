@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.allinfinance.po">
+	<class
+		name="TblRunRisk"
+		table="tbl_run_risk"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="id" class="TblRunRiskPK">
+			<key-property
+				name="riskLvl"
+				column="risk_lvl"
+				type="string"
+			/>
+	
+			<key-property
+				name="cardAccpId"
+				column="card_accp_id"
+				type="string"
+			/>
+			<key-property
+				name="ruleId"
+				column="rule_id"
+				type="integer"
+			/>
+		</composite-id>
+		
+		
+		
+		<property
+			name="riskType"
+			column="risk_type"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		
+		<property
+			name="txnNum"
+			column="txn_num"
+			type="string"
+			not-null="true"
+			length="4"
+		/>
+		<property
+			name="cardTp"
+			column="card_tp"
+			type="string"
+			not-null="true"
+			length="2"
+		/>
+		
+		
+		<property
+			name="txnAmt"
+			column="txn_amt"
+			type="string"
+			not-null="false"
+		/>
+		
+		<property
+			name="txnCount"
+			column="txn_count"
+			type="string"
+			not-null="false"
+		/>
+		
+		
+		<property
+			name="resved"
+			column="resved"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="resved1"
+			column="resved1"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		
+		<property
+			name="regTime"
+			column="reg_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="updTime"
+			column="upd_time"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		
+		<property
+			name="onFlag"
+			column="on_flag"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+		
+	</class>	
+</hibernate-mapping>
